@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BodeOfWarServer</name>
+    </assembly>
+    <members>
+        <member name="T:BodeOfWarServer.Jogo">
+            <summary>
+            Interface do jogo Bode of War do Projeto Integrador do BCC
+            </summary>
+        </member>
+        <member name="F:BodeOfWarServer.Jogo.Versao">
+            <summary>
+            Exibe a versão do jogo
+            </summary>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.ListarPartidas(System.String)">
+            <summary>
+            Retorna a lista de partidas do tipo solicitado
+            </summary>
+            <param name="status">Envie um caracter: (T)odas, (A)bertas, (J)ogando, (E)ncerradas</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.CriarPartida(System.String,System.String)">
+            <summary>
+            Cria uma nova partida
+            </summary>
+            <param name="nome">Nome da partida (deve ser único)</param>
+            <param name="senha">Senha da partida (até 10 caracteres)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.ListarJogadores(System.Int32)">
+            <summary>
+            Lista de jogadores de uma determinada partida
+            </summary>
+            <param name="idPartida">Id da partida</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.EntrarPartida(System.Int32,System.String,System.String)">
+            <summary>
+            Cria um jogador e entra em uma partida
+            </summary>
+            <param name="idPartida">Id da partida</param>
+            <param name="nome">Nome do Jogador</param>
+            <param name="senha">Senha da Partida</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.IniciarPartida(System.Int32,System.String)">
+            <summary>
+            Inicia uma partida, mudando seu status para J
+            </summary>
+            <param name="idJogador"></param>
+            <param name="senha"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.VerificarVez(System.Int32)">
+            <summary>
+            Retorna o status da partida e o código do jogador que é a vez.
+            </summary>
+            <param name="idPartida">Id da Partida</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.ExibirNarracao(System.Int32)">
+            <summary>
+            Retorna o que já aconteceu na partida
+            </summary>
+            <param name="idPartida">Id da Partida</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.VerificarMao(System.Int32,System.String)">
+            <summary>
+            Exibe o ID das cartas que o jogador tem na mão
+            </summary>
+            <param name="idJogador"></param>
+            <param name="senha"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.ListarCartas">
+            <summary>
+            Retorna as cartas existentes no jogo, a quantidade de bodes e o código da figura
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.Jogar(System.Int32,System.String,System.Int32)">
+            <summary>
+            Faz a jogada de uma carta na mesa
+            </summary>
+            <param name="idJogador">id do Jogador</param>
+            <param name="senha">Senha do Jogador</param>
+            <param name="idCarta">id da carta jogada</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.VerificarIlha(System.Int32,System.String)">
+            <summary>
+            Exibe os valores da carta de ilha sorteada, para que o jogador escolha um
+            </summary>
+            <param name="idJogador">id do Jogador</param>
+            <param name="senha">senha do Jogador</param>
+            <returns>Valor A , Valor B</returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.DefinirIlha(System.Int32,System.String,System.Int32)">
+            <summary>
+            Define o valor da carta de ilha
+            </summary>
+            <param name="idJogador">id do Jogador</param>
+            <param name="senha">senha do Jogador</param>
+            <param name="valor">Valor escolhido para a ilha</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.VerificarMesa(System.Int32)">
+            <summary>
+            Exibe a situação da mesa na rodada atual
+            A primeira linha exibe o total permitido na ilha até então.
+            As linhas seguintes exibem a carta jogada por cada jogador no formato:
+            jogador,carta
+            </summary>
+            <param name="idPartida">Id da Partida</param>
+            <returns></returns>
+        </member>
+        <member name="M:BodeOfWarServer.Jogo.VerificarMesa(System.Int32,System.Int32)">
+            <summary>
+            Exibe a situação da mesa em uma determinada rodada
+            A primeira linha exibe o total permitido na ilha até então.
+            As linhas seguintes exibem a carta jogada por cada jogador no formato:
+            jogador,carta
+            </summary>
+            <param name="idPartida">id da Partida</param>
+            <param name="idRodada">id da Rodada</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
