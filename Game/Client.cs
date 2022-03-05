@@ -48,8 +48,42 @@ namespace Game
         /// </summary>
         private void btnSearch_Click(object sender, EventArgs e)
         {
+
+            /*
+             * Estrutura de confições que define o que foi
+             * a opção (string opFilter) que foi definida 
+             * como filtragem de partidas.
+             * A opção vem através de comboFilters.
+             */
+            string opFilter = "";
+            if (comboFilters.SelectedItem == "Todos") {
+                opFilter = "T";
+            } 
+            else if (comboFilters.SelectedItem == "Abertas")
+            {
+                opFilter = "A";
+            }
+            else if (comboFilters.SelectedItem == "Jogando")
+            {
+                opFilter = "J";
+            }
+            else if (comboFilters.SelectedItem == "Encerradas")
+            {
+                opFilter = "E";
+            } else
+            {
+                opFilter = "T";
+            }
+
             // recebe as partidas
-            string ret = "1,Funcionou!,20/02/2022,A\r\n2,Abc,03/03/2022,J\r\n";// Jogo.ListarPartidas("T");
+            string ret = Jogo.ListarPartidas(opFilter);
+            MessageBox.Show(ret);
+
+            if (ret.Length < 1) {
+                ret = "1,Nenhuma Partida Encontrada,Sem dados,Z\r\n";
+            } 
+
+            //string ret = "1,Funcionou!,20/02/2022,A\r\n2,Abc,03/03/2022,J\r\n";// Jogo.ListarPartidas("T");
 
             // trata possíveis erros
             if (ret.StartsWith("ERRO")) 
@@ -60,14 +94,17 @@ namespace Game
 
             // formata o retorno
             ret = ret.Replace("\r", "");
-            ret = ret.Substring(0, ret.Length - 1); 
+            ret = ret.Substring(0, ret.Length - 1);
             string[] formatted = ret.Split('\n');
 
             // seta a estrutura matches com o retorno
             Matches = new Match[formatted.Length];
-            for(int i = 0; i < formatted.Length; i++)
-            {
-               string[] values = formatted[i].Split(',');
+            /*
+             * Insere as estruturas no array de partidas "Match",
+             */
+            for(int i = 0; i < formatted.Length; i++) {
+                string[] values = formatted[i].Split(',');
+                
                 Matches[i] = new Match(
                     values[0],
                     values[1],
@@ -107,6 +144,10 @@ namespace Game
         private void Client_Load(object sender, EventArgs e)
         {
             lblVersion.Text += Jogo.Versao;
+            /* 
+             * Tornar painel de visualização de match ivisivel.
+             * Ele se tornará visivel após a seleção de uma partida.
+             */
             pnlSelected_Match.Visible = false;
         }
 
@@ -117,6 +158,9 @@ namespace Game
             {
                 int index = lstMatches.SelectedIndices[0];
 
+                /*
+                 * O painel torna-se visivel.
+                 */
                 pnlSelected_Match.Visible = true;
                 lblSelected_Match.Text = "Partida " + Matches[index].id;
                 lblMatch_Date.Text = "Criação : " + Matches[index].date;
@@ -147,10 +191,52 @@ namespace Game
             if (Matches[index].status != 'A')
             {
                 MessageBox.Show("A Partida não está disponível");
+            } else
+            {
+                //Jogo.EntrarPartida(Matches[index].id, name, password);
             }
-            //Jogo.EntrarPartida(Matches[index].id, name, password);
+            
 
         }
 
+        private void lblVersion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMatch_Name_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlSelected_Match_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
