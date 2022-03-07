@@ -48,6 +48,9 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblMatch_Date = new System.Windows.Forms.Label();
             this.lblMatch_Name = new System.Windows.Forms.Label();
+            this.lstPlayers = new System.Windows.Forms.ListView();
+            this.idUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NomeUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.lblError1 = new System.Windows.Forms.Label();
             this.lblProp2 = new System.Windows.Forms.Label();
@@ -57,9 +60,6 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.lblSelected_Match = new System.Windows.Forms.Label();
-            this.lstPlayers = new System.Windows.Forms.ListView();
-            this.idUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NomeUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnDebugcall = new System.Windows.Forms.Button();
@@ -241,7 +241,7 @@
             this.pnlSelected_Match.Controls.Add(this.lblSelected_Match);
             this.pnlSelected_Match.Location = new System.Drawing.Point(301, 20);
             this.pnlSelected_Match.Name = "pnlSelected_Match";
-            this.pnlSelected_Match.Size = new System.Drawing.Size(293, 533);
+            this.pnlSelected_Match.Size = new System.Drawing.Size(297, 533);
             this.pnlSelected_Match.TabIndex = 2;
             this.pnlSelected_Match.Visible = false;
             // 
@@ -285,6 +285,37 @@
             this.lblMatch_Name.TabIndex = 0;
             this.lblMatch_Name.Text = "label2";
             this.lblMatch_Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lstPlayers
+            // 
+            this.lstPlayers.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.lstPlayers.BackColor = System.Drawing.SystemColors.Control;
+            this.lstPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idUsuario,
+            this.NomeUsuario});
+            this.lstPlayers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lstPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstPlayers.FullRowSelect = true;
+            this.lstPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lstPlayers.HideSelection = false;
+            this.lstPlayers.Location = new System.Drawing.Point(0, 169);
+            this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 30);
+            this.lstPlayers.Name = "lstPlayers";
+            this.lstPlayers.Scrollable = false;
+            this.lstPlayers.Size = new System.Drawing.Size(280, 160);
+            this.lstPlayers.TabIndex = 7;
+            this.lstPlayers.TileSize = new System.Drawing.Size(1, 1);
+            this.lstPlayers.UseCompatibleStateImageBehavior = false;
+            this.lstPlayers.View = System.Windows.Forms.View.Details;
+            // 
+            // idUsuario
+            // 
+            this.idUsuario.Text = "ID";
+            // 
+            // NomeUsuario
+            // 
+            this.NomeUsuario.Text = " Jogadores";
+            this.NomeUsuario.Width = 215;
             // 
             // pnlLogin
             // 
@@ -381,37 +412,6 @@
             this.lblSelected_Match.Text = "Partida";
             this.lblSelected_Match.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lstPlayers
-            // 
-            this.lstPlayers.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.lstPlayers.BackColor = System.Drawing.SystemColors.Control;
-            this.lstPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.idUsuario,
-            this.NomeUsuario});
-            this.lstPlayers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lstPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstPlayers.FullRowSelect = true;
-            this.lstPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lstPlayers.HideSelection = false;
-            this.lstPlayers.Location = new System.Drawing.Point(0, 169);
-            this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 30);
-            this.lstPlayers.Name = "lstPlayers";
-            this.lstPlayers.Scrollable = false;
-            this.lstPlayers.Size = new System.Drawing.Size(280, 160);
-            this.lstPlayers.TabIndex = 7;
-            this.lstPlayers.TileSize = new System.Drawing.Size(1, 1);
-            this.lstPlayers.UseCompatibleStateImageBehavior = false;
-            this.lstPlayers.View = System.Windows.Forms.View.Details;
-            // 
-            // idUsuario
-            // 
-            this.idUsuario.Text = "ID";
-            // 
-            // NomeUsuario
-            // 
-            this.NomeUsuario.Text = " Jogadores";
-            this.NomeUsuario.Width = 215;
-            // 
             // lblVersion
             // 
             this.lblVersion.Location = new System.Drawing.Point(512, 591);
@@ -446,7 +446,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 621);
+            this.ClientSize = new System.Drawing.Size(685, 621);
             this.Controls.Add(this.btnDebugcall);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblVersion);

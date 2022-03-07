@@ -238,17 +238,45 @@ namespace Game
                 MessageBox.Show("A Partida não está disponível");
             } else
             {
-                /* TODO!!!
-                 * Terminar comunicação com o servidor
-                 * tratar de possíveis erros
-                 * tratar do retorno da comunicação do servidor
-                 * (armazenando as informações se necessário)
-                 */
+                //tratando possíveis erros de nome e senha de partida e usuário antes de requisitar as funções
+                if (name == "" || password == "")
+                {
+                    MessageBox.Show("ERRO:Id ou Senha da partida está vazio");
+                    return;
+                }
 
-                //Jogo.EntrarPartida(Matches[index].id, name, password);
+                if (name == "")
+                {
+                    MessageBox.Show("ERRO: Nome do jogador está vazio");
+                    return;
+                }
+
+                if (password.Length > 10)
+                {
+                    MessageBox.Show("ERRO: Senha com mais de 10 caracteres");
+                    return;
+                }
+
+                if (name.Length > 50)
+                {
+                    MessageBox.Show("ERRO: Nome com mais de 50 caracteres");
+                    return;
+                }
+                //Variavel armazenando retorno de EntrarPartida
+                string retJoin = Jogo.EntrarPartida(Matches[index].id, name, password);
+
+                if (retJoin.StartsWith("ERRO"))
+                {
+                    MessageBox.Show(retJoin);
+                    return;
+                }
+                else
+                {
+                    string[] usrId = retJoin.Split(',');
+                    MessageBox.Show(usrId[1]);
+                }
+                /*MessageBox.Show("{0}", retJoin);*/
             }
-            
-
         }
 
         private void btnDebugcall_Click(object sender, EventArgs e)
@@ -270,17 +298,7 @@ namespace Game
             if (nome != "" && senha != "") {
 
                 // Verifica se nome já está cadastrado.
-                
                 // Coloca o filtro em todos, então realiza a procura
-                cmbFilters.SelectedIndex = 0;
-                btnSearch.PerformClick();
-                foreach( Match match in Matches)
-                {
-                    if ( match.name == nome ) { 
-                        MessageBox.Show("ERRO: Nome já em uso!");
-                        return;
-                    }
-                }
 
                 if (nome.Length > 20)
                 {
@@ -292,32 +310,30 @@ namespace Game
                     MessageBox.Show("ERRO: Senha com mais de 10 caracteres!");
                     return;
                 }
-                string ret = Jogo.CriarPartida(nome, senha);
-                if (ret.StartsWith("ERRO"))
+                
+                cmbFilters.SelectedIndex = 0;
+                btnSearch.PerformClick();
+
+                foreach (Match match in Matches)
                 {
-                    MessageBox.Show("{0}", ret);
+                    if (match.name == nome)
+                    {
+                        MessageBox.Show("ERRO: Nome já em uso!");
+                        return;
+                    }
+                }
+                //Variavel armazenando retorno de CriarPartida
+                string retCreate = Jogo.CriarPartida(nome, senha);
+
+                if (retCreate.StartsWith("ERRO"))
+                {
+                    MessageBox.Show(retCreate);
                     return;
-                } else
+                }
+                else
                 {
-                     /* TODO!!!
-                     * Terminar comunicação com o servidor
-                     * tratar de possíveis erros
-                     * tratar do retorno da comunicação do servidor
-                     * (armazenando as informações se necessário)
-                     */
+                    MessageBox.Show(retCreate);
                     MessageBox.Show("Partida " + nome + " Criada!");
-
-                    /* TO DO!!!!!!!!
-                     * 
-                     * Completar comunicação no servidor
-                     * Tratar de possíveis erros
-                     * Tratar o retorno, se necessário armazenar suas informações
-                     * 
-                     * dica: Right click em Jogo.CriarPartida() 
-                     * para entrar na definição os erros estão lá.
-                     */
-
-                    // Jogo.CriarPartida(nome, senha);
                 }
             } else
             {
