@@ -30,6 +30,9 @@
         {
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlMatch = new System.Windows.Forms.Panel();
+            this.Nome = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCriarNovaPartida = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listUsuarios = new System.Windows.Forms.ListView();
             this.idUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,7 +59,10 @@
             this.lblSelected_Match = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.debugcall = new System.Windows.Forms.Button();
+            this.txtNomeNovaPartida = new System.Windows.Forms.TextBox();
+            this.txtSenhaNovaPartida = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlMatch.SuspendLayout();
             this.pnlSelected_Match.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,6 +85,12 @@
             // pnlMatch
             // 
             this.pnlMatch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMatch.Controls.Add(this.label4);
+            this.pnlMatch.Controls.Add(this.txtSenhaNovaPartida);
+            this.pnlMatch.Controls.Add(this.txtNomeNovaPartida);
+            this.pnlMatch.Controls.Add(this.Nome);
+            this.pnlMatch.Controls.Add(this.label2);
+            this.pnlMatch.Controls.Add(this.btnCriarNovaPartida);
             this.pnlMatch.Controls.Add(this.label3);
             this.pnlMatch.Controls.Add(this.listUsuarios);
             this.pnlMatch.Controls.Add(this.label1);
@@ -92,6 +104,39 @@
             this.pnlMatch.Size = new System.Drawing.Size(1043, 604);
             this.pnlMatch.TabIndex = 1;
             this.pnlMatch.Tag = "";
+            // 
+            // Nome
+            // 
+            this.Nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.Nome.Location = new System.Drawing.Point(390, 414);
+            this.Nome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Nome.Name = "Nome";
+            this.Nome.Size = new System.Drawing.Size(69, 26);
+            this.Nome.TabIndex = 12;
+            this.Nome.Text = "Nome";
+            this.Nome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Nome.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(447, 366);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 35);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Criar Partida";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCriarNovaPartida
+            // 
+            this.btnCriarNovaPartida.Location = new System.Drawing.Point(473, 538);
+            this.btnCriarNovaPartida.Name = "btnCriarNovaPartida";
+            this.btnCriarNovaPartida.Size = new System.Drawing.Size(148, 41);
+            this.btnCriarNovaPartida.TabIndex = 8;
+            this.btnCriarNovaPartida.Text = "Nova Partida";
+            this.btnCriarNovaPartida.UseVisualStyleBackColor = true;
+            this.btnCriarNovaPartida.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // label3
             // 
@@ -120,7 +165,7 @@
             this.listUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listUsuarios.MinimumSize = new System.Drawing.Size(4, 44);
             this.listUsuarios.Name = "listUsuarios";
-            this.listUsuarios.Size = new System.Drawing.Size(297, 211);
+            this.listUsuarios.Size = new System.Drawing.Size(297, 252);
             this.listUsuarios.TabIndex = 7;
             this.listUsuarios.TileSize = new System.Drawing.Size(1, 1);
             this.listUsuarios.UseCompatibleStateImageBehavior = false;
@@ -386,28 +431,58 @@
             this.lblTitle.Text = "Bode Of War\r\n";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // debugcall
             // 
-            this.button1.Location = new System.Drawing.Point(16, 647);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 29);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Console";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.debugcall.Location = new System.Drawing.Point(16, 647);
+            this.debugcall.Name = "debugcall";
+            this.debugcall.Size = new System.Drawing.Size(90, 29);
+            this.debugcall.TabIndex = 4;
+            this.debugcall.Text = "Console";
+            this.debugcall.UseVisualStyleBackColor = true;
+            this.debugcall.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // txtNomeNovaPartida
+            // 
+            this.txtNomeNovaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeNovaPartida.Location = new System.Drawing.Point(500, 410);
+            this.txtNomeNovaPartida.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNomeNovaPartida.Name = "txtNomeNovaPartida";
+            this.txtNomeNovaPartida.Size = new System.Drawing.Size(187, 30);
+            this.txtNomeNovaPartida.TabIndex = 8;
+            // 
+            // txtSenhaNovaPartida
+            // 
+            this.txtSenhaNovaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaNovaPartida.Location = new System.Drawing.Point(500, 478);
+            this.txtSenhaNovaPartida.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSenhaNovaPartida.Name = "txtSenhaNovaPartida";
+            this.txtSenhaNovaPartida.Size = new System.Drawing.Size(187, 30);
+            this.txtSenhaNovaPartida.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(390, 478);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 26);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Senha";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 695);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.debugcall);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.pnlMatch);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(800, 751);
+            this.MaximumSize = new System.Drawing.Size(1094, 751);
+            this.MinimumSize = new System.Drawing.Size(1094, 751);
             this.Name = "Client";
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Client_Load);
@@ -445,13 +520,19 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblError1;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button debugcall;
         private System.Windows.Forms.ComboBox comboFilters;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listUsuarios;
         private System.Windows.Forms.ColumnHeader idUsuario;
         private System.Windows.Forms.ColumnHeader NomeUsuario;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Nome;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCriarNovaPartida;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSenhaNovaPartida;
+        private System.Windows.Forms.TextBox txtNomeNovaPartida;
     }
 }
 
