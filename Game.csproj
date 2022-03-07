@@ -49,24 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game\DebugConsole.cs">
+    <Compile Include="Game\Debug_Folder\DebugConsole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game\DebugConsole.Designer.cs">
+    <Compile Include="Game\Debug_Folder\DebugConsole.Designer.cs">
       <DependentUpon>DebugConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game\Client.cs">
+    <Compile Include="Game\Client_Folder\Client.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game\Client.Designer.cs">
+    <Compile Include="Game\Client_Folder\Client.Designer.cs">
       <DependentUpon>Client.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Game\DebugConsole.resx">
+    <EmbeddedResource Include="Game\Debug_Folder\DebugConsole.resx">
       <DependentUpon>DebugConsole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game\Client.resx">
+    <EmbeddedResource Include="Game\Client_Folder\Client.resx">
       <DependentUpon>Client.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

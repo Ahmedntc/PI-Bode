@@ -306,6 +306,18 @@ namespace Game
                      * (armazenando as informações se necessário)
                      */
                     MessageBox.Show("Partida " + nome + " Criada!");
+
+                    /* TO DO!!!!!!!!
+                     * 
+                     * Completar comunicação no servidor
+                     * Tratar de possíveis erros
+                     * Tratar o retorno, se necessário armazenar suas informações
+                     * 
+                     * dica: Right click em Jogo.CriarPartida() 
+                     * para entrar na definição os erros estão lá.
+                     */
+
+                    // Jogo.CriarPartida(nome, senha);
                 }
             } else
             {
