@@ -16,6 +16,7 @@ using BodeOfWarServer;
 
 namespace Game
 {
+    #pragma warning disable IDE1006 // Estilos de Nomenclatura
     public partial class Client : Form
     {
         public Client()
@@ -46,6 +47,7 @@ namespace Game
         /// <summary>
         /// Procura por partidas de Bodeofwar existentes
         /// </summary>
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
@@ -54,20 +56,27 @@ namespace Game
              * a opção (string opFilter) que foi definida 
              * como filtragem de partidas.
              * A opção vem através de comboFilters.
+             * 
+             * Indexes  de option filter:
+             * 0 - Todos - 'T'
+             * 1 - Abertas - 'A'
+             * 2 - Jogando - 'J'
+             * 3 - Encerradas - 'E'
              */
-            string opFilter = "";
-            if (comboFilters.SelectedItem == "Todos") {
+            
+            string opFilter;
+            if (cmbFilters.SelectedIndex == 0) {
                 opFilter = "T";
             } 
-            else if (comboFilters.SelectedItem == "Abertas")
+            else if (cmbFilters.SelectedIndex == 1)
             {
                 opFilter = "A";
             }
-            else if (comboFilters.SelectedItem == "Jogando")
+            else if (cmbFilters.SelectedIndex == 2)
             {
                 opFilter = "J";
             }
-            else if (comboFilters.SelectedItem == "Encerradas")
+            else if (cmbFilters.SelectedIndex == 3)
             {
                 opFilter = "E";
             } else
@@ -131,10 +140,15 @@ namespace Game
                 {
                     stat = "Aberto";
                 } 
+                else if ( match.status == 'E')
+                {
+                    stat = "Encerrado";
+                }
                 else
                 {
                     stat = "? ? ? ?";
                 }
+
                 string[] row = { id, name, stat };
                 new ListViewItem(row);
                 lstMatches.Items.Add(new ListViewItem(row));
@@ -173,6 +187,10 @@ namespace Game
                         lblStatus.Text = "Disponível";
                         break;
 
+                    case 'E':
+                        lblStatus.Text = "Encerrada";
+                        break;
+
                     default:
                         lblStatus.Text = "? ? ? ?";
                         break;
@@ -183,7 +201,7 @@ namespace Game
                  * Listar usuarios da partida selecionada.
                  */
                 string jogadores = Jogo.ListarJogadores(Matches[index].id);
-                listUsuarios.Items.Clear();
+                lstPlayers.Items.Clear();
                 if (jogadores != "")
                 {
                     jogadores = jogadores.Replace("\r", "");
@@ -198,13 +216,13 @@ namespace Game
                         string name = jogador[1].ToString();
                         string[] row = { id, name};
                         new ListViewItem(row);
-                        listUsuarios.Items.Add(new ListViewItem(row));
+                        lstPlayers.Items.Add(new ListViewItem(row));
                     }
                 } else
                 {
                     string[] row = { "", "Sem Jogadores" };
                     new ListViewItem(row);
-                    listUsuarios.Items.Add(new ListViewItem(row));
+                    lstPlayers.Items.Add(new ListViewItem(row));
                 }
             }
         }
@@ -226,32 +244,32 @@ namespace Game
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnDebugcall_Click(object sender, EventArgs e)
         {
             DebugConsole debug = new DebugConsole();
-            debugcall.Enabled = false;
+            btnDebugcall.Enabled = false;
             debug.Show();
         }
 
         /*
          * Função para a criação da partida.
          */
-        private void button1_Click_2(object sender, EventArgs e) {
-            string nome = txtNomeNovaPartida.Text;
-            string senha = txtSenhaNovaPartida.Text;
-            txtNomeNovaPartida.Text = "";
-            txtSenhaNovaPartida.Text = "";
+        private void btnCreateMatch_Click(object sender, EventArgs e) {
+            string nome = txtNewMatchName.Text;
+            string senha = txtNewMatchPass.Text;
+            txtNewMatchName.Text = "";
+            txtNewMatchPass.Text = "";
 
             if (nome != "" && senha != "") {
 
                 // Verifica se nome já está cadastrado.
-                string vpart = Jogo.ListarPartidas("T");
-                vpart = vpart.Replace("\r", "");
-                vpart = vpart.Substring(0, vpart.Length - 1);
-                string[] formatted = vpart.Split('\n');
-                for (int i = 0; i < formatted.Length; i++) {
-                    string[] values = formatted[i].Split(',');
-                    if (values[1] == nome) {
+                
+                // Coloca o filtro em todos, então realiza a procura
+                cmbFilters.SelectedIndex = 0;
+                btnSearch.PerformClick();
+                foreach( Match match in Matches)
+                {
+                    if ( match.name == nome ) { 
                         MessageBox.Show("ERRO: Nome já em uso!");
                         return;
                     }
@@ -276,56 +294,10 @@ namespace Game
                 {
                     MessageBox.Show("Partida " + nome + " Criada!");
                 }
-                MessageBox.Show("Partida " + nome + " Criada!");
             } else
             {
                 MessageBox.Show("Erro: Nome ou senha não podem ser nulos!");
             }
-        }
-
-        private void lblVersion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMatch_Name_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlSelected_Match_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNovaPartida_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
