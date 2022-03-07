@@ -30,6 +30,15 @@
         {
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlMatch = new System.Windows.Forms.Panel();
+            this.Nome = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCriarNovaPartida = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listUsuarios = new System.Windows.Forms.ListView();
+            this.idUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NomeUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboFilters = new System.Windows.Forms.ComboBox();
             this.lstMatches = new System.Windows.Forms.ListView();
             this.ID_Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Name_Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,18 +55,14 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblProp1 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.lblSelected_Match = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboFilters = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label3 = new System.Windows.Forms.Label();
+            this.debugcall = new System.Windows.Forms.Button();
+            this.txtNomeNovaPartida = new System.Windows.Forms.TextBox();
+            this.txtSenhaNovaPartida = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlMatch.SuspendLayout();
             this.pnlSelected_Match.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,8 +85,14 @@
             // pnlMatch
             // 
             this.pnlMatch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMatch.Controls.Add(this.label4);
+            this.pnlMatch.Controls.Add(this.txtSenhaNovaPartida);
+            this.pnlMatch.Controls.Add(this.txtNomeNovaPartida);
+            this.pnlMatch.Controls.Add(this.Nome);
+            this.pnlMatch.Controls.Add(this.label2);
+            this.pnlMatch.Controls.Add(this.btnCriarNovaPartida);
             this.pnlMatch.Controls.Add(this.label3);
-            this.pnlMatch.Controls.Add(this.listView1);
+            this.pnlMatch.Controls.Add(this.listUsuarios);
             this.pnlMatch.Controls.Add(this.label1);
             this.pnlMatch.Controls.Add(this.comboFilters);
             this.pnlMatch.Controls.Add(this.lstMatches);
@@ -93,6 +104,107 @@
             this.pnlMatch.Size = new System.Drawing.Size(1043, 604);
             this.pnlMatch.TabIndex = 1;
             this.pnlMatch.Tag = "";
+            // 
+            // Nome
+            // 
+            this.Nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.Nome.Location = new System.Drawing.Point(390, 414);
+            this.Nome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Nome.Name = "Nome";
+            this.Nome.Size = new System.Drawing.Size(69, 26);
+            this.Nome.TabIndex = 12;
+            this.Nome.Text = "Nome";
+            this.Nome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Nome.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(447, 366);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 35);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Criar Partida";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCriarNovaPartida
+            // 
+            this.btnCriarNovaPartida.Location = new System.Drawing.Point(473, 538);
+            this.btnCriarNovaPartida.Name = "btnCriarNovaPartida";
+            this.btnCriarNovaPartida.Size = new System.Drawing.Size(148, 41);
+            this.btnCriarNovaPartida.TabIndex = 8;
+            this.btnCriarNovaPartida.Text = "Nova Partida";
+            this.btnCriarNovaPartida.UseVisualStyleBackColor = true;
+            this.btnCriarNovaPartida.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(459, 55);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 35);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Jogadores\r\n";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // listUsuarios
+            // 
+            this.listUsuarios.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listUsuarios.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idUsuario,
+            this.NomeUsuario});
+            this.listUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listUsuarios.FullRowSelect = true;
+            this.listUsuarios.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listUsuarios.HideSelection = false;
+            this.listUsuarios.Location = new System.Drawing.Point(390, 109);
+            this.listUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listUsuarios.MinimumSize = new System.Drawing.Size(4, 44);
+            this.listUsuarios.Name = "listUsuarios";
+            this.listUsuarios.Size = new System.Drawing.Size(297, 252);
+            this.listUsuarios.TabIndex = 7;
+            this.listUsuarios.TileSize = new System.Drawing.Size(1, 1);
+            this.listUsuarios.UseCompatibleStateImageBehavior = false;
+            this.listUsuarios.View = System.Windows.Forms.View.Details;
+            this.listUsuarios.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // idUsuario
+            // 
+            this.idUsuario.Text = "ID";
+            this.idUsuario.Width = 55;
+            // 
+            // NomeUsuario
+            // 
+            this.NomeUsuario.Text = "Nome";
+            this.NomeUsuario.Width = 169;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(253, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Filtros";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // comboFilters
+            // 
+            this.comboFilters.Items.AddRange(new object[] {
+            "Todos",
+            "Abertas",
+            "Jogando",
+            "Encerradas",
+            "Ahmed"});
+            this.comboFilters.Location = new System.Drawing.Point(252, 55);
+            this.comboFilters.Name = "comboFilters";
+            this.comboFilters.Size = new System.Drawing.Size(130, 28);
+            this.comboFilters.TabIndex = 4;
+            this.comboFilters.Text = "Todos";
             // 
             // lstMatches
             // 
@@ -273,6 +385,19 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Location = new System.Drawing.Point(165, 164);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(159, 55);
+            this.btnRegistrar.TabIndex = 7;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // lblSelected_Match
             // 
             this.lblSelected_Match.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -306,116 +431,59 @@
             this.lblTitle.Text = "Bode Of War\r\n";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnRegistrar
+            // debugcall
             // 
-            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(165, 164);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(159, 55);
-            this.btnRegistrar.TabIndex = 7;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.button1_Click);
+            this.debugcall.Location = new System.Drawing.Point(16, 647);
+            this.debugcall.Name = "debugcall";
+            this.debugcall.Size = new System.Drawing.Size(90, 29);
+            this.debugcall.TabIndex = 4;
+            this.debugcall.Text = "Console";
+            this.debugcall.UseVisualStyleBackColor = true;
+            this.debugcall.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button1
+            // txtNomeNovaPartida
             // 
-            this.button1.Location = new System.Drawing.Point(16, 647);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 29);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Console";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.txtNomeNovaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeNovaPartida.Location = new System.Drawing.Point(500, 410);
+            this.txtNomeNovaPartida.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNomeNovaPartida.Name = "txtNomeNovaPartida";
+            this.txtNomeNovaPartida.Size = new System.Drawing.Size(187, 30);
+            this.txtNomeNovaPartida.TabIndex = 8;
             // 
-            // comboFilters
+            // txtSenhaNovaPartida
             // 
-            this.comboFilters.Items.AddRange(new object[] {
-            "Todos",
-            "Abertas",
-            "Jogando",
-            "Encerradas",
-            "Ahmed"});
-            this.comboFilters.Location = new System.Drawing.Point(252, 55);
-            this.comboFilters.Name = "comboFilters";
-            this.comboFilters.Size = new System.Drawing.Size(130, 28);
-            this.comboFilters.TabIndex = 4;
-            this.comboFilters.Text = "Todos";
+            this.txtSenhaNovaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaNovaPartida.Location = new System.Drawing.Point(500, 478);
+            this.txtSenhaNovaPartida.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSenhaNovaPartida.Name = "txtSenhaNovaPartida";
+            this.txtSenhaNovaPartida.PasswordChar = '*';
+            this.txtSenhaNovaPartida.Size = new System.Drawing.Size(187, 30);
+            this.txtSenhaNovaPartida.TabIndex = 13;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(253, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Filtros";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.FullRowSelect = true;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(390, 109);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listView1.MinimumSize = new System.Drawing.Size(4, 44);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(297, 470);
-            this.listView1.TabIndex = 7;
-            this.listView1.TileSize = new System.Drawing.Size(1, 1);
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 40;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Partida";
-            this.columnHeader2.Width = 107;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Status";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader3.Width = 76;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(459, 55);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 35);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Jogadores\r\n";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(390, 478);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 26);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Senha";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 695);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.debugcall);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.pnlMatch);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(800, 751);
+            this.MaximumSize = new System.Drawing.Size(1094, 751);
+            this.MinimumSize = new System.Drawing.Size(1094, 751);
             this.Name = "Client";
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Client_Load);
@@ -453,14 +521,19 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblError1;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button debugcall;
         private System.Windows.Forms.ComboBox comboFilters;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListView listUsuarios;
+        private System.Windows.Forms.ColumnHeader idUsuario;
+        private System.Windows.Forms.ColumnHeader NomeUsuario;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Nome;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCriarNovaPartida;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSenhaNovaPartida;
+        private System.Windows.Forms.TextBox txtNomeNovaPartida;
     }
 }
 

@@ -77,7 +77,7 @@ namespace Game
 
             // recebe as partidas
             string ret = Jogo.ListarPartidas(opFilter);
-            MessageBox.Show(ret);
+            // MessageBox.Show(ret);
 
             if (ret.Length < 1) {
                 ret = "1,Nenhuma Partida Encontrada,Sem dados,Z\r\n";
@@ -151,11 +151,9 @@ namespace Game
             pnlSelected_Match.Visible = false;
         }
 
-        private void lstMatches_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void lstMatches_SelectedIndexChanged(object sender, EventArgs e) {
             // Seleção de partida
-            if (lstMatches.SelectedIndices.Count > 0)
-            {
+            if (lstMatches.SelectedIndices.Count > 0) {
                 int index = lstMatches.SelectedIndices[0];
 
                 /*
@@ -165,8 +163,8 @@ namespace Game
                 lblSelected_Match.Text = "Partida " + Matches[index].id;
                 lblMatch_Date.Text = "Criação : " + Matches[index].date;
                 lblMatch_Name.Text = Matches[index].name;
-                switch (Matches[index].status)
-                {
+
+                switch (Matches[index].status) {
                     case 'J':
                         lblStatus.Text = "Em jogo";
                         break;
@@ -178,6 +176,35 @@ namespace Game
                     default:
                         lblStatus.Text = "? ? ? ?";
                         break;
+                }
+
+
+                /*
+                 * Listar usuarios da partida selecionada.
+                 */
+                string jogadores = Jogo.ListarJogadores(Matches[index].id);
+                listUsuarios.Items.Clear();
+                if (jogadores != "")
+                {
+                    jogadores = jogadores.Replace("\r", "");
+                    jogadores = jogadores.Substring(0, jogadores.Length - 1);
+                    string[] Jformatted = jogadores.Split('\n');
+
+                    //MessageBox.Show(jogadores);
+                    for (int i = 0;i < Jformatted.Length;i++) {
+                        // MessageBox.Show(Jformatted[i]);
+                        string[] jogador = Jformatted[i].Split(',');
+                        string id = jogador[0].ToString();
+                        string name = jogador[1].ToString();
+                        string[] row = { id, name};
+                        new ListViewItem(row);
+                        listUsuarios.Items.Add(new ListViewItem(row));
+                    }
+                } else
+                {
+                    string[] row = { "", "Sem Jogadores" };
+                    new ListViewItem(row);
+                    listUsuarios.Items.Add(new ListViewItem(row));
                 }
             }
         }
@@ -197,6 +224,63 @@ namespace Game
             }
             
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DebugConsole debug = new DebugConsole();
+            debugcall.Enabled = false;
+            debug.Show();
+        }
+
+        /*
+         * Função para a criação da partida.
+         */
+        private void button1_Click_2(object sender, EventArgs e) {
+            string nome = txtNomeNovaPartida.Text;
+            string senha = txtSenhaNovaPartida.Text;
+            txtNomeNovaPartida.Text = "";
+            txtSenhaNovaPartida.Text = "";
+
+            if (nome != "" && senha != "") {
+
+                // Verifica se nome já está cadastrado.
+                string vpart = Jogo.ListarPartidas("T");
+                vpart = vpart.Replace("\r", "");
+                vpart = vpart.Substring(0, vpart.Length - 1);
+                string[] formatted = vpart.Split('\n');
+                for (int i = 0; i < formatted.Length; i++) {
+                    string[] values = formatted[i].Split(',');
+                    if (values[1] == nome) {
+                        MessageBox.Show("ERRO: Nome já em uso!");
+                        return;
+                    }
+                }
+
+                if (nome.Length > 20)
+                {
+                    MessageBox.Show("ERRO: Nome da partida com mais que 20 caracteres!");
+                    return;
+                }
+                if (senha.Length > 10)
+                {
+                    MessageBox.Show("ERRO: Senha com mais de 10 caracteres!");
+                    return;
+                }
+                string ret = Jogo.CriarPartida(nome, senha);
+                if (ret.StartsWith("ERRO"))
+                {
+                    MessageBox.Show("{0}", ret);
+                    return;
+                } else
+                {
+                    MessageBox.Show("Partida " + nome + " Criada!");
+                }
+                MessageBox.Show("Partida " + nome + " Criada!");
+            } else
+            {
+                MessageBox.Show("Erro: Nome ou senha não podem ser nulos!");
+            }
         }
 
         private void lblVersion_Click(object sender, EventArgs e)
@@ -219,11 +303,6 @@ namespace Game
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -235,6 +314,16 @@ namespace Game
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNovaPartida_TextChanged(object sender, EventArgs e)
         {
 
         }
