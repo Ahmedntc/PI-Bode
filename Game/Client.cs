@@ -77,7 +77,7 @@ namespace Game
 
             // recebe as partidas
             string ret = Jogo.ListarPartidas(opFilter);
-            MessageBox.Show(ret);
+            // MessageBox.Show(ret);
 
             if (ret.Length < 1) {
                 ret = "1,Nenhuma Partida Encontrada,Sem dados,Z\r\n";
@@ -178,6 +178,35 @@ namespace Game
                     default:
                         lblStatus.Text = "? ? ? ?";
                         break;
+                }
+
+
+                /*
+                 * Listar usuarios da partida selecionada.
+                 */
+                string jogadores = Jogo.ListarJogadores(Matches[index].id);
+                listUsuarios.Items.Clear();
+                if (jogadores != "")
+                {
+                    jogadores = jogadores.Replace("\r", "");
+                    jogadores = jogadores.Substring(0, jogadores.Length - 1);
+                    string[] Jformatted = jogadores.Split('\n');
+
+                    //MessageBox.Show(jogadores);
+                    for (int i = 0;i < Jformatted.Length;i++) {
+                        // MessageBox.Show(Jformatted[i]);
+                        string[] jogador = Jformatted[i].Split(',');
+                        string id = jogador[0].ToString();
+                        string name = jogador[1].ToString();
+                        string[] row = { id, name};
+                        new ListViewItem(row);
+                        listUsuarios.Items.Add(new ListViewItem(row));
+                    }
+                } else
+                {
+                    string[] row = { "", "Sem Jogadores" };
+                    new ListViewItem(row);
+                    listUsuarios.Items.Add(new ListViewItem(row));
                 }
             }
         }
