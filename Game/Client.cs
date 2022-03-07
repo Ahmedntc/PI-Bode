@@ -267,7 +267,7 @@ namespace Game
                     MessageBox.Show("ERRO: Senha com mais de 10 caracteres!");
                     return;
                 }
-                /*string ret = Jogo.CriarPartida(nome, senha);
+                string ret = Jogo.CriarPartida(nome, senha);
                 if (ret.StartsWith("ERRO"))
                 {
                     MessageBox.Show("{0}", ret);
@@ -275,7 +275,7 @@ namespace Game
                 } else
                 {
                     MessageBox.Show("Partida " + nome + " Criada!");
-                }*/
+                }
                 MessageBox.Show("Partida " + nome + " Criada!");
             } else
             {

@@ -456,6 +456,7 @@
             this.txtSenhaNovaPartida.Location = new System.Drawing.Point(500, 478);
             this.txtSenhaNovaPartida.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSenhaNovaPartida.Name = "txtSenhaNovaPartida";
+            this.txtSenhaNovaPartida.PasswordChar = '*';
             this.txtSenhaNovaPartida.Size = new System.Drawing.Size(187, 30);
             this.txtSenhaNovaPartida.TabIndex = 13;
             // 
