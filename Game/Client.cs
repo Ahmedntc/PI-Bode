@@ -238,6 +238,13 @@ namespace Game
                 MessageBox.Show("A Partida não está disponível");
             } else
             {
+                /* TODO!!!
+                 * Terminar comunicação com o servidor
+                 * tratar de possíveis erros
+                 * tratar do retorno da comunicação do servidor
+                 * (armazenando as informações se necessário)
+                 */
+
                 //Jogo.EntrarPartida(Matches[index].id, name, password);
             }
             
@@ -292,6 +299,12 @@ namespace Game
                     return;
                 } else
                 {
+                     /* TODO!!!
+                     * Terminar comunicação com o servidor
+                     * tratar de possíveis erros
+                     * tratar do retorno da comunicação do servidor
+                     * (armazenando as informações se necessário)
+                     */
                     MessageBox.Show("Partida " + nome + " Criada!");
                 }
             } else
