@@ -93,7 +93,7 @@
             this.pnlMatch.Controls.Add(this.btnSearch);
             this.pnlMatch.Location = new System.Drawing.Point(11, 23);
             this.pnlMatch.Name = "pnlMatch";
-            this.pnlMatch.Size = new System.Drawing.Size(603, 558);
+            this.pnlMatch.Size = new System.Drawing.Size(610, 558);
             this.pnlMatch.TabIndex = 1;
             this.pnlMatch.Tag = "";
             // 
@@ -210,7 +210,7 @@
             this.lstMatches.Location = new System.Drawing.Point(15, 71);
             this.lstMatches.MinimumSize = new System.Drawing.Size(4, 30);
             this.lstMatches.Name = "lstMatches";
-            this.lstMatches.Size = new System.Drawing.Size(280, 331);
+            this.lstMatches.Size = new System.Drawing.Size(280, 330);
             this.lstMatches.TabIndex = 3;
             this.lstMatches.TileSize = new System.Drawing.Size(1, 1);
             this.lstMatches.UseCompatibleStateImageBehavior = false;
@@ -220,18 +220,17 @@
             // ID_Column
             // 
             this.ID_Column.Text = "ID";
-            this.ID_Column.Width = 40;
+            this.ID_Column.Width = 30;
             // 
             // Name_Column
             // 
             this.Name_Column.Text = "Partida";
-            this.Name_Column.Width = 130;
+            this.Name_Column.Width = 125;
             // 
             // Stats_Column
             // 
             this.Stats_Column.Text = "Status";
-            this.Stats_Column.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.Stats_Column.Width = 106;
+            this.Stats_Column.Width = 95;
             // 
             // pnlSelected_Match
             // 
@@ -446,12 +445,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 621);
+            this.ClientSize = new System.Drawing.Size(634, 621);
             this.Controls.Add(this.btnDebugcall);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.pnlMatch);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(650, 660);
+            this.MinimumSize = new System.Drawing.Size(650, 660);
             this.Name = "Client";
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Client_Load);
