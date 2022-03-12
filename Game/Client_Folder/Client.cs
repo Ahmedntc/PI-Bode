@@ -19,11 +19,6 @@ namespace Game
     #pragma warning disable IDE1006 // Estilos de Nomenclatura
     public partial class Client : Form
     {
-        public Client()
-        {
-            InitializeComponent();
-        }
-
         /// <summary>
         /// Estrutura representante de partidas existentes
         /// </summary>
@@ -34,20 +29,31 @@ namespace Game
             public string date;
             public char status;
 
-            public Match( string id, string name, string date, string status)
+            public Match(string id, string name, string date, string status)
             {
                 this.id = Int32.Parse(id);
                 this.name = name;
                 this.date = date;
                 this.status = status[0];
             }
-            
-        } Match[] Matches;
+
+        }
+        Match[] Matches;
+
+
+
+        /// <summary>
+        /// Inicializa o client
+        /// </summary>
+        public Client()
+        {
+            InitializeComponent();
+        }
+
 
         /// <summary>
         /// Procura por partidas de Bodeofwar existentes
         /// </summary>
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
@@ -155,6 +161,10 @@ namespace Game
             }
         }
 
+
+        /// <summary>
+        /// Função realizada no carregamento do client
+        /// </summary>
         private void Client_Load(object sender, EventArgs e)
         {
             lblVersion.Text += Jogo.Versao;
@@ -165,6 +175,10 @@ namespace Game
             pnlSelected_Match.Visible = false;
         }
 
+
+        /// <summary>
+        /// Função para a mudança de partidas selecionadas
+        /// </summary>
         private void lstMatches_SelectedIndexChanged(object sender, EventArgs e) {
             // Seleção de partida
             if (lstMatches.SelectedIndices.Count > 0) {
@@ -227,6 +241,10 @@ namespace Game
             }
         }
 
+
+        /// <summary>
+        /// Função para o login
+        /// </summary>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             int index = lstMatches.SelectedIndices[0];
@@ -236,49 +254,64 @@ namespace Game
             if (Matches[index].status != 'A')
             {
                 MessageBox.Show("A Partida não está disponível");
-            } else
+            }
+            else
             {
                 //tratando possíveis erros de nome e senha de partida e usuário antes de requisitar as funções
                 if (name == "" || password == "")
                 {
-                    MessageBox.Show("ERRO:Id ou Senha da partida está vazio");
+                    MessageBox.Show("ERRO:Nome ou Senha da partida estão vazios");
                     return;
                 }
 
-                if (name == "")
-                {
-                    MessageBox.Show("ERRO: Nome do jogador está vazio");
-                    return;
-                }
-
-                if (password.Length > 10)
+                else if (password.Length > 10)
                 {
                     MessageBox.Show("ERRO: Senha com mais de 10 caracteres");
                     return;
                 }
 
-                if (name.Length > 50)
+                else if (name.Length > 50)
                 {
                     MessageBox.Show("ERRO: Nome com mais de 50 caracteres");
                     return;
                 }
-                //Variavel armazenando retorno de EntrarPartida
+
+
+                // Possíveis erros prévios tratados
+                // Variável armazenando retorno de EntrarPartida
                 string retJoin = Jogo.EntrarPartida(Matches[index].id, name, password);
 
+                // Tratando outros possíveis erros
                 if (retJoin.StartsWith("ERRO"))
                 {
                     MessageBox.Show(retJoin);
                     return;
                 }
+
+                // Se foi concluído com sucesso
                 else
                 {
                     string[] usrId = retJoin.Split(',');
-                    MessageBox.Show(usrId[1]);
+                    
+                    Global.Match = new Global.Selected_Match(name, usrId[1], Matches[index]);
+
+                    this.Hide();
+
+                    MessageBox.Show(String.Format("{0}: Usuário {1} logado com ID {2}", usrId[0], name, usrId[1]));
+
+                    Global.Match.Play();
+
+                    this.Show();
+
+
                 }
-                /*MessageBox.Show("{0}", retJoin);*/
             }
         }
 
+
+        /// <summary>
+        /// Função para inicialização do painel de debug
+        /// </summary>
         private void btnDebugcall_Click(object sender, EventArgs e)
         {
             DebugConsole debug = new DebugConsole();
@@ -286,9 +319,10 @@ namespace Game
             debug.Show();
         }
 
-        /*
-         * Função para a criação da partida.
-         */
+
+        /// <summary>
+        /// Função para a criação da partida
+        /// </summary>
         private void btnCreateMatch_Click(object sender, EventArgs e) {
             string nome = txtNewMatchName.Text;
             string senha = txtNewMatchPass.Text;

@@ -62,6 +62,12 @@
       <DependentUpon>Client.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\Program.cs" />
+    <Compile Include="Game\Running_Folder\Running.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game\Running_Folder\Running.Designer.cs">
+      <DependentUpon>Running.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Game\Debug_Folder\DebugConsole.resx">
       <DependentUpon>DebugConsole.cs</DependentUpon>
