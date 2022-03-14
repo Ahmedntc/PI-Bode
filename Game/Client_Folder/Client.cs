@@ -293,7 +293,7 @@ namespace Game
                 {
                     string[] usrId = retJoin.Split(',');
                     
-                    Global.Match = new Global.Selected_Match(name, usrId[1], Matches[index]);
+                    Global.Match = new Global.Selected_Match(Int32.Parse(usrId[0]),name, usrId[1],password, Matches[index]);
 
                     this.Hide();
 
@@ -302,8 +302,6 @@ namespace Game
                     Global.Match.Play();
 
                     this.Show();
-
-
                 }
             }
         }
@@ -374,5 +372,7 @@ namespace Game
                 MessageBox.Show("Erro: Nome ou senha não podem ser nulos!");
             }
         }
+
+
     }
 }

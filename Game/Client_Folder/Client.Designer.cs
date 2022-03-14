@@ -323,8 +323,8 @@
             this.pnlLogin.Controls.Add(this.lblProp2);
             this.pnlLogin.Controls.Add(this.txtPassword);
             this.pnlLogin.Controls.Add(this.txtUsername);
-            this.pnlLogin.Controls.Add(this.lblProp1);
             this.pnlLogin.Controls.Add(this.btnLogin);
+            this.pnlLogin.Controls.Add(this.lblProp1);
             this.pnlLogin.Controls.Add(this.btnRegistrar);
             this.pnlLogin.Location = new System.Drawing.Point(6, 389);
             this.pnlLogin.Name = "pnlLogin";
@@ -382,7 +382,7 @@
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(33, 97);
+            this.btnLogin.Location = new System.Drawing.Point(147, 97);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(105, 36);
             this.btnLogin.TabIndex = 1;
@@ -394,7 +394,7 @@
             // 
             this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(144, 97);
+            this.btnRegistrar.Location = new System.Drawing.Point(35, 97);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(106, 36);
             this.btnRegistrar.TabIndex = 7;

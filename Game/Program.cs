@@ -20,8 +20,22 @@ namespace Game
         /// </summary>
         public struct Card
         {
+            // imagem
+            // bodes
+            // path
 
-        } static Card[] cards;
+            // load imagens()
+            // load cartas()
+            /*{
+             *  carta = Jogo.listarcartas
+             *  foreach carta
+             *      com base no num da carta carrega a imagem
+             *      carrega bodes
+             *      s
+             * }
+             */
+        } static Card[] cards; 
+        // cards[1]; id = 1;
 
 
         /// <summary>
@@ -37,7 +51,9 @@ namespace Game
             public class Player
             {
                 public string name;
-                public string id;
+                public string idPartida; // Id que recebemos ao entrar na partida.
+                public int id;
+                public string senhaPartida;// senha da partida. 
                 public LinkedList<Card> cards;
 
                 /// <summary>
@@ -46,23 +62,25 @@ namespace Game
                 public Player()
                 {
                     this.name = ""; // 
-                    this.id = "";
+                    this.id = 0;
                     this.cards = new LinkedList<Card>();
                 }
 
-            }
-            public Player player;
+            } public Player player;
 
+           
             
             /// <summary>
             /// Prepara o objeto Match
             /// </summary>
-            public Selected_Match(string player_Name, string player_Id, Client.Match target)
+            public Selected_Match(int id, string player_Name, string player_Id, string senhaPartida,Client.Match target)
             {
                 // jogador
                 this.player = new Player();
                 this.player.name = player_Name;
-                this.player.id = player_Id;
+                this.player.idPartida = player_Id;
+                this.player.id = id;
+                this.player.senhaPartida = senhaPartida;
 
                 // Match
                 this.id = target.id;
@@ -88,7 +106,6 @@ namespace Game
             }
         } static public Selected_Match Match;
     }
-
 
     /// <summary>
     /// Programa
