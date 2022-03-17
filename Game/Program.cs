@@ -48,6 +48,10 @@ namespace Game
             public string date;
             public char status;
 
+            
+            /// <summary>
+            /// 
+            /// </summary>
             public class Player
             {
                 public string name;
@@ -67,6 +71,23 @@ namespace Game
                 }
 
             } public Player player;
+
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public class Enemy
+            {
+                public int id;
+                public string name;
+
+                public Enemy( string id, string name)
+                {
+                    this.id = Int32.Parse(id);
+                    this.name = name;
+                }
+            } public Enemy[] enemies;
+
 
            
             

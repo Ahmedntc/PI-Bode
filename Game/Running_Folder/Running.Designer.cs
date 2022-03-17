@@ -35,6 +35,8 @@
             this.btnQuit = new System.Windows.Forms.Button();
             this.lblTurn = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.btnNarration = new System.Windows.Forms.Button();
+            this.txtNarration = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lstPlayers
@@ -109,11 +111,33 @@
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
+            // btnNarration
+            // 
+            this.btnNarration.Location = new System.Drawing.Point(196, 357);
+            this.btnNarration.Name = "btnNarration";
+            this.btnNarration.Size = new System.Drawing.Size(191, 37);
+            this.btnNarration.TabIndex = 14;
+            this.btnNarration.Text = "button1";
+            this.btnNarration.UseVisualStyleBackColor = true;
+            this.btnNarration.Click += new System.EventHandler(this.btnNarration_Click);
+            // 
+            // txtNarration
+            // 
+            this.txtNarration.Location = new System.Drawing.Point(196, 53);
+            this.txtNarration.MaximumSize = new System.Drawing.Size(999, 999);
+            this.txtNarration.Multiline = true;
+            this.txtNarration.Name = "txtNarration";
+            this.txtNarration.ReadOnly = true;
+            this.txtNarration.Size = new System.Drawing.Size(559, 252);
+            this.txtNarration.TabIndex = 15;
+            // 
             // Running
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtNarration);
+            this.Controls.Add(this.btnNarration);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.lblTurn);
             this.Controls.Add(this.btnQuit);
@@ -123,6 +147,7 @@
             this.Text = "Running";
             this.Load += new System.EventHandler(this.Running_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -135,5 +160,7 @@
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Label lblTurn;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Button btnNarration;
+        private System.Windows.Forms.TextBox txtNarration;
     }
 }
