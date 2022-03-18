@@ -9,7 +9,7 @@ namespace Game
 
 
     /// <summary>
-    /// Objetos ou estruturas de dados existentes no jogo
+    /// Objetos ou estruturas de dados globais existentes no jogo
     /// </summary>
     public class Global
     {
@@ -20,22 +20,7 @@ namespace Game
         /// </summary>
         public struct Card
         {
-            // imagem
-            // bodes
-            // path
-
-            // load imagens()
-            // load cartas()
-            /*{
-             *  carta = Jogo.listarcartas
-             *  foreach carta
-             *      com base no num da carta carrega a imagem
-             *      carrega bodes
-             *      s
-             * }
-             */
         } static Card[] cards; 
-        // cards[1]; id = 1;
 
 
         /// <summary>
@@ -50,13 +35,13 @@ namespace Game
 
             
             /// <summary>
-            /// 
+            /// Classe do nosso jogador na partida
             /// </summary>
             public class Player
             {
+                public int id;
                 public string name;
                 public string idPartida; // Id que recebemos ao entrar na partida.
-                public int id;
                 public string senhaPartida;// senha da partida. 
                 public LinkedList<Card> cards;
 
@@ -71,24 +56,6 @@ namespace Game
                 }
 
             } public Player player;
-
-
-            /// <summary>
-            /// 
-            /// </summary>
-            public class Enemy
-            {
-                public int id;
-                public string name;
-
-                public Enemy( string id, string name)
-                {
-                    this.id = Int32.Parse(id);
-                    this.name = name;
-                }
-            } public Enemy[] enemies;
-
-
            
             
             /// <summary>
@@ -142,6 +109,7 @@ namespace Game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Client());
             Application.Run(new Client());
         }
     }

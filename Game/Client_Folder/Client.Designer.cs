@@ -56,9 +56,8 @@
             this.lblProp2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.lblProp1 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.lblProp1 = new System.Windows.Forms.Label();
             this.lblSelected_Match = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -240,7 +239,7 @@
             this.pnlSelected_Match.Controls.Add(this.lblSelected_Match);
             this.pnlSelected_Match.Location = new System.Drawing.Point(301, 20);
             this.pnlSelected_Match.Name = "pnlSelected_Match";
-            this.pnlSelected_Match.Size = new System.Drawing.Size(297, 533);
+            this.pnlSelected_Match.Size = new System.Drawing.Size(297, 537);
             this.pnlSelected_Match.TabIndex = 2;
             this.pnlSelected_Match.Visible = false;
             // 
@@ -325,10 +324,9 @@
             this.pnlLogin.Controls.Add(this.txtUsername);
             this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Controls.Add(this.lblProp1);
-            this.pnlLogin.Controls.Add(this.btnRegistrar);
             this.pnlLogin.Location = new System.Drawing.Point(6, 389);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(280, 138);
+            this.pnlLogin.Size = new System.Drawing.Size(280, 140);
             this.pnlLogin.TabIndex = 3;
             // 
             // lblError1
@@ -368,6 +366,18 @@
             this.txtUsername.Size = new System.Drawing.Size(126, 22);
             this.txtUsername.TabIndex = 3;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(3, 101);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(274, 36);
+            this.btnLogin.TabIndex = 1;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // lblProp1
             // 
             this.lblProp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
@@ -377,29 +387,6 @@
             this.lblProp1.TabIndex = 2;
             this.lblProp1.Text = "Nome de usuário";
             this.lblProp1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(147, 97);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(105, 36);
-            this.btnLogin.TabIndex = 1;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(35, 97);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(106, 36);
-            this.btnRegistrar.TabIndex = 7;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
             // 
             // lblSelected_Match
             // 
@@ -491,7 +478,6 @@
         private System.Windows.Forms.Label lblProp1;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblError1;
-        private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnDebugcall;
         private System.Windows.Forms.ComboBox cmbFilters;
         private System.Windows.Forms.Label lblProp5;

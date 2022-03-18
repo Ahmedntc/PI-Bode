@@ -20,24 +20,121 @@ namespace Game.Game.Running_Folder
             InitializeComponent();
         }
 
-        public class Enemies {
-            public string id;
-            public string name;
-            //public Card[] cards;
-        }
 
-        private void Running_Load(object sender, EventArgs e)
+        /// <summary>
+        /// A estrutura dos inimigos na partida
+        /// </summary>
+        public class Enemy
         {
 
+            // COMENTÁRIO PARA DELETAR, EXPLICATÓRIO :
+            /* A estrutura não fazia muito sentido estar em Global.Match, pois não vamos acessar esta em outros forms,
+             * por isto a mudança para cá, sobre os valores, teremos outros muito importantes no futuro:
+             * 
+             * public LinkedList<Global.Card> cards para possíveis cartas que ele pode ter (não sabemos, sabemos apenas as nossas), para operarmos com previsões no decision-making
+             * 
+             */
+
+            public int id;
+            public string name;
+
+            public Enemy(string id, string name)
+            {
+                this.id = Int32.Parse(id);
+                this.name = name;
+            }
+        } public Enemy[] enemies;
+
+        PictureBox[] picChars = new PictureBox[4];
+
+        /// <summary>
+        /// Realizada no carregamento da partida
+        /// </summary>
+        private void Running_Load(object sender, EventArgs e)
+        {
+            // Esconde os painéis de interface
+
+            // pnl Right
+            // posição original:  720; 3
+            // posição escondida: 1020; 3
+            this.pnlRight.Location = new System.Drawing.Point(1020, 3);
+
+            // pnl Bottom
+            // posição original:  4; 487
+            // posição escondida: 4; 650
+            this.pnlBottom.Location = new System.Drawing.Point(4, 650);
+
+            // btn Quit 
+            // posição original: 448; 307
+            // posição pós-start: 5; 5
+
+            // Aplica uma sombra ao ambiente
+
+            // guardamos as picture boxes continuar depois
+            picChars[0] = picChar0;
+            picChars[1] = picChar1;
+            picChars[2] = picChar2;
+            picChars[3] = picChar3;
+            for (int i = 0; i < 4; i++)
+            {
+                picChars[i].Visible = false;
+            }
         }
 
 
         /// <summary>
-        /// 
+        /// Inicia a partida, armazenando os jogadores dela na estrutura Global.Match.enemies
         /// </summary>
         private void btnStart_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Global.Match.player.id.ToString());
+            // partida iniciada
+            //MessageBox.Show(Global.Match.player.id.ToString());
+
+            btnStart.Hide();
+            this.btnQuit.Location = new System.Drawing.Point(5, 5);
+            for(int i = 0; i < 4; i++)
+            {
+                picChars[i].Visible = true;
+            }
+
+            // posicionamos lentamente os paineis da direita e baixo na interface
+            // pnl Right
+            // posição original:  720; 3
+            // posição escondida: 1020; 3
+
+            // pnl Bottom
+            // posição original:  4; 487
+            // posição escondida: 4; 650
+            {
+                // 50 iterações
+
+                // função escolhida direita
+                // f(x) = 1020 - (x^2)/2 + (x/5)^3 - x
+
+                // função escolhida baixo
+                // f(X) = 644 - (X^2)/4 + (X/6)^3 - 2X
+
+                for (double i = 0; i < 50; i++)
+                {
+
+                    Thread.Sleep(20);
+                    //right
+                    double c1 = i;
+                    double c2 = Math.Pow(i, 2) / 2;
+                    double c3 = Math.Pow((i / 5), 3);
+                    int fx = (int)(1030 - c2 + c3 - c1);
+                    pnlRight.Location = new System.Drawing.Point(fx, 0);
+
+                    //bottom
+                    c1 = 2*i;
+                    c2 = Math.Pow(i, 2) / 4;
+                    c3 = Math.Pow((i / 6), 3);
+                    fx = (int)(644 - c2 + c3 - c1);
+                    pnlBottom.Location = new System.Drawing.Point(0, fx);
+                }
+            }
+
+            //inserimos as nossas credenciais
             string ret = Jogo.IniciarPartida(Global.Match.player.id, Global.Match.player.idPartida);
             if (ret.StartsWith("ERRO"))
             {
@@ -45,47 +142,58 @@ namespace Game.Game.Running_Folder
             }
             else
             {
+                // abrimos as "cortinas"
+                // trazemos os paineis pnlRight e pnlBottom para a interface
+                // escondemos o botão de btnStart
+                // movimentamos as imagens dos personagens
+
                 MessageBox.Show("Partida iniciada!");
                 btnStart.Hide();
-            }
+                this.btnQuit.Location = new System.Drawing.Point(5, 5);
 
-            // precisa de revisão
-            string jogadores = Jogo.ListarJogadores(Global.Match.id);
-            lstPlayers.Items.Clear();
-            if (jogadores != "")
-            {
-                jogadores = jogadores.Replace("\r", "");
-                jogadores = jogadores.Substring(0, jogadores.Length - 1);
-                string[] Jformatted = jogadores.Split('\n');
 
-                //MessageBox.Show(jogadores);
-                Global.Match.enemies = new Global.Selected_Match.Enemy[Jformatted.Length];
-                for (int i = 0; i < Jformatted.Length; i++)
+                // BUG IMPORTANTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                // listar jogadores também lista o NOSSO jogador, trabalhar nisso antes de começarmos a jogar pra valer.
+
+                // listamos os jogadores da partida no início:
+                
+                string jogadores = Jogo.ListarJogadores(Global.Match.id);
+                lstPlayers.Items.Clear();
+                if (jogadores != "")
                 {
-                    // MessageBox.Show(Jformatted[i]);
-                    string[] jogador = Jformatted[i].Split(',');
-                    string id = jogador[0].ToString();
-                    string name = jogador[1].ToString();
-                    string[] row = { id, name };
+                    jogadores = jogadores.Replace("\r", "");
+                    jogadores = jogadores.Substring(0, jogadores.Length - 1);
+                    string[] Jformatted = jogadores.Split('\n');
+
+                    // alocamos a memória
+                    enemies = new Enemy[Jformatted.Length];
+
+                    // instanciamos os jogadores
+                    for (int i = 0; i < Jformatted.Length; i++)
+                    {
+                        // MessageBox.Show(Jformatted[i]);
+                        string[] jogador = Jformatted[i].Split(',');
+                        string id = jogador[0].ToString();
+                        string name = jogador[1].ToString();
+                        string[] row = { id, name };
+                        new ListViewItem(row);
+                        lstPlayers.Items.Add(new ListViewItem(row));
+
+                        enemies[i] = new Enemy(id, name);
+                    }
+                }
+                else
+                {
+                    string[] row = { "", "Sem Jogadores" };
                     new ListViewItem(row);
                     lstPlayers.Items.Add(new ListViewItem(row));
-
-                    Global.Match.enemies[i] = new Global.Selected_Match.Enemy(id, name);
                 }
-            }
-            else
-            {
-                string[] row = { "", "Sem Jogadores" };
-                new ListViewItem(row);
-                lstPlayers.Items.Add(new ListViewItem(row));
-            }
-
-
+            }/**/
         }
 
 
         /// <summary>
-        /// 
+        /// Checa de quem é a vez, retornando o nome do usuário
         /// </summary>
         private void btnCheck_Click(object sender, EventArgs e)
         {
@@ -97,11 +205,17 @@ namespace Game.Game.Running_Folder
             }
             else
             {
-                lblTurn.Text = retChecker;
-                foreach (Global.Selected_Match.Enemy aux in Global.Match.enemies)
+                // BUG IMPORTANTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                // se arrumarmos a função btnStart_Click, para não armazenar o nosso jogador,
+                // não será possível escolher a nossa vez visto que realizamos o foreach com a estrutura
+                // enemies: (se arrumarmos enemies para não nos incluir, seria necessário tratar isso aqui)
+                //
+                // solução: antes do foreach: if ( nosso jogador id == Int32.Parse(...)) = nossa vez
+
+                foreach (Enemy aux in enemies)
                 {
                     if (aux.id == Int32.Parse(formattedCheck[1]))
-                        lblTurn.Text = aux.name;
+                        lblTurn.Text = "A vez é de " + aux.name;
                 }
             }
         }
@@ -114,6 +228,14 @@ namespace Game.Game.Running_Folder
         /// {user2} entrou na partida com id {user2_id}
         /// Criada a partida ben10
         /// 
+        /// proposta: (deletem isso depois!!)
+        /// 
+        /// armazena este retorno em uma estrutura, e printa os últimos valores dessa string,
+        /// a narração ocorre apenas na partida em questão (nesse forms), então vou deixar
+        /// a estrutura no começo desse código, linha 
+        ///
+        /// podemos fazer a função escrever os últimos acontecimentos lentamente, como
+        /// se estivesse sendo digitado
         /// 
         /// </summary>
         private void btnNarration_Click(object sender, EventArgs e)

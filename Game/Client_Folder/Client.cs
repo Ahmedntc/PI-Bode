@@ -9,11 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BodeOfWarServer;
 
-// Informação pertinente
-
-// exemplo de string de retorno de ListarPartidas()
-// "1,Funcionou!,20/02/2022,A\r\n2,Abc,03/03/2022,J\r\n"
-
 namespace Game
 {
     #pragma warning disable IDE1006 // Estilos de Nomenclatura
