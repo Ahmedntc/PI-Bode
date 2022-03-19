@@ -45,7 +45,6 @@ namespace Game.Game.Running_Folder
             }
         } public Enemy[] enemies;
 
-        PictureBox[] picChars = new PictureBox[4];
 
         /// <summary>
         /// Realizada no carregamento da partida
@@ -69,16 +68,6 @@ namespace Game.Game.Running_Folder
             // posição pós-start: 5; 5
 
             // Aplica uma sombra ao ambiente
-
-            // guardamos as picture boxes continuar depois
-            picChars[0] = picChar0;
-            picChars[1] = picChar1;
-            picChars[2] = picChar2;
-            picChars[3] = picChar3;
-            for (int i = 0; i < 4; i++)
-            {
-                picChars[i].Visible = false;
-            }
         }
 
 
@@ -92,10 +81,6 @@ namespace Game.Game.Running_Folder
 
             btnStart.Hide();
             this.btnQuit.Location = new System.Drawing.Point(5, 5);
-            for(int i = 0; i < 4; i++)
-            {
-                picChars[i].Visible = true;
-            }
 
             // posicionamos lentamente os paineis da direita e baixo na interface
             // pnl Right
@@ -241,6 +226,17 @@ namespace Game.Game.Running_Folder
         private void btnNarration_Click(object sender, EventArgs e)
         {
             txtNarration.Text = (Jogo.ExibirNarracao(Global.Match.id));
+        }
+
+        private void btnAllCards_Click(object sender, EventArgs e)
+        {
+            DebugConsole debug = new DebugConsole();
+            debug.Show();
+            foreach(Global.Card card in Global.cards)
+            {
+                Global.Card.Graphical card_image = card.get_Panel(125, 175);
+                debug.pnlDisplay.Controls.Add(card_image.panel);
+            }
         }
     }
 }

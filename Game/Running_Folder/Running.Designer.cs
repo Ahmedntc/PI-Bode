@@ -42,17 +42,10 @@
             this.btnCheck = new System.Windows.Forms.Button();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.picChar0 = new System.Windows.Forms.PictureBox();
-            this.picChar1 = new System.Windows.Forms.PictureBox();
-            this.picChar2 = new System.Windows.Forms.PictureBox();
-            this.picChar3 = new System.Windows.Forms.PictureBox();
+            this.btnAllCards = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picChar0)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picChar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picChar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picChar3)).BeginInit();
             this.SuspendLayout();
             // 
             // lstPlayers
@@ -123,7 +116,7 @@
             this.lblTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNarration
-            // 
+            //  
             this.btnNarration.Location = new System.Drawing.Point(74, 570);
             this.btnNarration.Name = "btnNarration";
             this.btnNarration.Size = new System.Drawing.Size(191, 37);
@@ -150,13 +143,9 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.DimGray;
-            this.pnlMain.Controls.Add(this.picChar2);
-            this.pnlMain.Controls.Add(this.picChar3);
             this.pnlMain.Controls.Add(this.pnlBottom);
             this.pnlMain.Controls.Add(this.pnlRight);
-            this.pnlMain.Controls.Add(this.picChar1);
             this.pnlMain.Controls.Add(this.btnStart);
-            this.pnlMain.Controls.Add(this.picChar0);
             this.pnlMain.Controls.Add(this.btnQuit);
             this.pnlMain.Location = new System.Drawing.Point(12, 12);
             this.pnlMain.Name = "pnlMain";
@@ -191,6 +180,7 @@
             // 
             this.pnlRight.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlRight.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlRight.Controls.Add(this.btnAllCards);
             this.pnlRight.Controls.Add(this.btnNarration);
             this.pnlRight.Controls.Add(this.txtNarration);
             this.pnlRight.Location = new System.Drawing.Point(720, 3);
@@ -204,52 +194,15 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // picChar0
+            // btnAllCards
             // 
-            this.picChar0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picChar0.Image = global::Game.Properties.Resources.Shadow;
-            this.picChar0.Location = new System.Drawing.Point(186, 289);
-            this.picChar0.Name = "picChar0";
-            this.picChar0.Size = new System.Drawing.Size(75, 150);
-            this.picChar0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picChar0.TabIndex = 19;
-            this.picChar0.TabStop = false;
-            // 
-            // picChar1
-            // 
-            this.picChar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picChar1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picChar1.Image = global::Game.Properties.Resources.Shadow;
-            this.picChar1.Location = new System.Drawing.Point(487, 54);
-            this.picChar1.Name = "picChar1";
-            this.picChar1.Size = new System.Drawing.Size(75, 150);
-            this.picChar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picChar1.TabIndex = 20;
-            this.picChar1.TabStop = false;
-            // 
-            // picChar2
-            // 
-            this.picChar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picChar2.Image = global::Game.Properties.Resources.Shadow;
-            this.picChar2.Location = new System.Drawing.Point(487, 289);
-            this.picChar2.Name = "picChar2";
-            this.picChar2.Size = new System.Drawing.Size(75, 150);
-            this.picChar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picChar2.TabIndex = 21;
-            this.picChar2.TabStop = false;
-            // 
-            // picChar3
-            // 
-            this.picChar3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picChar3.Image = global::Game.Properties.Resources.Shadow;
-            this.picChar3.Location = new System.Drawing.Point(186, 54);
-            this.picChar3.Name = "picChar3";
-            this.picChar3.Size = new System.Drawing.Size(75, 150);
-            this.picChar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picChar3.TabIndex = 22;
-            this.picChar3.TabStop = false;
+            this.btnAllCards.Location = new System.Drawing.Point(74, 605);
+            this.btnAllCards.Name = "btnAllCards";
+            this.btnAllCards.Size = new System.Drawing.Size(191, 37);
+            this.btnAllCards.TabIndex = 16;
+            this.btnAllCards.Text = "Visualizar todas as cartas";
+            this.btnAllCards.UseVisualStyleBackColor = true;
+            this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
             // 
             // Running
             // 
@@ -267,10 +220,6 @@
             this.pnlBottom.ResumeLayout(false);
             this.pnlRight.ResumeLayout(false);
             this.pnlRight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picChar0)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picChar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picChar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picChar3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,9 +239,6 @@
         private System.Windows.Forms.Panel pnlRight;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Panel pnlBottom;
-        private System.Windows.Forms.PictureBox picChar3;
-        private System.Windows.Forms.PictureBox picChar2;
-        private System.Windows.Forms.PictureBox picChar1;
-        private System.Windows.Forms.PictureBox picChar0;
+        private System.Windows.Forms.Button btnAllCards;
     }
 }

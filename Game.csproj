@@ -102,6 +102,16 @@
     <None Include="Game\App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\b1.PNG" />
+    <Content Include="Properties\b10.PNG" />
+    <Content Include="Properties\b2.PNG" />
+    <Content Include="Properties\b3.PNG" />
+    <Content Include="Properties\b4.PNG" />
+    <Content Include="Properties\b5.png" />
+    <Content Include="Properties\b6.PNG" />
+    <Content Include="Properties\b7.PNG" />
+    <Content Include="Properties\b8.PNG" />
+    <Content Include="Properties\b9.PNG" />
     <Content Include="Properties\liquid-bg.jpg" />
     <None Include="Resources\Shadow.png" />
     <None Include="Resources\liquid-bg.jpg" />

@@ -163,11 +163,26 @@ namespace Game
         private void Client_Load(object sender, EventArgs e)
         {
             lblVersion.Text += Jogo.Versao;
-            /* 
-             * Tornar painel de visualização de match ivisivel.
-             * Ele se tornará visivel após a seleção de uma partida.
-             */
             pnlSelected_Match.Visible = false;
+
+            // puxamos todas as cartas do jogo
+            string ret = Jogo.ListarCartas();
+            if (ret.StartsWith("ERRO"))
+            {
+                MessageBox.Show(ret);
+                return;
+            }
+
+            ret = ret.Substring(0, ret.Length - 1);
+            ret = ret.Replace("\r", "");
+            string[] lines = ret.Split('\n');
+
+            Global.cards = new Global.Card[lines.Length];
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] field = lines[i].Split(',');
+                Global.cards[i] = new Global.Card(field[0], field[1], field[2]);
+            }
         }
 
 
@@ -337,18 +352,17 @@ namespace Game
                     MessageBox.Show("ERRO: Senha com mais de 10 caracteres!");
                     return;
                 }
-                
-                cmbFilters.SelectedIndex = 0;
-                btnSearch.PerformClick();
 
-                foreach (Match match in Matches)
-                {
-                    if (match.name == nome)
+                if (Matches != null)
+                    foreach (Match match in Matches)
                     {
-                        MessageBox.Show("ERRO: Nome já em uso!");
-                        return;
+                        if (match.name == nome)
+                        {
+                            MessageBox.Show("ERRO: Nome já em uso!");
+                            return;
+                        }
                     }
-                }
+
                 //Variavel armazenando retorno de CriarPartida
                 string retCreate = Jogo.CriarPartida(nome, senha);
 
@@ -361,6 +375,9 @@ namespace Game
                 {
                     MessageBox.Show(retCreate);
                     MessageBox.Show("Partida " + nome + " Criada!");
+                    // atualizamos
+                    cmbFilters.SelectedIndex = 0;
+                    btnSearch.PerformClick();
                 }
             } else
             {
