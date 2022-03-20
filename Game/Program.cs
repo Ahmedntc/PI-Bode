@@ -157,7 +157,7 @@ namespace Game
                 public int id;
                 public string name;
                 public string idPartida; // Id que recebemos ao entrar na partida.
-                public string senhaPartida;// senha da partida. 
+                public string senhaPartida;// senha da partida.
                 public LinkedList<Card> cards;
 
                 /// <summary>

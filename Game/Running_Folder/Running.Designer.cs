@@ -39,10 +39,11 @@
             this.txtNarration = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnShowHand = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.pnlRight = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnAllCards = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -63,11 +64,12 @@
             this.lstPlayers.FullRowSelect = true;
             this.lstPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstPlayers.HideSelection = false;
-            this.lstPlayers.Location = new System.Drawing.Point(3, 3);
-            this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 30);
+            this.lstPlayers.Location = new System.Drawing.Point(4, 4);
+            this.lstPlayers.Margin = new System.Windows.Forms.Padding(4);
+            this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 36);
             this.lstPlayers.Name = "lstPlayers";
             this.lstPlayers.Scrollable = false;
-            this.lstPlayers.Size = new System.Drawing.Size(196, 155);
+            this.lstPlayers.Size = new System.Drawing.Size(260, 190);
             this.lstPlayers.TabIndex = 8;
             this.lstPlayers.TileSize = new System.Drawing.Size(1, 1);
             this.lstPlayers.UseCompatibleStateImageBehavior = false;
@@ -86,9 +88,10 @@
             // 
             this.btnStart.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(448, 243);
+            this.btnStart.Location = new System.Drawing.Point(597, 299);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(150, 40);
+            this.btnStart.Size = new System.Drawing.Size(200, 49);
             this.btnStart.TabIndex = 9;
             this.btnStart.Text = "Iniciar";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -97,9 +100,10 @@
             // btnQuit
             // 
             this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuit.Location = new System.Drawing.Point(448, 289);
+            this.btnQuit.Location = new System.Drawing.Point(597, 356);
+            this.btnQuit.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(150, 40);
+            this.btnQuit.Size = new System.Drawing.Size(200, 49);
             this.btnQuit.TabIndex = 10;
             this.btnQuit.Text = "Sair";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -108,18 +112,20 @@
             // 
             this.lblTurn.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTurn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTurn.Location = new System.Drawing.Point(209, 3);
+            this.lblTurn.Location = new System.Drawing.Point(279, 4);
+            this.lblTurn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTurn.Name = "lblTurn";
-            this.lblTurn.Size = new System.Drawing.Size(170, 75);
+            this.lblTurn.Size = new System.Drawing.Size(227, 92);
             this.lblTurn.TabIndex = 12;
             this.lblTurn.Text = "Vez";
             this.lblTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNarration
-            //  
-            this.btnNarration.Location = new System.Drawing.Point(74, 570);
+            // 
+            this.btnNarration.Location = new System.Drawing.Point(99, 702);
+            this.btnNarration.Margin = new System.Windows.Forms.Padding(4);
             this.btnNarration.Name = "btnNarration";
-            this.btnNarration.Size = new System.Drawing.Size(191, 37);
+            this.btnNarration.Size = new System.Drawing.Size(255, 46);
             this.btnNarration.TabIndex = 14;
             this.btnNarration.Text = "Atualizar a narração";
             this.btnNarration.UseVisualStyleBackColor = true;
@@ -133,11 +139,12 @@
             this.txtNarration.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNarration.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtNarration.Location = new System.Drawing.Point(0, 0);
-            this.txtNarration.MaximumSize = new System.Drawing.Size(999, 999);
+            this.txtNarration.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNarration.MaximumSize = new System.Drawing.Size(1331, 1229);
             this.txtNarration.Multiline = true;
             this.txtNarration.Name = "txtNarration";
             this.txtNarration.ReadOnly = true;
-            this.txtNarration.Size = new System.Drawing.Size(313, 564);
+            this.txtNarration.Size = new System.Drawing.Size(417, 694);
             this.txtNarration.TabIndex = 15;
             // 
             // pnlMain
@@ -147,30 +154,47 @@
             this.pnlMain.Controls.Add(this.pnlRight);
             this.pnlMain.Controls.Add(this.btnStart);
             this.pnlMain.Controls.Add(this.btnQuit);
-            this.pnlMain.Location = new System.Drawing.Point(12, 12);
+            this.pnlMain.Location = new System.Drawing.Point(16, 15);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1040, 657);
+            this.pnlMain.Size = new System.Drawing.Size(1387, 809);
             this.pnlMain.TabIndex = 16;
             // 
             // pnlBottom
             // 
             this.pnlBottom.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlBottom.Controls.Add(this.btnShowHand);
             this.pnlBottom.Controls.Add(this.lstPlayers);
             this.pnlBottom.Controls.Add(this.btnCheck);
             this.pnlBottom.Controls.Add(this.lblTurn);
-            this.pnlBottom.Location = new System.Drawing.Point(4, 487);
+            this.pnlBottom.Location = new System.Drawing.Point(5, 599);
+            this.pnlBottom.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(711, 165);
+            this.pnlBottom.Size = new System.Drawing.Size(947, 202);
             this.pnlBottom.TabIndex = 18;
+            // 
+            // btnShowHand
+            // 
+            this.btnShowHand.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnShowHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowHand.Location = new System.Drawing.Point(514, 103);
+            this.btnShowHand.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowHand.Name = "btnShowHand";
+            this.btnShowHand.Size = new System.Drawing.Size(227, 46);
+            this.btnShowHand.TabIndex = 14;
+            this.btnShowHand.Text = "Exibir Mão";
+            this.btnShowHand.UseVisualStyleBackColor = false;
+            this.btnShowHand.Click += new System.EventHandler(this.btnShowHand_Click);
             // 
             // btnCheck
             // 
             this.btnCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(209, 84);
+            this.btnCheck.Location = new System.Drawing.Point(279, 103);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(170, 37);
+            this.btnCheck.Size = new System.Drawing.Size(227, 46);
             this.btnCheck.TabIndex = 13;
             this.btnCheck.Text = "Checa Vez";
             this.btnCheck.UseVisualStyleBackColor = false;
@@ -183,10 +207,22 @@
             this.pnlRight.Controls.Add(this.btnAllCards);
             this.pnlRight.Controls.Add(this.btnNarration);
             this.pnlRight.Controls.Add(this.txtNarration);
-            this.pnlRight.Location = new System.Drawing.Point(720, 3);
+            this.pnlRight.Location = new System.Drawing.Point(960, 4);
+            this.pnlRight.Margin = new System.Windows.Forms.Padding(4);
             this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(317, 651);
+            this.pnlRight.Size = new System.Drawing.Size(421, 800);
             this.pnlRight.TabIndex = 17;
+            // 
+            // btnAllCards
+            // 
+            this.btnAllCards.Location = new System.Drawing.Point(99, 745);
+            this.btnAllCards.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAllCards.Name = "btnAllCards";
+            this.btnAllCards.Size = new System.Drawing.Size(255, 46);
+            this.btnAllCards.TabIndex = 16;
+            this.btnAllCards.Text = "Visualizar todas as cartas";
+            this.btnAllCards.UseVisualStyleBackColor = true;
+            this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
             // 
             // imageList1
             // 
@@ -194,25 +230,16 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // btnAllCards
-            // 
-            this.btnAllCards.Location = new System.Drawing.Point(74, 605);
-            this.btnAllCards.Name = "btnAllCards";
-            this.btnAllCards.Size = new System.Drawing.Size(191, 37);
-            this.btnAllCards.TabIndex = 16;
-            this.btnAllCards.Text = "Visualizar todas as cartas";
-            this.btnAllCards.UseVisualStyleBackColor = true;
-            this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
-            // 
             // Running
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Game.Properties.Resources.liquid_bg;
-            this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.ClientSize = new System.Drawing.Size(1416, 828);
             this.Controls.Add(this.pnlMain);
-            this.MaximumSize = new System.Drawing.Size(1080, 720);
-            this.MinimumSize = new System.Drawing.Size(1080, 720);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1434, 875);
+            this.MinimumSize = new System.Drawing.Size(1434, 875);
             this.Name = "Running";
             this.Text = "Running";
             this.Load += new System.EventHandler(this.Running_Load);
@@ -240,5 +267,6 @@
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Panel pnlBottom;
         private System.Windows.Forms.Button btnAllCards;
+        private System.Windows.Forms.Button btnShowHand;
     }
 }

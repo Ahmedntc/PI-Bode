@@ -238,5 +238,34 @@ namespace Game.Game.Running_Folder
                 debug.pnlDisplay.Controls.Add(card_image.panel);
             }
         }
+
+        private void btnShowHand_Click(object sender, EventArgs e)
+        {
+
+            string retorno = Jogo.VerificarMao(Global.Match.player.id, Global.Match.player.idPartida);
+            retorno = retorno.Replace("\r", "");
+            retorno = retorno.Substring(0, retorno.Length - 1);
+            string[] Jformatted = retorno.Split('\n');
+
+            Global.Match.player.cards.Clear();
+
+            foreach (Global.Card card in Global.cards)
+            {
+                for(int i = 0; i < Jformatted.Length; i++)
+                {
+                    if(card.id == Jformatted[i])
+                    {
+                        Global.Match.player.cards.AddLast(card);
+                    }
+                }
+            }
+            DebugConsole debug = new DebugConsole();
+            debug.Show();
+            foreach (Global.Card card in Global.Match.player.cards)
+            {
+                Global.Card.Graphical card_image = card.get_Panel(125, 175);
+                debug.pnlDisplay.Controls.Add(card_image.panel);
+            }
+        }
     }
 }
