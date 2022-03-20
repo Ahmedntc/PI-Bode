@@ -39,11 +39,12 @@
             this.txtNarration = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlBottom = new System.Windows.Forms.Panel();
-            this.btnShowHand = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.btnAllCards = new System.Windows.Forms.Button();
+            this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnShowHand = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -154,6 +155,7 @@
             this.pnlMain.Controls.Add(this.pnlRight);
             this.pnlMain.Controls.Add(this.btnStart);
             this.pnlMain.Controls.Add(this.btnQuit);
+            this.pnlMain.Controls.Add(this.flpHand);
             this.pnlMain.Location = new System.Drawing.Point(16, 15);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMain.Name = "pnlMain";
@@ -173,19 +175,6 @@
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(947, 202);
             this.pnlBottom.TabIndex = 18;
-            // 
-            // btnShowHand
-            // 
-            this.btnShowHand.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShowHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowHand.Location = new System.Drawing.Point(514, 103);
-            this.btnShowHand.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowHand.Name = "btnShowHand";
-            this.btnShowHand.Size = new System.Drawing.Size(227, 46);
-            this.btnShowHand.TabIndex = 14;
-            this.btnShowHand.Text = "Exibir Mão";
-            this.btnShowHand.UseVisualStyleBackColor = false;
-            this.btnShowHand.Click += new System.EventHandler(this.btnShowHand_Click);
             // 
             // btnCheck
             // 
@@ -224,11 +213,31 @@
             this.btnAllCards.UseVisualStyleBackColor = true;
             this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
             // 
+            // flpHand
+            // 
+            this.flpHand.Location = new System.Drawing.Point(11, 412);
+            this.flpHand.Name = "flpHand";
+            this.flpHand.Size = new System.Drawing.Size(941, 218);
+            this.flpHand.TabIndex = 19;
+            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // btnShowHand
+            // 
+            this.btnShowHand.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnShowHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowHand.Location = new System.Drawing.Point(514, 103);
+            this.btnShowHand.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowHand.Name = "btnShowHand";
+            this.btnShowHand.Size = new System.Drawing.Size(227, 46);
+            this.btnShowHand.TabIndex = 14;
+            this.btnShowHand.Text = "Exibir Mão";
+            this.btnShowHand.UseVisualStyleBackColor = false;
+            this.btnShowHand.Click += new System.EventHandler(this.btnShowHand_Click);
             // 
             // Running
             // 
@@ -267,6 +276,7 @@
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Panel pnlBottom;
         private System.Windows.Forms.Button btnAllCards;
+        private System.Windows.Forms.FlowLayoutPanel flpHand;
         private System.Windows.Forms.Button btnShowHand;
     }
 }

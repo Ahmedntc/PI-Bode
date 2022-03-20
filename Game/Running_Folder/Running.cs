@@ -82,6 +82,7 @@ namespace Game.Game.Running_Folder
             btnStart.Hide();
             this.btnQuit.Location = new System.Drawing.Point(5, 5);
 
+
             // posicionamos lentamente os paineis da direita e baixo na interface
             // pnl Right
             // posição original:  720; 3
@@ -173,6 +174,7 @@ namespace Game.Game.Running_Folder
                     new ListViewItem(row);
                     lstPlayers.Items.Add(new ListViewItem(row));
                 }
+                btnShowHand.PerformClick();
             }/**/
         }
 
@@ -241,7 +243,7 @@ namespace Game.Game.Running_Folder
 
         private void btnShowHand_Click(object sender, EventArgs e)
         {
-
+            btnShowHand.Hide();
             string retorno = Jogo.VerificarMao(Global.Match.player.id, Global.Match.player.idPartida);
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
@@ -265,6 +267,11 @@ namespace Game.Game.Running_Folder
             {
                 Global.Card.Graphical card_image = card.get_Panel(125, 175);
                 debug.pnlDisplay.Controls.Add(card_image.panel);
+            }
+            foreach (Global.Card card in Global.Match.player.cards)
+            {
+                Global.Card.Graphical card_image = card.get_Panel(80, 135);
+                flpHand.Controls.Add(card_image.panel);
             }
         }
     }
