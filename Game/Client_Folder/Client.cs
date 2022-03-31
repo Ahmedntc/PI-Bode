@@ -307,7 +307,7 @@ namespace Game
 
                     this.Hide();
 
-                    MessageBox.Show(String.Format("{0}: Usuário {1} logado com ID {2}", usrId[0], name, usrId[1]));
+                    //MessageBox.Show(String.Format("{0}: Usuário {1} logado com ID {2}", usrId[0], name, usrId[1]));
 
                     Global.Match.Play();
 
@@ -373,8 +373,8 @@ namespace Game
                 }
                 else
                 {
-                    MessageBox.Show(retCreate);
-                    MessageBox.Show("Partida " + nome + " Criada!");
+                    //MessageBox.Show(retCreate);
+                    //MessageBox.Show("Partida " + nome + " Criada!");
                     // atualizamos
                     cmbFilters.SelectedIndex = 0;
                     btnSearch.PerformClick();

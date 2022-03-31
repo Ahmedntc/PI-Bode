@@ -133,7 +133,7 @@ namespace Game.Game.Running_Folder
                 // escondemos o botão de btnStart
                 // movimentamos as imagens dos personagens
 
-                MessageBox.Show("Partida iniciada!");
+                //MessageBox.Show("Partida iniciada!");
                 btnStart.Hide();
                 this.btnQuit.Location = new System.Drawing.Point(5, 5);
 
@@ -260,13 +260,6 @@ namespace Game.Game.Running_Folder
                         Global.Match.player.cards.AddLast(card);
                     }
                 }
-            }
-            DebugConsole debug = new DebugConsole();
-            debug.Show();
-            foreach (Global.Card card in Global.Match.player.cards)
-            {
-                Global.Card.Graphical card_image = card.get_Panel(125, 175);
-                debug.pnlDisplay.Controls.Add(card_image.panel);
             }
             foreach (Global.Card card in Global.Match.player.cards)
             {

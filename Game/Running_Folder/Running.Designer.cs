@@ -39,12 +39,12 @@
             this.txtNarration = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnShowHand = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.btnAllCards = new System.Windows.Forms.Button();
             this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnShowHand = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -176,6 +176,19 @@
             this.pnlBottom.Size = new System.Drawing.Size(947, 202);
             this.pnlBottom.TabIndex = 18;
             // 
+            // btnShowHand
+            // 
+            this.btnShowHand.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnShowHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowHand.Location = new System.Drawing.Point(514, 103);
+            this.btnShowHand.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowHand.Name = "btnShowHand";
+            this.btnShowHand.Size = new System.Drawing.Size(227, 46);
+            this.btnShowHand.TabIndex = 14;
+            this.btnShowHand.Text = "Exibir Mão";
+            this.btnShowHand.UseVisualStyleBackColor = false;
+            this.btnShowHand.Click += new System.EventHandler(this.btnShowHand_Click);
+            // 
             // btnCheck
             // 
             this.btnCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -215,6 +228,7 @@
             // 
             // flpHand
             // 
+            this.flpHand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpHand.Location = new System.Drawing.Point(11, 412);
             this.flpHand.Name = "flpHand";
             this.flpHand.Size = new System.Drawing.Size(941, 218);
@@ -225,19 +239,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // btnShowHand
-            // 
-            this.btnShowHand.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShowHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowHand.Location = new System.Drawing.Point(514, 103);
-            this.btnShowHand.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowHand.Name = "btnShowHand";
-            this.btnShowHand.Size = new System.Drawing.Size(227, 46);
-            this.btnShowHand.TabIndex = 14;
-            this.btnShowHand.Text = "Exibir Mão";
-            this.btnShowHand.UseVisualStyleBackColor = false;
-            this.btnShowHand.Click += new System.EventHandler(this.btnShowHand_Click);
             // 
             // Running
             // 
