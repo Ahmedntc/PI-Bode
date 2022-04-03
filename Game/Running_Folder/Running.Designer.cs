@@ -47,7 +47,7 @@
             this.btnPlay = new System.Windows.Forms.Button();
             this.cmbCards = new System.Windows.Forms.ComboBox();
             this.btnShowIslands = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnChooseIsland = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -171,7 +171,7 @@
             this.pnlBottom.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlBottom.Controls.Add(this.comboBox1);
-            this.pnlBottom.Controls.Add(this.button1);
+            this.pnlBottom.Controls.Add(this.btnChooseIsland);
             this.pnlBottom.Controls.Add(this.btnShowIslands);
             this.pnlBottom.Controls.Add(this.cmbCards);
             this.pnlBottom.Controls.Add(this.btnPlay);
@@ -270,17 +270,17 @@
             this.btnShowIslands.UseVisualStyleBackColor = false;
             this.btnShowIslands.Click += new System.EventHandler(this.btnShowIslands_Click);
             // 
-            // button1
+            // btnChooseIsland
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(749, 57);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 46);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Escolher Ilha";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnChooseIsland.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChooseIsland.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseIsland.Location = new System.Drawing.Point(749, 57);
+            this.btnChooseIsland.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChooseIsland.Name = "btnChooseIsland";
+            this.btnChooseIsland.Size = new System.Drawing.Size(190, 46);
+            this.btnChooseIsland.TabIndex = 18;
+            this.btnChooseIsland.Text = "Escolher Ilha";
+            this.btnChooseIsland.UseVisualStyleBackColor = false;
             // 
             // comboBox1
             // 
@@ -333,6 +333,6 @@
         private System.Windows.Forms.ComboBox cmbCards;
         private System.Windows.Forms.Button btnShowIslands;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnChooseIsland;
     }
 }
