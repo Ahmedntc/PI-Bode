@@ -313,5 +313,11 @@ namespace Game.Game.Running_Folder
                 else MessageBox.Show(ret);
             }
         }
+
+        private void btnShowIslands_Click(object sender, EventArgs e)
+        {
+            string ret = Jogo.VerificarIlha(Global.player.id, Global.player.token);
+            MessageBox.Show(ret);
+        }
     }
 }
