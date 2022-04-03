@@ -145,9 +145,13 @@ namespace Game
                 {
                     stat = "Encerrado";
                 }
+                else if ( match.status == 'F')
+                {
+                    stat = "Fão sei";
+                }
                 else
                 {
-                    stat = "? ? ? ?";
+                    stat = "?";
                 }
 
                 string[] row = { id, name, stat };
@@ -213,6 +217,10 @@ namespace Game
 
                     case 'E':
                         lblStatus.Text = "Encerrada";
+                        break;
+
+                    case 'F':
+                        lblStatus.Text = "Fão sei";
                         break;
 
                     default:

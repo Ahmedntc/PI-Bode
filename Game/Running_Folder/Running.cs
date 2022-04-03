@@ -149,10 +149,6 @@ namespace Game.Game.Running_Folder
                 btnStart.Hide();
                 this.btnQuit.Location = new System.Drawing.Point(5, 5);
 
-
-                // BUG IMPORTANTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                // listar jogadores também lista o NOSSO jogador, trabalhar nisso antes de começarmos a jogar pra valer.
-
                 // listamos os jogadores da partida no início:
                 
                 string jogadores = Jogo.ListarJogadores(Global.Match.id);
@@ -208,20 +204,14 @@ namespace Game.Game.Running_Folder
             }
             else
             {
-                // BUG IMPORTANTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                // se arrumarmos a função btnStart_Click, para não armazenar o nosso jogador,
-                // não será possível escolher a nossa vez visto que realizamos o foreach com a estrutura
-                // enemies: (se arrumarmos enemies para não nos incluir, seria necessário tratar isso aqui)
-                //
-                // solução: antes do foreach: if ( nosso jogador id == Int32.Parse(...)) = nossa vez
                 if(Global.player.id == Int32.Parse(formattedCheck[1]))
                 {
-                    lblTurn.Text = "A vez é de " + Global.player.name;
+                    lblTurn.Text = Global.player.name;
                 }
                 foreach (Enemy aux in enemies)
                 {
                     if (aux.id == Int32.Parse(formattedCheck[1]))
-                        lblTurn.Text = "A vez é de " + aux.name;
+                        lblTurn.Text = aux.name;
                 }
             }
         }
@@ -263,12 +253,12 @@ namespace Game.Game.Running_Folder
         private void showHand()
         {
             string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
-            MessageBox.Show(retorno);
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] Jformatted = retorno.Split('\n');
 
             Global.player.cards.Clear();
+
 
             foreach (Global.Card card in Global.cards)
             {
@@ -317,7 +307,32 @@ namespace Game.Game.Running_Folder
         private void btnShowIslands_Click(object sender, EventArgs e)
         {
             string ret = Jogo.VerificarIlha(Global.player.id, Global.player.token);
-            MessageBox.Show(ret);
+            if (!ret.StartsWith("ERRO"))
+            {
+                ret = ret.Trim();
+                string[] retformatted = ret.Split(',');
+                foreach (string str in retformatted)
+                {
+                    cmbIslands.Items.Add(str);
+                }
+            }
+
+            else MessageBox.Show(ret);
+        }
+
+        private void btnChooseIsland_Click(object sender, EventArgs e)
+        {
+            if (cmbIslands.SelectedItem != null)
+            {
+                string ret = Jogo.DefinirIlha(
+                    Global.player.id,
+                    Global.player.token,
+                    Int32.Parse(cmbIslands.SelectedItem.ToString())
+                    );
+
+                MessageBox.Show(ret);
+                cmbIslands.Items.Clear();
+            }
         }
     }
 }
