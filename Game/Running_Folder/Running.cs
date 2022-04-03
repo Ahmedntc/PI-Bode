@@ -121,7 +121,7 @@ namespace Game.Game.Running_Folder
             }
 
             //inserimos as nossas credenciais
-            string ret = Jogo.IniciarPartida(Global.Match.player.id, Global.Match.player.idPartida);
+            string ret = Jogo.IniciarPartida(Global.player.id, Global.player.token);
             if (ret.StartsWith("ERRO"))
             {
                 MessageBox.Show(ret);
@@ -152,10 +152,10 @@ namespace Game.Game.Running_Folder
                     string[] Jformatted = jogadores.Split('\n');
 
                     // alocamos a memória
-                    enemies = new Enemy[Jformatted.Length];
+                    enemies = new Enemy[Jformatted.Length - 1];
 
                     // instanciamos os jogadores
-                    for (int i = 0; i < Jformatted.Length; i++)
+                    for (int i = 0, j = 0; i < Jformatted.Length; i++)
                     {
                         // MessageBox.Show(Jformatted[i]);
                         string[] jogador = Jformatted[i].Split(',');
@@ -165,7 +165,11 @@ namespace Game.Game.Running_Folder
                         new ListViewItem(row);
                         lstPlayers.Items.Add(new ListViewItem(row));
 
-                        enemies[i] = new Enemy(id, name);
+                        if(Global.player.id != Int32.Parse(id))
+                        {
+                            enemies[j] = new Enemy(id, name);
+                            j++;
+                        }
                     }
                 }
                 else
@@ -198,7 +202,10 @@ namespace Game.Game.Running_Folder
                 // enemies: (se arrumarmos enemies para não nos incluir, seria necessário tratar isso aqui)
                 //
                 // solução: antes do foreach: if ( nosso jogador id == Int32.Parse(...)) = nossa vez
-
+                if(Global.player.id == Int32.Parse(formattedCheck[1]))
+                {
+                    lblTurn.Text = "A vez é de " + Global.player.name;
+                }
                 foreach (Enemy aux in enemies)
                 {
                     if (aux.id == Int32.Parse(formattedCheck[1]))
@@ -244,12 +251,12 @@ namespace Game.Game.Running_Folder
         private void btnShowHand_Click(object sender, EventArgs e)
         {
             btnShowHand.Hide();
-            string retorno = Jogo.VerificarMao(Global.Match.player.id, Global.Match.player.idPartida);
+            string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] Jformatted = retorno.Split('\n');
 
-            Global.Match.player.cards.Clear();
+            Global.player.cards.Clear();
 
             foreach (Global.Card card in Global.cards)
             {
@@ -257,11 +264,11 @@ namespace Game.Game.Running_Folder
                 {
                     if(card.id == Jformatted[i])
                     {
-                        Global.Match.player.cards.AddLast(card);
+                        Global.player.cards.AddLast(card);
                     }
                 }
             }
-            foreach (Global.Card card in Global.Match.player.cards)
+            foreach (Global.Card card in Global.player.cards)
             {
                 Global.Card.Graphical card_image = card.get_Panel(80, 135);
                 flpHand.Controls.Add(card_image.panel);

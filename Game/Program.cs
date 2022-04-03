@@ -135,8 +135,35 @@ namespace Game
                 return frame;
             }
 
-        } public static Card[] cards; 
+        } public static Card[] cards;
 
+        /// <summary>
+        /// Classe do nosso jogador na partida
+        /// </summary>
+        public class Player
+        {
+            public int id;
+            public string name;
+            public string token;
+            public LinkedList<Card> cards;
+
+            /// <summary>
+            /// Prepara o jogador
+            /// </summary>
+            public Player(string name, string token, int id)
+            {
+                // jogador
+                
+                this.name = ""; // 
+                this.id = 0;
+                this.cards = new LinkedList<Card>();
+                this.name = name;
+                this.token = token; // Senha unica gerada pelo banco
+                this.id = id;
+            }
+
+        }
+        static public Player player;
 
         /// <summary>
         /// Partida selecionada principal
@@ -147,49 +174,19 @@ namespace Game
             public string name;
             public string date;
             public char status;
-
-            
-            /// <summary>
-            /// Classe do nosso jogador na partida
-            /// </summary>
-            public class Player
-            {
-                public int id;
-                public string name;
-                public string idPartida; // Id que recebemos ao entrar na partida.
-                public string senhaPartida;// senha da partida.
-                public LinkedList<Card> cards;
-
-                /// <summary>
-                /// Prepara o jogador
-                /// </summary>
-                public Player()
-                {
-                    this.name = ""; // 
-                    this.id = 0;
-                    this.cards = new LinkedList<Card>();
-                }
-
-            } public Player player;
-           
+            public string senha; // senha da partida.           
             
             /// <summary>
             /// Prepara o objeto Match
             /// </summary>
-            public Selected_Match(int id, string player_Name, string player_Id, string senhaPartida,Client.Match target)
+            public Selected_Match(string senha,Client.Match target)
             {
-                // jogador
-                this.player = new Player();
-                this.player.name = player_Name;
-                this.player.idPartida = player_Id;
-                this.player.id = id;
-                this.player.senhaPartida = senhaPartida;
-
                 // Match
                 this.id = target.id;
                 this.name = target.name;
                 this.date = target.date;
                 this.status = target.status;
+                this.senha = senha;
             }
 
 

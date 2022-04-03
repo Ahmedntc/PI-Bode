@@ -303,7 +303,8 @@ namespace Game
                 {
                     string[] usrId = retJoin.Split(',');
                     
-                    Global.Match = new Global.Selected_Match(Int32.Parse(usrId[0]),name, usrId[1],password, Matches[index]);
+                    Global.Match = new Global.Selected_Match(password, Matches[index]);
+                    Global.player = new Global.Player(name, usrId[1], Int32.Parse(usrId[0]));
 
                     this.Hide();
 
