@@ -45,6 +45,8 @@
             this.btnAllCards = new System.Windows.Forms.Button();
             this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.cmbCards = new System.Windows.Forms.ComboBox();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -166,6 +168,8 @@
             // 
             this.pnlBottom.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlBottom.Controls.Add(this.cmbCards);
+            this.pnlBottom.Controls.Add(this.btnPlay);
             this.pnlBottom.Controls.Add(this.btnShowHand);
             this.pnlBottom.Controls.Add(this.lstPlayers);
             this.pnlBottom.Controls.Add(this.btnCheck);
@@ -240,6 +244,27 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // btnPlay
+            // 
+            this.btnPlay.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlay.Location = new System.Drawing.Point(514, 4);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(227, 46);
+            this.btnPlay.TabIndex = 15;
+            this.btnPlay.Text = "Jogar";
+            this.btnPlay.UseVisualStyleBackColor = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // cmbCards
+            // 
+            this.cmbCards.FormattingEnabled = true;
+            this.cmbCards.Location = new System.Drawing.Point(748, 5);
+            this.cmbCards.Name = "cmbCards";
+            this.cmbCards.Size = new System.Drawing.Size(192, 24);
+            this.cmbCards.TabIndex = 16;
+            // 
             // Running
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -279,5 +304,7 @@
         private System.Windows.Forms.Button btnAllCards;
         private System.Windows.Forms.FlowLayoutPanel flpHand;
         private System.Windows.Forms.Button btnShowHand;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.ComboBox cmbCards;
     }
 }

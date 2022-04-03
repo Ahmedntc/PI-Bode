@@ -178,7 +178,8 @@ namespace Game.Game.Running_Folder
                     new ListViewItem(row);
                     lstPlayers.Items.Add(new ListViewItem(row));
                 }
-                btnShowHand.PerformClick();
+                //btnShowHand.PerformClick();
+                showHand();
             }/**/
         }
 
@@ -248,10 +249,10 @@ namespace Game.Game.Running_Folder
             }
         }
 
-        private void btnShowHand_Click(object sender, EventArgs e)
+        private void showHand()
         {
-            btnShowHand.Hide();
             string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
+            MessageBox.Show(retorno);
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] Jformatted = retorno.Split('\n');
@@ -260,19 +261,43 @@ namespace Game.Game.Running_Folder
 
             foreach (Global.Card card in Global.cards)
             {
-                for(int i = 0; i < Jformatted.Length; i++)
+                for (int i = 0; i < Jformatted.Length; i++)
                 {
-                    if(card.id == Jformatted[i])
+                    if (card.id == Jformatted[i])
                     {
                         Global.player.cards.AddLast(card);
                     }
                 }
             }
+
+            flpHand.Controls.Clear();
+
             foreach (Global.Card card in Global.player.cards)
             {
                 Global.Card.Graphical card_image = card.get_Panel(80, 135);
                 flpHand.Controls.Add(card_image.panel);
             }
+
+            cmbCards.Items.Clear();
+
+            foreach (Global.Card card in Global.player.cards)
+            {
+                cmbCards.Items.Add(card.id);
+            }
+        }
+
+        private void btnShowHand_Click(object sender, EventArgs e)
+        {
+            //btnShowHand.Hide();
+            
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            Jogo.Jogar(Global.player.id,
+                Global.player.token,
+                Int32.Parse(cmbCards.SelectedItem.ToString()));
+            showHand();
         }
     }
 }
