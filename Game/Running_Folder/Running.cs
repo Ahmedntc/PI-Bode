@@ -178,7 +178,6 @@ namespace Game.Game.Running_Folder
                     new ListViewItem(row);
                     lstPlayers.Items.Add(new ListViewItem(row));
                 }
-                //btnShowHand.PerformClick();
                 showHand();
             }/**/
         }
@@ -285,13 +284,7 @@ namespace Game.Game.Running_Folder
                 cmbCards.Items.Add(card.id);
             }
         }
-
-        private void btnShowHand_Click(object sender, EventArgs e)
-        {
-            //btnShowHand.Hide();
-            
-        }
-
+        
         private void btnPlay_Click(object sender, EventArgs e)
         {
             Jogo.Jogar(Global.player.id,

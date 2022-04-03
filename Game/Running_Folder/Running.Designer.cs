@@ -39,7 +39,6 @@
             this.txtNarration = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlBottom = new System.Windows.Forms.Panel();
-            this.btnShowHand = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.btnAllCards = new System.Windows.Forms.Button();
@@ -170,7 +169,6 @@
             this.pnlBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlBottom.Controls.Add(this.cmbCards);
             this.pnlBottom.Controls.Add(this.btnPlay);
-            this.pnlBottom.Controls.Add(this.btnShowHand);
             this.pnlBottom.Controls.Add(this.lstPlayers);
             this.pnlBottom.Controls.Add(this.btnCheck);
             this.pnlBottom.Controls.Add(this.lblTurn);
@@ -179,19 +177,6 @@
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(947, 202);
             this.pnlBottom.TabIndex = 18;
-            // 
-            // btnShowHand
-            // 
-            this.btnShowHand.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShowHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowHand.Location = new System.Drawing.Point(514, 103);
-            this.btnShowHand.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowHand.Name = "btnShowHand";
-            this.btnShowHand.Size = new System.Drawing.Size(227, 46);
-            this.btnShowHand.TabIndex = 14;
-            this.btnShowHand.Text = "Exibir Mão";
-            this.btnShowHand.UseVisualStyleBackColor = false;
-            this.btnShowHand.Click += new System.EventHandler(this.btnShowHand_Click);
             // 
             // btnCheck
             // 
@@ -259,8 +244,9 @@
             // 
             // cmbCards
             // 
+            this.cmbCards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCards.FormattingEnabled = true;
-            this.cmbCards.Location = new System.Drawing.Point(748, 5);
+            this.cmbCards.Location = new System.Drawing.Point(513, 57);
             this.cmbCards.Name = "cmbCards";
             this.cmbCards.Size = new System.Drawing.Size(192, 24);
             this.cmbCards.TabIndex = 16;
@@ -303,7 +289,6 @@
         private System.Windows.Forms.Panel pnlBottom;
         private System.Windows.Forms.Button btnAllCards;
         private System.Windows.Forms.FlowLayoutPanel flpHand;
-        private System.Windows.Forms.Button btnShowHand;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.ComboBox cmbCards;
     }
