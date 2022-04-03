@@ -122,11 +122,23 @@ namespace Game.Game.Running_Folder
 
             //inserimos as nossas credenciais
             string ret = Jogo.IniciarPartida(Global.player.id, Global.player.token);
+            bool play = true;
             if (ret.StartsWith("ERRO"))
             {
-                MessageBox.Show(ret);
+                play = false;
+
+                if (ret.Contains("Partida não está aberta"))
+                {
+                    play = true;
+                }
+
+                else
+                {
+                    MessageBox.Show(ret);
+                }
             }
-            else
+
+            if(play) 
             {
                 // abrimos as "cortinas"
                 // trazemos os paineis pnlRight e pnlBottom para a interface
@@ -287,10 +299,19 @@ namespace Game.Game.Running_Folder
         
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            Jogo.Jogar(Global.player.id,
-                Global.player.token,
-                Int32.Parse(cmbCards.SelectedItem.ToString()));
-            showHand();
+            if (cmbCards.SelectedItem != null)
+            {
+                string ret =Jogo.Jogar(
+                    Global.player.id,
+                    Global.player.token,
+                    Int32.Parse(cmbCards.SelectedItem.ToString())
+                    );
+
+                if (!ret.StartsWith("ERRO"))
+                    showHand();
+
+                else MessageBox.Show(ret);
+            }
         }
     }
 }
