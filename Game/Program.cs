@@ -119,16 +119,20 @@ namespace Game
 
                 // id
                 frame.id.Text = this.id;
+                frame.id.AutoSize = false;
+                frame.id.Width = 30;
                 frame.id.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                frame.id.Location = new System.Drawing.Point(10, 5);
-                frame.id.BackColor = System.Drawing.Color.Transparent;
+                frame.id.Location = new System.Drawing.Point(3, 3);
+                frame.id.BackColor = System.Drawing.Color.White;
                 frame.id.ForeColor = System.Drawing.Color.Red;
 
                 // bodes
                 frame.bodes.Text = this.bodes;
+                frame.bodes.AutoSize = false;
+                frame.bodes.Width = 30;
                 frame.bodes.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                frame.bodes.Location = new System.Drawing.Point(10, 30);
-                frame.bodes.BackColor = System.Drawing.Color.Transparent;
+                frame.bodes.Location = new System.Drawing.Point(3, height - 20);
+                frame.bodes.BackColor = System.Drawing.Color.White;
                 frame.bodes.ForeColor = System.Drawing.Color.Red;
 
 

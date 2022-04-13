@@ -113,6 +113,8 @@
     <Content Include="Properties\b8.PNG" />
     <Content Include="Properties\b9.PNG" />
     <Content Include="Properties\liquid-bg.jpg" />
+    <Content Include="Properties\mesa_skol.jfif" />
+    <None Include="Resources\mesa_skol.jfif" />
     <None Include="Resources\Shadow.png" />
     <None Include="Resources\liquid-bg.jpg" />
   </ItemGroup>

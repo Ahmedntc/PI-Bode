@@ -48,6 +48,7 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.btnAllCards = new System.Windows.Forms.Button();
             this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -154,6 +155,7 @@
             this.pnlMain.Controls.Add(this.btnStart);
             this.pnlMain.Controls.Add(this.btnQuit);
             this.pnlMain.Controls.Add(this.flpHand);
+            this.pnlMain.Controls.Add(this.panel1);
             this.pnlMain.Location = new System.Drawing.Point(12, 12);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1040, 657);
@@ -268,12 +270,22 @@
             // 
             // flpHand
             // 
+            this.flpHand.BackColor = System.Drawing.Color.Transparent;
             this.flpHand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpHand.Location = new System.Drawing.Point(8, 335);
+            this.flpHand.Location = new System.Drawing.Point(11, 335);
             this.flpHand.Margin = new System.Windows.Forms.Padding(2);
             this.flpHand.Name = "flpHand";
-            this.flpHand.Size = new System.Drawing.Size(706, 178);
+            this.flpHand.Size = new System.Drawing.Size(697, 147);
             this.flpHand.TabIndex = 19;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Game.Properties.Resources.mesa_skol;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(9, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(701, 481);
+            this.panel1.TabIndex = 5;
             // 
             // imageList1
             // 
@@ -323,5 +335,6 @@
         private System.Windows.Forms.Button btnShowIslands;
         private System.Windows.Forms.ComboBox cmbIslands;
         private System.Windows.Forms.Button btnChooseIsland;
+        private System.Windows.Forms.Panel panel1;
     }
 }

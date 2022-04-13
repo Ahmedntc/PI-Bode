@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BodeOfWarServer;
-
+#pragma warning disable IDE1006 // Estilos de Nomenclatura
 namespace Game.Game.Running_Folder
 {
     public partial class Running : Form
@@ -26,15 +26,6 @@ namespace Game.Game.Running_Folder
         /// </summary>
         public class Enemy
         {
-
-            // COMENTÁRIO PARA DELETAR, EXPLICATÓRIO :
-            /* A estrutura não fazia muito sentido estar em Global.Match, pois não vamos acessar esta em outros forms,
-             * por isto a mudança para cá, sobre os valores, teremos outros muito importantes no futuro:
-             * 
-             * public LinkedList<Global.Card> cards para possíveis cartas que ele pode ter (não sabemos, sabemos apenas as nossas), para operarmos com previsões no decision-making
-             * 
-             */
-
             public int id;
             public string name;
 
@@ -71,17 +62,8 @@ namespace Game.Game.Running_Folder
         }
 
 
-        /// <summary>
-        /// Inicia a partida, armazenando os jogadores dela na estrutura Global.Match.enemies
-        /// </summary>
-        private void btnStart_Click(object sender, EventArgs e)
+        private void show_Pannels()
         {
-            // partida iniciada
-            //MessageBox.Show(Global.Match.player.id.ToString());
-
-            btnStart.Hide();
-            this.btnQuit.Location = new System.Drawing.Point(5, 5);
-
 
             // posicionamos lentamente os paineis da direita e baixo na interface
             // pnl Right
@@ -94,31 +76,37 @@ namespace Game.Game.Running_Folder
             {
                 // 50 iterações
 
-                // função escolhida direita
-                // f(x) = 1020 - (x^2)/2 + (x/5)^3 - x
-
-                // função escolhida baixo
-                // f(X) = 644 - (X^2)/4 + (X/6)^3 - 2X
-
                 for (double i = 0; i < 50; i++)
                 {
 
-                    Thread.Sleep(20);
+                    Thread.Sleep(10);
                     //right
-                    double c1 = i;
-                    double c2 = Math.Pow(i, 2) / 2;
-                    double c3 = Math.Pow((i / 5), 3);
-                    int fx = (int)(1030 - c2 + c3 - c1);
-                    pnlRight.Location = new System.Drawing.Point(fx, 0);
+                    double x = Math.Pow(i, 2) / 45;
+
+                    double c1 = 1018 - 50 * Math.Sqrt(i) + x;
+                    pnlRight.Location = new System.Drawing.Point((int)c1, 3);
+
 
                     //bottom
-                    c1 = 2*i;
-                    c2 = Math.Pow(i, 2) / 4;
-                    c3 = Math.Pow((i / 6), 3);
-                    fx = (int)(644 - c2 + c3 - c1);
-                    pnlBottom.Location = new System.Drawing.Point(0, fx);
+                    c1 = 651 - 31 * Math.Sqrt(i) + x;
+                    pnlBottom.Location = new System.Drawing.Point(3, (int)c1);
                 }
             }
+
+        }
+
+        /// <summary>
+        /// Inicia a partida, armazenando os jogadores dela na estrutura Global.Match.enemies
+        /// </summary>
+        private async void btnStart_Click(object sender, EventArgs e)
+        {
+            // partida iniciada
+            //MessageBox.Show(Global.Match.player.id.ToString());
+
+            btnStart.Hide();
+            this.btnQuit.Location = new System.Drawing.Point(5, 5);
+
+            show_Pannels();
 
             //inserimos as nossas credenciais
             string ret = Jogo.IniciarPartida(Global.player.id, Global.player.token);
@@ -238,6 +226,7 @@ namespace Game.Game.Running_Folder
         {
             txtNarration.Text = (Jogo.ExibirNarracao(Global.Match.id));
         }
+
 
         private void btnAllCards_Click(object sender, EventArgs e)
         {
