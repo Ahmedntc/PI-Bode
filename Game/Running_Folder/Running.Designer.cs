@@ -39,6 +39,7 @@
             this.txtNarration = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnTable = new System.Windows.Forms.Button();
             this.cmbIslands = new System.Windows.Forms.ComboBox();
             this.btnChooseIsland = new System.Windows.Forms.Button();
             this.btnShowIslands = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -174,7 +174,7 @@
             // 
             this.pnlBottom.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlBottom.Controls.Add(this.button1);
+            this.pnlBottom.Controls.Add(this.btnTable);
             this.pnlBottom.Controls.Add(this.cmbIslands);
             this.pnlBottom.Controls.Add(this.btnChooseIsland);
             this.pnlBottom.Controls.Add(this.btnShowIslands);
@@ -188,6 +188,19 @@
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(947, 202);
             this.pnlBottom.TabIndex = 18;
+            // 
+            // btnTable
+            // 
+            this.btnTable.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTable.Location = new System.Drawing.Point(279, 151);
+            this.btnTable.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTable.Name = "btnTable";
+            this.btnTable.Size = new System.Drawing.Size(193, 46);
+            this.btnTable.TabIndex = 20;
+            this.btnTable.Text = "Verificar Mesa";
+            this.btnTable.UseVisualStyleBackColor = false;
+            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // cmbIslands
             // 
@@ -311,19 +324,6 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(279, 151);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 46);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Verificar Mesa";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Running
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -368,6 +368,6 @@
         private System.Windows.Forms.ComboBox cmbIslands;
         private System.Windows.Forms.Button btnChooseIsland;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTable;
     }
 }

@@ -28,6 +28,7 @@ namespace Game.Game.Running_Folder
         {
             public int id;
             public string name;
+            public LinkedList<Global.Card> cards = new LinkedList<Global.Card>();
 
             public Enemy(string id, string name)
             {
@@ -243,23 +244,24 @@ namespace Game.Game.Running_Folder
         private void showHand()
         {
             string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
-            retorno = retorno.Replace("\r", "");
-            retorno = retorno.Substring(0, retorno.Length - 1);
-            string[] Jformatted = retorno.Split('\n');
-
             Global.player.cards.Clear();
-
-
-            foreach (Global.Card card in Global.cards)
+            if (retorno != "")
             {
-                for (int i = 0; i < Jformatted.Length; i++)
+                retorno = retorno.Replace("\r", "");
+                retorno = retorno.Substring(0, retorno.Length - 1);
+                string[] Jformatted = retorno.Split('\n');
+
+                foreach (Global.Card card in Global.cards)
                 {
-                    if (card.id == Jformatted[i])
+                    for (int i = 0; i < Jformatted.Length; i++)
                     {
-                        Global.player.cards.AddLast(card);
+                        if (card.id == Jformatted[i])
+                        {
+                            Global.player.cards.AddLast(card);
+                        }
                     }
                 }
-            }
+            }            
 
             flpHand.Controls.Clear();
 
@@ -330,23 +332,33 @@ namespace Game.Game.Running_Folder
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTable_Click(object sender, EventArgs e)
         {
             //Formato: Separar por \r\n e depois dar split na virgula
+
             string ret = Jogo.VerificarMesa(Global.Match.id);
-            ret = ret.Replace("\r\n", "");
+            MessageBox.Show(ret);
+            ret = ret.Replace("\n", "");
             ret = ret.Substring(0, ret.Length - 1);
+            string[] formattedRet = ret.Split('\r');
 
-            string[] formattedRet = ret.Split(',');
-
-            string numIsland = formattedRet[0];
-
-            string[] idJogadores = new String[formattedRet.Length];
-            string[] idCartaFinal = new String[formattedRet.Length];
-
-            for (int i = 0; i < formattedRet.Length; i++)
+            string ilha = formattedRet[0];
+            
+            for (int i = 1; i < formattedRet.Length; i++)
             {
-                MessageBox.Show(formattedRet[i]);
+                string[] aux = formattedRet[i].Split(',');
+                int idPlayer = Int32.Parse(aux[0]);
+                int idCard = Int32.Parse(aux[1]);
+                foreach (Enemy enemy in enemies)
+                {
+                    if (idPlayer == enemy.id)
+                    {
+                        if (!enemy.cards.Contains(Global.cards[idCard - 1]))
+                        {
+                            enemy.cards.AddLast(Global.cards[idCard - 1]);
+                        }
+                    }
+                }
             }
         }
     }
