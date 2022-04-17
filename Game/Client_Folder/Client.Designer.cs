@@ -52,6 +52,7 @@
             this.idUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.btnRetMatch = new System.Windows.Forms.Button();
             this.lblError1 = new System.Windows.Forms.Label();
             this.lblProp2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnDebugcall = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlMatch.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlSelected_Match.SuspendLayout();
@@ -75,7 +75,7 @@
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(20, 25);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(199, 55);
             this.btnSearch.TabIndex = 0;
@@ -93,7 +93,7 @@
             this.pnlMatch.Controls.Add(this.pnlSelected_Match);
             this.pnlMatch.Controls.Add(this.btnSearch);
             this.pnlMatch.Location = new System.Drawing.Point(15, 28);
-            this.pnlMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMatch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMatch.Name = "pnlMatch";
             this.pnlMatch.Size = new System.Drawing.Size(813, 686);
             this.pnlMatch.TabIndex = 1;
@@ -109,7 +109,7 @@
             this.panel1.Controls.Add(this.lblProp3);
             this.panel1.Controls.Add(this.btnCreateMatch);
             this.panel1.Location = new System.Drawing.Point(20, 502);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(373, 174);
             this.panel1.TabIndex = 15;
@@ -140,7 +140,7 @@
             // 
             this.txtNewMatchPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewMatchPass.Location = new System.Drawing.Point(192, 59);
-            this.txtNewMatchPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNewMatchPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewMatchPass.Name = "txtNewMatchPass";
             this.txtNewMatchPass.PasswordChar = '*';
             this.txtNewMatchPass.Size = new System.Drawing.Size(167, 26);
@@ -150,7 +150,7 @@
             // 
             this.txtNewMatchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewMatchName.Location = new System.Drawing.Point(16, 59);
-            this.txtNewMatchName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNewMatchName.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewMatchName.Name = "txtNewMatchName";
             this.txtNewMatchName.Size = new System.Drawing.Size(167, 26);
             this.txtNewMatchName.TabIndex = 3;
@@ -171,7 +171,7 @@
             this.btnCreateMatch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateMatch.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateMatch.Location = new System.Drawing.Point(4, 126);
-            this.btnCreateMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateMatch.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateMatch.Name = "btnCreateMatch";
             this.btnCreateMatch.Size = new System.Drawing.Size(365, 44);
             this.btnCreateMatch.TabIndex = 1;
@@ -216,7 +216,7 @@
             this.lstMatches.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstMatches.HideSelection = false;
             this.lstMatches.Location = new System.Drawing.Point(20, 87);
-            this.lstMatches.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstMatches.Margin = new System.Windows.Forms.Padding(4);
             this.lstMatches.MinimumSize = new System.Drawing.Size(4, 36);
             this.lstMatches.Name = "lstMatches";
             this.lstMatches.Size = new System.Drawing.Size(372, 405);
@@ -248,7 +248,7 @@
             this.pnlSelected_Match.Controls.Add(this.pnlLogin);
             this.pnlSelected_Match.Controls.Add(this.lblSelected_Match);
             this.pnlSelected_Match.Location = new System.Drawing.Point(401, 25);
-            this.pnlSelected_Match.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSelected_Match.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSelected_Match.Name = "pnlSelected_Match";
             this.pnlSelected_Match.Size = new System.Drawing.Size(396, 661);
             this.pnlSelected_Match.TabIndex = 2;
@@ -262,7 +262,7 @@
             this.pnlMatch_Info.Controls.Add(this.lblMatch_Name);
             this.pnlMatch_Info.Controls.Add(this.lstPlayers);
             this.pnlMatch_Info.Location = new System.Drawing.Point(8, 63);
-            this.pnlMatch_Info.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMatch_Info.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMatch_Info.Name = "pnlMatch_Info";
             this.pnlMatch_Info.Size = new System.Drawing.Size(373, 409);
             this.pnlMatch_Info.TabIndex = 4;
@@ -312,7 +312,7 @@
             this.lstPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstPlayers.HideSelection = false;
             this.lstPlayers.Location = new System.Drawing.Point(0, 208);
-            this.lstPlayers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstPlayers.Margin = new System.Windows.Forms.Padding(4);
             this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 36);
             this.lstPlayers.Name = "lstPlayers";
             this.lstPlayers.Scrollable = false;
@@ -334,7 +334,7 @@
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlLogin.Controls.Add(this.button1);
+            this.pnlLogin.Controls.Add(this.btnRetMatch);
             this.pnlLogin.Controls.Add(this.lblError1);
             this.pnlLogin.Controls.Add(this.lblProp2);
             this.pnlLogin.Controls.Add(this.txtPassword);
@@ -342,10 +342,23 @@
             this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Controls.Add(this.lblProp1);
             this.pnlLogin.Location = new System.Drawing.Point(8, 479);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlLogin.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(373, 172);
             this.pnlLogin.TabIndex = 3;
+            // 
+            // btnRetMatch
+            // 
+            this.btnRetMatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRetMatch.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRetMatch.Location = new System.Drawing.Point(8, 120);
+            this.btnRetMatch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRetMatch.Name = "btnRetMatch";
+            this.btnRetMatch.Size = new System.Drawing.Size(180, 48);
+            this.btnRetMatch.TabIndex = 7;
+            this.btnRetMatch.Text = "Retornar";
+            this.btnRetMatch.UseVisualStyleBackColor = true;
+            this.btnRetMatch.Click += new System.EventHandler(this.btnRetMatch_Click);
             // 
             // lblError1
             // 
@@ -373,7 +386,7 @@
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(192, 59);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(167, 26);
@@ -383,7 +396,7 @@
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(16, 59);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(167, 26);
             this.txtUsername.TabIndex = 3;
@@ -393,7 +406,7 @@
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(189, 120);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(180, 48);
             this.btnLogin.TabIndex = 1;
@@ -455,18 +468,6 @@
             this.btnDebugcall.UseVisualStyleBackColor = true;
             this.btnDebugcall.Click += new System.EventHandler(this.btnDebugcall_Click);
             // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(8, 120);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 48);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Voltar pra partida";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -476,7 +477,7 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.pnlMatch);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(861, 801);
             this.MinimumSize = new System.Drawing.Size(861, 801);
@@ -531,7 +532,7 @@
         private System.Windows.Forms.TextBox txtNewMatchName;
         private System.Windows.Forms.Label lblProp3;
         private System.Windows.Forms.Button btnCreateMatch;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRetMatch;
     }
 }
 
