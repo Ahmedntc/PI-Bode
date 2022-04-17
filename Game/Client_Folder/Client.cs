@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BodeOfWarServer;
+using System;
+using System.IO;
+using System.Text;
 
 namespace Game
 {
@@ -259,6 +262,24 @@ namespace Game
             }
         }
 
+        /// <summary>
+        /// Escreve arquivo com as informações da partida onde o jogador se encontra atualmente.
+        /// </summary>
+        /// <param name="idPartida"></param>
+        /// <param name="idJogador"></param>
+        /// <param name="Nome"></param>
+        /// <param name="token"></param>
+        public void LogMatchInFile(int idPartida, string idJogador, string Nome,string token)
+        {
+            string info = idPartida.ToString()+","+idJogador+","+Nome+","+token;
+            string path = "partyconf.log";
+            using (FileStream fs = File.Create(path))
+            {
+                byte[] log = new UTF8Encoding(true).GetBytes(info);
+                fs.Write(log, 0, log.Length);
+            }
+        }
+
 
         /// <summary>
         /// Função para o login
@@ -298,7 +319,7 @@ namespace Game
                 // Possíveis erros prévios tratados
                 // Variável armazenando retorno de EntrarPartida
                 string retJoin = Jogo.EntrarPartida(Matches[index].id, name, password);
-
+                // MessageBox.Show(retJoin);
                 // Tratando outros possíveis erros
                 if (retJoin.StartsWith("ERRO"))
                 {
@@ -313,6 +334,8 @@ namespace Game
                     
                     Global.Match = new Global.Selected_Match(password, Matches[index]);
                     Global.player = new Global.Player(name, usrId[1], Int32.Parse(usrId[0]));
+
+                    LogMatchInFile(Matches[index].id, usrId[0], name, usrId[1]);
 
                     this.Hide();
 
@@ -394,6 +417,32 @@ namespace Game
             }
         }
 
+        /// <summary>
+        /// Entrar em uma partida em andamento.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRetMatch_Click(object sender, EventArgs e)
+        {
+            // idPartida.ToString()+","+idJogador+","+Nome+","+token;
+            int index = lstMatches.SelectedIndices[0];
+            string path = "partyconf.log";
+            using (StreamReader rf = File.OpenText(path))
+            {
+                string s = "";
+                s = rf.ReadLine();
 
+                MessageBox.Show(s);
+
+                string[] usrConf = s.Split(',');
+
+                Global.Match = new Global.Selected_Match("xxx", Matches[index]);
+                Global.player = new Global.Player(usrConf[2], usrConf[3], Int32.Parse(usrConf[1]));
+
+                this.Hide();
+                Global.Match.Play();
+                this.Show();
+            }
+        }
     }
 }
