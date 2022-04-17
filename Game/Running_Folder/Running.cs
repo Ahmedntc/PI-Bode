@@ -329,5 +329,25 @@ namespace Game.Game.Running_Folder
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Formato: Separar por \r\n e depois dar split na virgula
+            string ret = Jogo.VerificarMesa(Global.Match.id);
+            ret = ret.Replace("\r\n", "");
+            ret = ret.Substring(0, ret.Length - 1);
+
+            string[] formattedRet = ret.Split(',');
+
+            string numIsland = formattedRet[0];
+
+            string[] idJogadores = new String[formattedRet.Length];
+            string[] idCartaFinal = new String[formattedRet.Length];
+
+            for (int i = 0; i < formattedRet.Length; i++)
+            {
+                MessageBox.Show(formattedRet[i]);
+            }
+        }
     }
 }

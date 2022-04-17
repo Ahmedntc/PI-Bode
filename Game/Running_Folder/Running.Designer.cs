@@ -50,6 +50,7 @@
             this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -71,7 +72,7 @@
             this.lstPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstPlayers.HideSelection = false;
             this.lstPlayers.Location = new System.Drawing.Point(4, 4);
-            this.lstPlayers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstPlayers.Margin = new System.Windows.Forms.Padding(4);
             this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 36);
             this.lstPlayers.Name = "lstPlayers";
             this.lstPlayers.Scrollable = false;
@@ -95,7 +96,7 @@
             this.btnStart.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.Location = new System.Drawing.Point(597, 299);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(200, 49);
             this.btnStart.TabIndex = 9;
@@ -107,7 +108,7 @@
             // 
             this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuit.Location = new System.Drawing.Point(597, 356);
-            this.btnQuit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuit.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(200, 49);
             this.btnQuit.TabIndex = 10;
@@ -130,7 +131,7 @@
             // btnNarration
             // 
             this.btnNarration.Location = new System.Drawing.Point(99, 702);
-            this.btnNarration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNarration.Margin = new System.Windows.Forms.Padding(4);
             this.btnNarration.Name = "btnNarration";
             this.btnNarration.Size = new System.Drawing.Size(255, 46);
             this.btnNarration.TabIndex = 14;
@@ -146,7 +147,7 @@
             this.txtNarration.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNarration.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtNarration.Location = new System.Drawing.Point(0, 0);
-            this.txtNarration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNarration.Margin = new System.Windows.Forms.Padding(4);
             this.txtNarration.MaximumSize = new System.Drawing.Size(1331, 1229);
             this.txtNarration.Multiline = true;
             this.txtNarration.Name = "txtNarration";
@@ -164,7 +165,7 @@
             this.pnlMain.Controls.Add(this.flpHand);
             this.pnlMain.Controls.Add(this.panel1);
             this.pnlMain.Location = new System.Drawing.Point(16, 15);
-            this.pnlMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1387, 809);
             this.pnlMain.TabIndex = 16;
@@ -173,6 +174,7 @@
             // 
             this.pnlBottom.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlBottom.Controls.Add(this.button1);
             this.pnlBottom.Controls.Add(this.cmbIslands);
             this.pnlBottom.Controls.Add(this.btnChooseIsland);
             this.pnlBottom.Controls.Add(this.btnShowIslands);
@@ -182,7 +184,7 @@
             this.pnlBottom.Controls.Add(this.btnCheck);
             this.pnlBottom.Controls.Add(this.lblTurn);
             this.pnlBottom.Location = new System.Drawing.Point(5, 599);
-            this.pnlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBottom.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(947, 202);
             this.pnlBottom.TabIndex = 18;
@@ -202,7 +204,7 @@
             this.btnChooseIsland.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnChooseIsland.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChooseIsland.Location = new System.Drawing.Point(749, 4);
-            this.btnChooseIsland.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChooseIsland.Margin = new System.Windows.Forms.Padding(4);
             this.btnChooseIsland.Name = "btnChooseIsland";
             this.btnChooseIsland.Size = new System.Drawing.Size(189, 46);
             this.btnChooseIsland.TabIndex = 18;
@@ -214,10 +216,10 @@
             // 
             this.btnShowIslands.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnShowIslands.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowIslands.Location = new System.Drawing.Point(283, 53);
-            this.btnShowIslands.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShowIslands.Location = new System.Drawing.Point(279, 55);
+            this.btnShowIslands.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowIslands.Name = "btnShowIslands";
-            this.btnShowIslands.Size = new System.Drawing.Size(189, 46);
+            this.btnShowIslands.Size = new System.Drawing.Size(193, 46);
             this.btnShowIslands.TabIndex = 17;
             this.btnShowIslands.Text = "Mostrar Ilhas";
             this.btnShowIslands.UseVisualStyleBackColor = false;
@@ -238,7 +240,7 @@
             this.btnPlay.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlay.Location = new System.Drawing.Point(515, 4);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(189, 46);
             this.btnPlay.TabIndex = 15;
@@ -251,7 +253,7 @@
             this.btnCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheck.Location = new System.Drawing.Point(279, 103);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(193, 46);
             this.btnCheck.TabIndex = 13;
@@ -267,7 +269,7 @@
             this.pnlRight.Controls.Add(this.btnNarration);
             this.pnlRight.Controls.Add(this.txtNarration);
             this.pnlRight.Location = new System.Drawing.Point(960, 4);
-            this.pnlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlRight.Margin = new System.Windows.Forms.Padding(4);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(421, 800);
             this.pnlRight.TabIndex = 17;
@@ -275,7 +277,7 @@
             // btnAllCards
             // 
             this.btnAllCards.Location = new System.Drawing.Point(99, 745);
-            this.btnAllCards.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAllCards.Margin = new System.Windows.Forms.Padding(4);
             this.btnAllCards.Name = "btnAllCards";
             this.btnAllCards.Size = new System.Drawing.Size(255, 46);
             this.btnAllCards.TabIndex = 16;
@@ -298,7 +300,7 @@
             this.panel1.BackgroundImage = global::Game.Properties.Resources.mesa_skol;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(12, 6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(935, 592);
             this.panel1.TabIndex = 5;
@@ -309,6 +311,19 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(279, 151);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(193, 46);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Verificar Mesa";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Running
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -316,7 +331,7 @@
             this.BackgroundImage = global::Game.Properties.Resources.liquid_bg;
             this.ClientSize = new System.Drawing.Size(1416, 826);
             this.Controls.Add(this.pnlMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1434, 873);
             this.MinimumSize = new System.Drawing.Size(1434, 873);
             this.Name = "Running";
@@ -353,5 +368,6 @@
         private System.Windows.Forms.ComboBox cmbIslands;
         private System.Windows.Forms.Button btnChooseIsland;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
