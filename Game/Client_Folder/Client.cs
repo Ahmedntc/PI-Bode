@@ -427,14 +427,28 @@ namespace Game
             // idPartida.ToString()+","+idJogador+","+Nome+","+token;
             int index = lstMatches.SelectedIndices[0];
             string path = "partyconf.log";
+
+            // VErifica se arquivo existe.
+            if(!File.Exists(path))
+            {
+                MessageBox.Show("Partida não pode ser continuada!");
+                return;
+            }
             using (StreamReader rf = File.OpenText(path))
             {
                 string s = "";
                 s = rf.ReadLine();
 
-                MessageBox.Show(s);
+                //MessageBox.Show(s);
 
                 string[] usrConf = s.Split(',');
+
+                // Verifica se arquivo está corrompido.
+                if (usrConf.Length < 3)
+                {
+                    MessageBox.Show("Log de partida corrompido.");
+                    return;
+                }
 
                 Global.Match = new Global.Selected_Match("xxx", Matches[index]);
                 Global.player = new Global.Player(usrConf[2], usrConf[3], Int32.Parse(usrConf[1]));
