@@ -119,8 +119,7 @@ namespace Game
 
                 // id
                 frame.id.Text = this.id;
-                frame.id.AutoSize = false;
-                frame.id.Width = 30;
+                frame.id.AutoSize = true;
                 frame.id.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 frame.id.Location = new System.Drawing.Point(3, 3);
                 frame.id.BackColor = System.Drawing.Color.White;
@@ -128,7 +127,7 @@ namespace Game
 
                 // bodes
                 frame.bodes.Text = this.bodes;
-                frame.bodes.AutoSize = false;
+                frame.bodes.AutoSize = true;
                 frame.bodes.Width = 30;
                 frame.bodes.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 frame.bodes.Location = new System.Drawing.Point(3, height - 20);

@@ -224,7 +224,8 @@ namespace Game.Game.Running_Folder
         /// </summary>
         private void btnNarration_Click(object sender, EventArgs e)
         {
-            txtNarration.Text = (Jogo.ExibirNarracao(Global.Match.id));
+            txtNarration.Text = (Jogo.ExibirNarracao(Global.Match.id).Replace("\n", "\n\n"));
+
         }
 
 
@@ -322,6 +323,11 @@ namespace Game.Game.Running_Folder
                 MessageBox.Show(ret);
                 cmbIslands.Items.Clear();
             }
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
