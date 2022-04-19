@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BodeOfWarServer;
-using System;
 using System.IO;
-using System.Text;
 
 namespace Game
 {
@@ -262,13 +260,10 @@ namespace Game
             }
         }
 
+
         /// <summary>
         /// Escreve arquivo com as informações da partida onde o jogador se encontra atualmente.
         /// </summary>
-        /// <param name="idPartida"></param>
-        /// <param name="idJogador"></param>
-        /// <param name="Nome"></param>
-        /// <param name="token"></param>
         public void LogMatchInFile(int idPartida, string idJogador, string Nome,string token)
         {
             string info = idPartida.ToString()+","+idJogador+","+Nome+","+token;
@@ -277,6 +272,7 @@ namespace Game
             {
                 byte[] log = new UTF8Encoding(true).GetBytes(info);
                 fs.Write(log, 0, log.Length);
+                fs.Close();
             }
         }
 
@@ -357,6 +353,7 @@ namespace Game
             DebugConsole debug = new DebugConsole();
             btnDebugcall.Enabled = false;
             debug.Show();
+            debug.Main();
         }
 
 
@@ -417,11 +414,10 @@ namespace Game
             }
         }
 
+
         /// <summary>
         /// Entrar em uma partida em andamento.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnRetMatch_Click(object sender, EventArgs e)
         {
             // idPartida.ToString()+","+idJogador+","+Nome+","+token;
@@ -438,6 +434,7 @@ namespace Game
             {
                 string s = "";
                 s = rf.ReadLine();
+                rf.Close();
 
                 //MessageBox.Show(s);
 

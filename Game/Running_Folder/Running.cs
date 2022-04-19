@@ -99,7 +99,7 @@ namespace Game.Game.Running_Folder
         /// <summary>
         /// Inicia a partida, armazenando os jogadores dela na estrutura Global.Match.enemies
         /// </summary>
-        private async void btnStart_Click(object sender, EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
             // partida iniciada
             //MessageBox.Show(Global.Match.player.id.ToString());
@@ -234,11 +234,6 @@ namespace Game.Game.Running_Folder
         {
             DebugConsole debug = new DebugConsole();
             debug.Show();
-            foreach(Global.Card card in Global.cards)
-            {
-                Global.Card.Graphical card_image = card.get_Panel(125, 175);
-                debug.pnlDisplay.Controls.Add(card_image.panel);
-            }
         }
 
         private void showHand()

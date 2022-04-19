@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+#pragma warning disable IDE1006 // Estilos de Nomenclatura
 
 namespace Game
 {
