@@ -338,12 +338,17 @@ namespace Game.Game.Running_Folder
             string[] formattedRet = ret.Split('\r');
 
             string ilha = formattedRet[0];
-            
+            flpTable.Controls.Clear();
+
             for (int i = 1; i < formattedRet.Length; i++)
             {
                 string[] aux = formattedRet[i].Split(',');
                 int idPlayer = Int32.Parse(aux[0]);
                 int idCard = Int32.Parse(aux[1]);
+
+                // exibe graficamente
+                var temp = Global.cards[idCard - 1].get_Panel(100, 150);
+                flpTable.Controls.Add(temp.panel);
                 foreach (Enemy enemy in enemies)
                 {
                     if (idPlayer == enemy.id)
