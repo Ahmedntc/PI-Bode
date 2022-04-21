@@ -159,7 +159,6 @@ namespace Game
                 // jogador
                 
                 this.name = ""; // 
-                this.id = 0;
                 this.cards = new LinkedList<Card>();
                 this.name = name;
                 this.token = token; // Senha unica gerada pelo banco
