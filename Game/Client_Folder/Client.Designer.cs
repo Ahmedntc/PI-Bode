@@ -195,7 +195,10 @@
             "Abertas",
             "Jogando",
             "Encerradas",
-            "Ahmed"});
+            "Ahmed",
+            "Matheus",
+            "Murilo",
+            "Pietro"});
             this.cmbFilters.Location = new System.Drawing.Point(224, 44);
             this.cmbFilters.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbFilters.Name = "cmbFilters";

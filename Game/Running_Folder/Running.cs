@@ -307,7 +307,7 @@ namespace Game.Game.Running_Folder
                     Int32.Parse(cmbIslands.SelectedItem.ToString())
                     );
 
-                MessageBox.Show(ret);
+                //MessageBox.Show(ret);
                 cmbIslands.Items.Clear();
             }
         }
