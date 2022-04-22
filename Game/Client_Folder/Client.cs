@@ -34,7 +34,7 @@ namespace Game
             }
 
         }
-        Match[] Matches;
+        static public Match[] Matches;
 
 
 
@@ -50,7 +50,7 @@ namespace Game
         /// <summary>
         /// Procura por partidas de Bodeofwar existentes
         /// </summary>
-        private void btnSearch_Click(object sender, EventArgs e)
+        public void btnSearch_Click(object sender, EventArgs e)
         {
 
             /*
@@ -337,7 +337,7 @@ namespace Game
 
                     //MessageBox.Show(String.Format("{0}: Usuário {1} logado com ID {2}", usrId[0], name, usrId[1]));
 
-                    Global.Match.Play();
+                    Global.Match.Play(this);
 
                     this.Show();
                 }
@@ -450,7 +450,7 @@ namespace Game
                 Global.player = new Global.Player(usrConf[2], usrConf[3], Int32.Parse(usrConf[1]));
 
                 this.Hide();
-                Global.Match.Play();
+                Global.Match.Play(this);
                 this.Show();
             }
         }

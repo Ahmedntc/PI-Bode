@@ -16,8 +16,10 @@ namespace Game.Game.Running_Folder
     {
 
         /// Variáveis
-
+        private Client Client;
         private Automata Bot;
+        public string PlayerTurn;
+        public string RoundStatus;
 
         public class Enemy
         {
@@ -39,10 +41,11 @@ namespace Game.Game.Running_Folder
         
         ///  Funções
 
-        public Running()
+        public Running(Client client)
         {
             InitializeComponent();
             this.Bot = new Automata();
+            this.Client = client;
         }
 
         private void show_Pannels()
@@ -77,7 +80,7 @@ namespace Game.Game.Running_Folder
 
         }
 
-        private void showHand()
+        public void showHand()
         {
             string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
             Global.player.cards.Clear();
@@ -115,7 +118,18 @@ namespace Game.Game.Running_Folder
             }
         }
 
-
+        public char showStatus()
+        {
+            Client.btnSearch_Click(null, null);
+            foreach (Client.Match match in Client.Matches)
+            {
+                if(Global.Match.id == match.id)
+                {
+                    return match.status;
+                }
+            }
+            return 'W';
+        }
 
 
 
@@ -152,7 +166,10 @@ namespace Game.Game.Running_Folder
 
             btnStart.Hide();
             this.btnQuit.Location = new System.Drawing.Point(5, 5);
+
+            //Liga o automata
             tmrTrigger.Enabled = true;
+
             show_Pannels();
 
             //inserimos as nossas credenciais
@@ -230,6 +247,7 @@ namespace Game.Game.Running_Folder
         {
             string retChecker = Jogo.VerificarVez(Global.Match.id);
             string[] formattedCheck = retChecker.Split(',');
+            RoundStatus = formattedCheck[formattedCheck.Length - 1];
             if (retChecker.StartsWith("ERRO"))
             {
                 lblTurn.Text = retChecker;
@@ -239,11 +257,15 @@ namespace Game.Game.Running_Folder
                 if(Global.player.id == Int32.Parse(formattedCheck[1]))
                 {
                     lblTurn.Text = Global.player.name;
+                    PlayerTurn = Global.player.name;
                 }
                 foreach (Enemy aux in enemies)
                 {
                     if (aux.id == Int32.Parse(formattedCheck[1]))
+                    {
                         lblTurn.Text = aux.name;
+                        PlayerTurn = aux.name;
+                    }
                 }
             }
         }
@@ -266,7 +288,7 @@ namespace Game.Game.Running_Folder
         {
             if (cmbCards.SelectedItem != null)
             {
-                string ret =Jogo.Jogar(
+                string ret = Jogo.Jogar(
                     Global.player.id,
                     Global.player.token,
                     Int32.Parse(cmbCards.SelectedItem.ToString())
@@ -330,10 +352,13 @@ namespace Game.Game.Running_Folder
             string[] formattedRet = ret.Split('\r');
             
             string ilha = formattedRet[0];
-            ilha = ilha.Substring(1, ilha.Length - 1);
-            lblIlhas.Text = ilha;
-            Global.Match.ilha = Int32.Parse(ilha);
-
+            if(!formattedRet[0].Equals(""))
+            {
+                ilha = ilha.Substring(1, ilha.Length - 1);
+                lblIlhas.Text = ilha;
+                Global.Match.ilha = Int32.Parse(ilha);
+            }
+            
             flpTable.Controls.Clear();
             for (int i = 1; i < formattedRet.Length; i++)
             {
@@ -365,9 +390,15 @@ namespace Game.Game.Running_Folder
 
         /// Bot
 
-        private void tmrTrigger_Tick(object sender, EventArgs e)
+        public void tmrTrigger_Tick(object sender, EventArgs e)
         {
-            this.Bot.Loop(this);   
+            if (showStatus() == 'E')
+            {
+                tmrTrigger.Enabled = false;
+                MessageBox.Show("Acabou");
+                this.Close();
+            }
+            this.Bot.Loop(this);
         }
     }
 }

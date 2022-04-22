@@ -201,12 +201,12 @@ namespace Game
             /// <summary>
             /// Joga a partida
             /// </summary>
-            public bool Play()
+            public bool Play(Client client)
             {
                 if (this == null)
                     return false;
 
-                Game.Running_Folder.Running Running = new Game.Running_Folder.Running();
+                Game.Running_Folder.Running Running = new Game.Running_Folder.Running(client);
 
                 Running.ShowDialog();
 
