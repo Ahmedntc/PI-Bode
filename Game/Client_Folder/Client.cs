@@ -353,7 +353,6 @@ namespace Game
             DebugConsole debug = new DebugConsole();
             btnDebugcall.Enabled = false;
             debug.Show();
-            debug.Main();
         }
 
 

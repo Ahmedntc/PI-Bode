@@ -14,16 +14,11 @@ namespace Game.Game.Running_Folder
 {
     public partial class Running : Form
     {
-        
-        public Running()
-        {
-            InitializeComponent();
-        }
 
+        /// Variáveis
 
-        /// <summary>
-        /// A estrutura dos inimigos na partida
-        /// </summary>
+        private Automata Bot;
+
         public class Enemy
         {
             public int id;
@@ -38,30 +33,17 @@ namespace Game.Game.Running_Folder
         } public Enemy[] enemies;
 
 
-        /// <summary>
-        /// Realizada no carregamento da partida
-        /// </summary>
-        private void Running_Load(object sender, EventArgs e)
+
+
+
+        
+        ///  Funções
+
+        public Running()
         {
-            // Esconde os painéis de interface
-
-            // pnl Right
-            // posição original:  720; 3
-            // posição escondida: 1020; 3
-            this.pnlRight.Location = new System.Drawing.Point(1020, 3);
-
-            // pnl Bottom
-            // posição original:  4; 487
-            // posição escondida: 4; 650
-            this.pnlBottom.Location = new System.Drawing.Point(4, 650);
-
-            // btn Quit 
-            // posição original: 448; 307
-            // posição pós-start: 5; 5
-
-            // Aplica uma sombra ao ambiente
+            InitializeComponent();
+            this.Bot = new Automata();
         }
-
 
         private void show_Pannels()
         {
@@ -87,26 +69,90 @@ namespace Game.Game.Running_Folder
                     double c1 = 1018 - 50 * Math.Sqrt(i) + x;
                     pnlRight.Location = new System.Drawing.Point((int)c1, 3);
 
-
                     //bottom
-                    c1 = 651 - 31 * Math.Sqrt(i) + x;
-                    pnlBottom.Location = new System.Drawing.Point(3, (int)c1);
+                    c1 = 686 - 31 * Math.Sqrt(i) + x;
+                    pnlBottom.Location = new System.Drawing.Point(9, (int)c1);
                 }
             }
 
         }
 
-        /// <summary>
-        /// Inicia a partida, armazenando os jogadores dela na estrutura Global.Match.enemies
-        /// </summary>
-        private void btnStart_Click(object sender, EventArgs e)
+        private void showHand()
+        {
+            string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
+            Global.player.cards.Clear();
+            if (retorno != "")
+            {
+                retorno = retorno.Replace("\r", "");
+                retorno = retorno.Substring(0, retorno.Length - 1);
+                string[] Jformatted = retorno.Split('\n');
+
+                foreach (Global.Card card in Global.cards)
+                {
+                    for (int i = 0; i < Jformatted.Length; i++)
+                    {
+                        if (card.id == Jformatted[i])
+                        {
+                            Global.player.cards.AddLast(card);
+                        }
+                    }
+                }
+            }
+
+            flpHand.Controls.Clear();
+
+            foreach (Global.Card card in Global.player.cards)
+            {
+                Global.Card.Graphical card_image = card.get_Panel(80, 135);
+                flpHand.Controls.Add(card_image.panel);
+            }
+
+            cmbCards.Items.Clear();
+
+            foreach (Global.Card card in Global.player.cards)
+            {
+                cmbCards.Items.Add(card.id);
+            }
+        }
+
+
+
+
+
+
+
+        /// Eventos
+
+        private void Running_Load(object sender, EventArgs e)
+        {
+            // Esconde os painéis de interface
+
+            // pnl Right
+            // posição original:  720; 3
+            // posição escondida: 1020; 3
+            this.pnlRight.Location = new System.Drawing.Point(1020, 3);
+
+            // pnl Bottom
+            // posição original:  4; 487
+            // posição escondida: 4; 650
+            this.pnlBottom.Location = new System.Drawing.Point(4, 650);
+
+            // btn Quit 
+            // posição original: 448; 307
+            // posição pós-start: 5; 5
+
+            // Aplica uma sombra ao ambiente
+        }
+        
+
+        public void btnStart_Click(object sender, EventArgs e)
         {
             // partida iniciada
             //MessageBox.Show(Global.Match.player.id.ToString());
 
             btnStart.Hide();
             this.btnQuit.Location = new System.Drawing.Point(5, 5);
-
+            tmrTrigger.Enabled = true;
             show_Pannels();
 
             //inserimos as nossas credenciais
@@ -180,10 +226,7 @@ namespace Game.Game.Running_Folder
         }
 
 
-        /// <summary>
-        /// Checa de quem é a vez, retornando o nome do usuário
-        /// </summary>
-        private void btnCheck_Click(object sender, EventArgs e)
+        public void btnCheck_Click(object sender, EventArgs e)
         {
             string retChecker = Jogo.VerificarVez(Global.Match.id);
             string[] formattedCheck = retChecker.Split(',');
@@ -206,75 +249,20 @@ namespace Game.Game.Running_Folder
         }
 
 
-        /// <summary>
-        /// Exemplo de retorno
-        /// {user} iniciou a partida {match}, é a vez de {user_vez}
-        /// {user} entrou na partida com id {user_id}
-        /// {user2} entrou na partida com id {user2_id}
-        /// Criada a partida ben10
-        /// 
-        /// proposta: (deletem isso depois!!)
-        /// 
-        /// armazena este retorno em uma estrutura, e printa os últimos valores dessa string,
-        /// a narração ocorre apenas na partida em questão (nesse forms), então vou deixar
-        /// a estrutura no começo desse código, linha 
-        ///
-        /// podemos fazer a função escrever os últimos acontecimentos lentamente, como
-        /// se estivesse sendo digitado
-        /// 
-        /// </summary>
-        private void btnNarration_Click(object sender, EventArgs e)
+        public void btnNarration_Click(object sender, EventArgs e)
         {
             txtNarration.Text = (Jogo.ExibirNarracao(Global.Match.id).Replace("\n", "\n\n"));
-
         }
 
 
-        private void btnAllCards_Click(object sender, EventArgs e)
+        public void btnAllCards_Click(object sender, EventArgs e)
         {
             DebugConsole debug = new DebugConsole();
             debug.Show();
         }
 
-        private void showHand()
-        {
-            string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
-            Global.player.cards.Clear();
-            if (retorno != "")
-            {
-                retorno = retorno.Replace("\r", "");
-                retorno = retorno.Substring(0, retorno.Length - 1);
-                string[] Jformatted = retorno.Split('\n');
 
-                foreach (Global.Card card in Global.cards)
-                {
-                    for (int i = 0; i < Jformatted.Length; i++)
-                    {
-                        if (card.id == Jformatted[i])
-                        {
-                            Global.player.cards.AddLast(card);
-                        }
-                    }
-                }
-            }            
-
-            flpHand.Controls.Clear();
-
-            foreach (Global.Card card in Global.player.cards)
-            {
-                Global.Card.Graphical card_image = card.get_Panel(80, 135);
-                flpHand.Controls.Add(card_image.panel);
-            }
-
-            cmbCards.Items.Clear();
-
-            foreach (Global.Card card in Global.player.cards)
-            {
-                cmbCards.Items.Add(card.id);
-            }
-        }
-        
-        private void btnPlay_Click(object sender, EventArgs e)
+        public void btnPlay_Click(object sender, EventArgs e)
         {
             if (cmbCards.SelectedItem != null)
             {
@@ -291,7 +279,8 @@ namespace Game.Game.Running_Folder
             }
         }
 
-        private void btnShowIslands_Click(object sender, EventArgs e)
+
+        public void btnShowIslands_Click(object sender, EventArgs e)
         {
             string ret = Jogo.VerificarIlha(Global.player.id, Global.player.token);
             if (!ret.StartsWith("ERRO"))
@@ -307,7 +296,8 @@ namespace Game.Game.Running_Folder
             else MessageBox.Show(ret);
         }
 
-        private void btnChooseIsland_Click(object sender, EventArgs e)
+
+        public void btnChooseIsland_Click(object sender, EventArgs e)
         {
             if (cmbIslands.SelectedItem != null)
             {
@@ -322,12 +312,14 @@ namespace Game.Game.Running_Folder
             }
         }
 
-        private void btnQuit_Click(object sender, EventArgs e)
+
+        public void btnQuit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnTable_Click(object sender, EventArgs e)
+
+        public void btnTable_Click(object sender, EventArgs e)
         {
             //Formato: Separar por \r\n e depois dar split na virgula
 
@@ -336,10 +328,13 @@ namespace Game.Game.Running_Folder
             ret = ret.Replace("\n", "");
             ret = ret.Substring(0, ret.Length - 1);
             string[] formattedRet = ret.Split('\r');
-
+            
             string ilha = formattedRet[0];
-            flpTable.Controls.Clear();
+            ilha = ilha.Substring(1, ilha.Length - 1);
+            lblIlhas.Text = ilha;
+            Global.Match.ilha = Int32.Parse(ilha);
 
+            flpTable.Controls.Clear();
             for (int i = 1; i < formattedRet.Length; i++)
             {
                 string[] aux = formattedRet[i].Split(',');
@@ -360,6 +355,19 @@ namespace Game.Game.Running_Folder
                     }
                 }
             }
+        }
+
+
+
+
+
+
+
+        /// Bot
+
+        private void tmrTrigger_Tick(object sender, EventArgs e)
+        {
+            this.Bot.Loop(this);   
         }
     }
 }

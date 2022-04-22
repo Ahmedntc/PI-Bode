@@ -48,10 +48,11 @@
             this.btnCheck = new System.Windows.Forms.Button();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.btnAllCards = new System.Windows.Forms.Button();
-            this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
+            this.tmrTrigger = new System.Windows.Forms.Timer(this.components);
+            this.lblIlhas = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -77,7 +78,7 @@
             this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 30);
             this.lstPlayers.Name = "lstPlayers";
             this.lstPlayers.Scrollable = false;
-            this.lstPlayers.Size = new System.Drawing.Size(196, 155);
+            this.lstPlayers.Size = new System.Drawing.Size(192, 119);
             this.lstPlayers.TabIndex = 8;
             this.lstPlayers.TileSize = new System.Drawing.Size(1, 1);
             this.lstPlayers.UseCompatibleStateImageBehavior = false;
@@ -177,18 +178,18 @@
             this.pnlBottom.Controls.Add(this.lstPlayers);
             this.pnlBottom.Controls.Add(this.btnCheck);
             this.pnlBottom.Controls.Add(this.lblTurn);
-            this.pnlBottom.Location = new System.Drawing.Point(4, 487);
+            this.pnlBottom.Location = new System.Drawing.Point(9, 520);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(711, 165);
+            this.pnlBottom.Size = new System.Drawing.Size(707, 129);
             this.pnlBottom.TabIndex = 18;
             // 
             // btnTable
             // 
             this.btnTable.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTable.Location = new System.Drawing.Point(209, 123);
+            this.btnTable.Location = new System.Drawing.Point(385, 3);
             this.btnTable.Name = "btnTable";
-            this.btnTable.Size = new System.Drawing.Size(145, 37);
+            this.btnTable.Size = new System.Drawing.Size(143, 37);
             this.btnTable.TabIndex = 20;
             this.btnTable.Text = "Verificar Mesa";
             this.btnTable.UseVisualStyleBackColor = false;
@@ -198,8 +199,8 @@
             // 
             this.cmbIslands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIslands.FormattingEnabled = true;
-            this.cmbIslands.Location = new System.Drawing.Point(562, 45);
-            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbIslands.Location = new System.Drawing.Point(558, 87);
+            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2);
             this.cmbIslands.Name = "cmbIslands";
             this.cmbIslands.Size = new System.Drawing.Size(143, 21);
             this.cmbIslands.TabIndex = 19;
@@ -208,9 +209,9 @@
             // 
             this.btnChooseIsland.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnChooseIsland.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChooseIsland.Location = new System.Drawing.Point(562, 3);
+            this.btnChooseIsland.Location = new System.Drawing.Point(558, 3);
             this.btnChooseIsland.Name = "btnChooseIsland";
-            this.btnChooseIsland.Size = new System.Drawing.Size(142, 37);
+            this.btnChooseIsland.Size = new System.Drawing.Size(143, 37);
             this.btnChooseIsland.TabIndex = 18;
             this.btnChooseIsland.Text = "Escolher Ilha";
             this.btnChooseIsland.UseVisualStyleBackColor = false;
@@ -220,9 +221,9 @@
             // 
             this.btnShowIslands.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnShowIslands.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowIslands.Location = new System.Drawing.Point(209, 45);
+            this.btnShowIslands.Location = new System.Drawing.Point(558, 46);
             this.btnShowIslands.Name = "btnShowIslands";
-            this.btnShowIslands.Size = new System.Drawing.Size(145, 37);
+            this.btnShowIslands.Size = new System.Drawing.Size(143, 37);
             this.btnShowIslands.TabIndex = 17;
             this.btnShowIslands.Text = "Mostrar Ilhas";
             this.btnShowIslands.UseVisualStyleBackColor = false;
@@ -232,8 +233,8 @@
             // 
             this.cmbCards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCards.FormattingEnabled = true;
-            this.cmbCards.Location = new System.Drawing.Point(385, 46);
-            this.cmbCards.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCards.Location = new System.Drawing.Point(385, 87);
+            this.cmbCards.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCards.Name = "cmbCards";
             this.cmbCards.Size = new System.Drawing.Size(143, 21);
             this.cmbCards.TabIndex = 16;
@@ -242,9 +243,9 @@
             // 
             this.btnPlay.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(386, 3);
+            this.btnPlay.Location = new System.Drawing.Point(385, 45);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(142, 37);
+            this.btnPlay.Size = new System.Drawing.Size(143, 37);
             this.btnPlay.TabIndex = 15;
             this.btnPlay.Text = "Jogar";
             this.btnPlay.UseVisualStyleBackColor = false;
@@ -254,7 +255,7 @@
             // 
             this.btnCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(209, 84);
+            this.btnCheck.Location = new System.Drawing.Point(209, 45);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(145, 37);
             this.btnCheck.TabIndex = 13;
@@ -284,42 +285,52 @@
             this.btnAllCards.UseVisualStyleBackColor = true;
             this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
             // 
-            // flpHand
-            // 
-            this.flpHand.BackColor = System.Drawing.Color.Transparent;
-            this.flpHand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpHand.Location = new System.Drawing.Point(4, 330);
-            this.flpHand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.flpHand.Name = "flpHand";
-            this.flpHand.Size = new System.Drawing.Size(695, 147);
-            this.flpHand.TabIndex = 19;
-            // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::Game.Properties.Resources.mesa_skol;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.lblIlhas);
             this.panel1.Controls.Add(this.flpTable);
             this.panel1.Controls.Add(this.flpHand);
             this.panel1.Location = new System.Drawing.Point(9, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(701, 481);
+            this.panel1.Size = new System.Drawing.Size(707, 512);
             this.panel1.TabIndex = 5;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // flpTable
             // 
             this.flpTable.BackColor = System.Drawing.Color.Transparent;
             this.flpTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpTable.Location = new System.Drawing.Point(4, 64);
+            this.flpTable.Location = new System.Drawing.Point(82, 65);
             this.flpTable.Margin = new System.Windows.Forms.Padding(2);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(694, 154);
+            this.flpTable.Size = new System.Drawing.Size(523, 154);
             this.flpTable.TabIndex = 20;
+            // 
+            // flpHand
+            // 
+            this.flpHand.BackColor = System.Drawing.Color.Transparent;
+            this.flpHand.Location = new System.Drawing.Point(4, 363);
+            this.flpHand.Margin = new System.Windows.Forms.Padding(2);
+            this.flpHand.Name = "flpHand";
+            this.flpHand.Size = new System.Drawing.Size(695, 147);
+            this.flpHand.TabIndex = 19;
+            // 
+            // tmrTrigger
+            // 
+            this.tmrTrigger.Interval = 3000;
+            this.tmrTrigger.Tick += new System.EventHandler(this.tmrTrigger_Tick);
+            // 
+            // lblIlhas
+            // 
+            this.lblIlhas.BackColor = System.Drawing.Color.Transparent;
+            this.lblIlhas.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIlhas.ForeColor = System.Drawing.Color.Black;
+            this.lblIlhas.Location = new System.Drawing.Point(301, 238);
+            this.lblIlhas.Name = "lblIlhas";
+            this.lblIlhas.Size = new System.Drawing.Size(121, 45);
+            this.lblIlhas.TabIndex = 21;
+            this.lblIlhas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Running
             // 
@@ -353,7 +364,6 @@
         private System.Windows.Forms.Button btnNarration;
         private System.Windows.Forms.TextBox txtNarration;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel pnlRight;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Panel pnlBottom;
@@ -367,5 +377,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnTable;
         private System.Windows.Forms.FlowLayoutPanel flpTable;
+        private System.Windows.Forms.Timer tmrTrigger;
+        private System.Windows.Forms.Label lblIlhas;
     }
 }

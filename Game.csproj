@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\Automata.cs" />
     <Compile Include="Game\Debug_Folder\DebugConsole.cs">
       <SubType>Form</SubType>
     </Compile>

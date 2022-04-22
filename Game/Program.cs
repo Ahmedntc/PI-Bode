@@ -141,6 +141,7 @@ namespace Game
 
         } public static Card[] cards;
 
+
         /// <summary>
         /// Classe do nosso jogador na partida
         /// </summary>
@@ -166,8 +167,8 @@ namespace Game
                 this.id = id;
             }
 
-        }
-        static public Player player;
+        } static public Player player;
+
 
         /// <summary>
         /// Partida selecionada principal
@@ -175,6 +176,8 @@ namespace Game
         public class Selected_Match
         {
             public int id;
+            public int ilha;
+            public int rodada;
             public string name;
             public string date;
             public char status;
@@ -191,6 +194,8 @@ namespace Game
                 this.date = target.date;
                 this.status = target.status;
                 this.senha = senha;
+                this.ilha = 0;
+                this.rodada = 0;
             }
 
 
