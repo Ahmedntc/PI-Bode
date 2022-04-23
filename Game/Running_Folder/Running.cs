@@ -103,6 +103,20 @@ namespace Game.Game.Running_Folder
             }
         }
 
+        public void update_Table()
+        {
+            flpTable.Controls.Clear();
+            Global.match.check_Table();
+            lblIlhas.Text = Global.match.ilha.ToString();
+
+            if (Global.match.idCardJogada != 0)
+            {
+                // exibe graficamente
+                var temp = Global.cards[Global.match.idCardJogada - 1].get_Panel(100, 150);
+                flpTable.Controls.Add(temp.panel);
+            }
+        }
+
 
 
 
@@ -295,7 +309,7 @@ namespace Game.Game.Running_Folder
         public void btnTable_Click(object sender, EventArgs e)
         {
             flpTable.Controls.Clear();
-            Global.match.check_Curr_Table();
+            Global.match.check_Table();
             lblIlhas.Text = Global.match.ilha.ToString();
 
             if(Global.match.idCardJogada != 0)

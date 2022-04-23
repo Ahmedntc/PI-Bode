@@ -81,7 +81,7 @@ namespace Game
         //verificaçao de mesa automatica
         public void check_Table(Running form)
         {
-            form.btnTable_Click(null, null);
+            form.update_Table();
         }
 
 

@@ -364,7 +364,7 @@ namespace Game
             /// <summary>
             /// checa a situaçao da mesa na rodada atual 
             /// </summary>
-            public void check_Curr_Table()
+            public void check_Table()
             {
                 //Formato: Separar por \r\n e depois dar split na virgula
 
