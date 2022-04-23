@@ -10,9 +10,11 @@ using System.Windows.Forms;
 using BodeOfWarServer;
 using System.IO;
 
+#pragma warning disable IDE1006 // Estilos de Nomenclatura
+
 namespace Game
 {
-    #pragma warning disable IDE1006 // Estilos de Nomenclatura
+
     public partial class Client : Form
     {
         /// <summary>
@@ -328,17 +330,13 @@ namespace Game
                 {
                     string[] usrId = retJoin.Split(',');
                     
-                    Global.Match = new Global.Selected_Match(password, Matches[index]);
+                    Global.match = new Global.Selected_Match(password, Matches[index]);
                     Global.player = new Global.Player(name, usrId[1], Int32.Parse(usrId[0]));
 
                     LogMatchInFile(Matches[index].id, usrId[0], name, usrId[1]);
 
                     this.Hide();
-
-                    //MessageBox.Show(String.Format("{0}: Usuário {1} logado com ID {2}", usrId[0], name, usrId[1]));
-
-                    Global.Match.Play(this);
-
+                    Global.match.Play();
                     this.Show();
                 }
             }
@@ -446,11 +444,11 @@ namespace Game
                     return;
                 }
 
-                Global.Match = new Global.Selected_Match("xxx", Matches[index]);
+                Global.match = new Global.Selected_Match("xxx", Matches[index]);
                 Global.player = new Global.Player(usrConf[2], usrConf[3], Int32.Parse(usrConf[1]));
 
                 this.Hide();
-                Global.Match.Play(this);
+                Global.match.Play();
                 this.Show();
             }
         }

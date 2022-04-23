@@ -74,12 +74,11 @@
             this.lstPlayers.FullRowSelect = true;
             this.lstPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstPlayers.HideSelection = false;
-            this.lstPlayers.Location = new System.Drawing.Point(4, 4);
-            this.lstPlayers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 36);
+            this.lstPlayers.Location = new System.Drawing.Point(3, 3);
+            this.lstPlayers.MinimumSize = new System.Drawing.Size(4, 30);
             this.lstPlayers.Name = "lstPlayers";
             this.lstPlayers.Scrollable = false;
-            this.lstPlayers.Size = new System.Drawing.Size(255, 146);
+            this.lstPlayers.Size = new System.Drawing.Size(192, 119);
             this.lstPlayers.TabIndex = 8;
             this.lstPlayers.TileSize = new System.Drawing.Size(1, 1);
             this.lstPlayers.UseCompatibleStateImageBehavior = false;
@@ -98,10 +97,9 @@
             // 
             this.btnStart.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(597, 299);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Location = new System.Drawing.Point(448, 243);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(200, 49);
+            this.btnStart.Size = new System.Drawing.Size(150, 40);
             this.btnStart.TabIndex = 9;
             this.btnStart.Text = "Iniciar";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -110,10 +108,9 @@
             // btnQuit
             // 
             this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuit.Location = new System.Drawing.Point(597, 356);
-            this.btnQuit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuit.Location = new System.Drawing.Point(448, 289);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(200, 49);
+            this.btnQuit.Size = new System.Drawing.Size(150, 40);
             this.btnQuit.TabIndex = 10;
             this.btnQuit.Text = "Sair";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -123,20 +120,18 @@
             // 
             this.lblTurn.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTurn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTurn.Location = new System.Drawing.Point(279, 4);
-            this.lblTurn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTurn.Location = new System.Drawing.Point(209, 3);
             this.lblTurn.Name = "lblTurn";
-            this.lblTurn.Size = new System.Drawing.Size(193, 46);
+            this.lblTurn.Size = new System.Drawing.Size(145, 37);
             this.lblTurn.TabIndex = 12;
             this.lblTurn.Text = "Vez";
             this.lblTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNarration
             // 
-            this.btnNarration.Location = new System.Drawing.Point(99, 702);
-            this.btnNarration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNarration.Location = new System.Drawing.Point(74, 570);
             this.btnNarration.Name = "btnNarration";
-            this.btnNarration.Size = new System.Drawing.Size(255, 46);
+            this.btnNarration.Size = new System.Drawing.Size(191, 37);
             this.btnNarration.TabIndex = 14;
             this.btnNarration.Text = "Atualizar a narração";
             this.btnNarration.UseVisualStyleBackColor = true;
@@ -150,12 +145,11 @@
             this.txtNarration.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNarration.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtNarration.Location = new System.Drawing.Point(0, 0);
-            this.txtNarration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNarration.MaximumSize = new System.Drawing.Size(1331, 1229);
+            this.txtNarration.MaximumSize = new System.Drawing.Size(999, 999);
             this.txtNarration.Multiline = true;
             this.txtNarration.Name = "txtNarration";
             this.txtNarration.ReadOnly = true;
-            this.txtNarration.Size = new System.Drawing.Size(417, 694);
+            this.txtNarration.Size = new System.Drawing.Size(313, 564);
             this.txtNarration.TabIndex = 15;
             // 
             // pnlMain
@@ -166,10 +160,9 @@
             this.pnlMain.Controls.Add(this.btnStart);
             this.pnlMain.Controls.Add(this.btnQuit);
             this.pnlMain.Controls.Add(this.panel1);
-            this.pnlMain.Location = new System.Drawing.Point(16, 15);
-            this.pnlMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMain.Location = new System.Drawing.Point(12, 12);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1387, 809);
+            this.pnlMain.Size = new System.Drawing.Size(1040, 657);
             this.pnlMain.TabIndex = 16;
             // 
             // pnlBottom
@@ -185,20 +178,18 @@
             this.pnlBottom.Controls.Add(this.lstPlayers);
             this.pnlBottom.Controls.Add(this.btnCheck);
             this.pnlBottom.Controls.Add(this.lblTurn);
-            this.pnlBottom.Location = new System.Drawing.Point(12, 640);
-            this.pnlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBottom.Location = new System.Drawing.Point(9, 520);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(941, 158);
+            this.pnlBottom.Size = new System.Drawing.Size(707, 129);
             this.pnlBottom.TabIndex = 18;
             // 
             // btnTable
             // 
             this.btnTable.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTable.Location = new System.Drawing.Point(513, 4);
-            this.btnTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTable.Location = new System.Drawing.Point(385, 3);
             this.btnTable.Name = "btnTable";
-            this.btnTable.Size = new System.Drawing.Size(191, 46);
+            this.btnTable.Size = new System.Drawing.Size(143, 37);
             this.btnTable.TabIndex = 20;
             this.btnTable.Text = "Verificar Mesa";
             this.btnTable.UseVisualStyleBackColor = false;
@@ -208,20 +199,19 @@
             // 
             this.cmbIslands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIslands.FormattingEnabled = true;
-            this.cmbIslands.Location = new System.Drawing.Point(744, 107);
-            this.cmbIslands.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbIslands.Location = new System.Drawing.Point(558, 87);
+            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbIslands.Name = "cmbIslands";
-            this.cmbIslands.Size = new System.Drawing.Size(189, 24);
+            this.cmbIslands.Size = new System.Drawing.Size(143, 21);
             this.cmbIslands.TabIndex = 19;
             // 
             // btnChooseIsland
             // 
             this.btnChooseIsland.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnChooseIsland.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChooseIsland.Location = new System.Drawing.Point(744, 4);
-            this.btnChooseIsland.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChooseIsland.Location = new System.Drawing.Point(558, 3);
             this.btnChooseIsland.Name = "btnChooseIsland";
-            this.btnChooseIsland.Size = new System.Drawing.Size(191, 46);
+            this.btnChooseIsland.Size = new System.Drawing.Size(143, 37);
             this.btnChooseIsland.TabIndex = 18;
             this.btnChooseIsland.Text = "Escolher Ilha";
             this.btnChooseIsland.UseVisualStyleBackColor = false;
@@ -231,10 +221,9 @@
             // 
             this.btnShowIslands.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnShowIslands.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowIslands.Location = new System.Drawing.Point(744, 57);
-            this.btnShowIslands.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShowIslands.Location = new System.Drawing.Point(558, 46);
             this.btnShowIslands.Name = "btnShowIslands";
-            this.btnShowIslands.Size = new System.Drawing.Size(191, 46);
+            this.btnShowIslands.Size = new System.Drawing.Size(143, 37);
             this.btnShowIslands.TabIndex = 17;
             this.btnShowIslands.Text = "Mostrar Ilhas";
             this.btnShowIslands.UseVisualStyleBackColor = false;
@@ -244,20 +233,19 @@
             // 
             this.cmbCards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCards.FormattingEnabled = true;
-            this.cmbCards.Location = new System.Drawing.Point(513, 107);
-            this.cmbCards.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbCards.Location = new System.Drawing.Point(385, 87);
+            this.cmbCards.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCards.Name = "cmbCards";
-            this.cmbCards.Size = new System.Drawing.Size(189, 24);
+            this.cmbCards.Size = new System.Drawing.Size(143, 21);
             this.cmbCards.TabIndex = 16;
             // 
             // btnPlay
             // 
             this.btnPlay.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(513, 55);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlay.Location = new System.Drawing.Point(385, 45);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(191, 46);
+            this.btnPlay.Size = new System.Drawing.Size(143, 37);
             this.btnPlay.TabIndex = 15;
             this.btnPlay.Text = "Jogar";
             this.btnPlay.UseVisualStyleBackColor = false;
@@ -267,10 +255,9 @@
             // 
             this.btnCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(279, 55);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheck.Location = new System.Drawing.Point(209, 45);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(193, 46);
+            this.btnCheck.Size = new System.Drawing.Size(145, 37);
             this.btnCheck.TabIndex = 13;
             this.btnCheck.Text = "Checa Vez";
             this.btnCheck.UseVisualStyleBackColor = false;
@@ -283,18 +270,16 @@
             this.pnlRight.Controls.Add(this.btnAllCards);
             this.pnlRight.Controls.Add(this.btnNarration);
             this.pnlRight.Controls.Add(this.txtNarration);
-            this.pnlRight.Location = new System.Drawing.Point(960, 4);
-            this.pnlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlRight.Location = new System.Drawing.Point(720, 3);
             this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(421, 800);
+            this.pnlRight.Size = new System.Drawing.Size(317, 651);
             this.pnlRight.TabIndex = 17;
             // 
             // btnAllCards
             // 
-            this.btnAllCards.Location = new System.Drawing.Point(99, 745);
-            this.btnAllCards.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAllCards.Location = new System.Drawing.Point(74, 605);
             this.btnAllCards.Name = "btnAllCards";
-            this.btnAllCards.Size = new System.Drawing.Size(255, 46);
+            this.btnAllCards.Size = new System.Drawing.Size(191, 37);
             this.btnAllCards.TabIndex = 16;
             this.btnAllCards.Text = "Visualizar todas as cartas";
             this.btnAllCards.UseVisualStyleBackColor = true;
@@ -307,10 +292,9 @@
             this.panel1.Controls.Add(this.lblIlhas);
             this.panel1.Controls.Add(this.flpTable);
             this.panel1.Controls.Add(this.flpHand);
-            this.panel1.Location = new System.Drawing.Point(12, 6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(9, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(943, 630);
+            this.panel1.Size = new System.Drawing.Size(707, 512);
             this.panel1.TabIndex = 5;
             // 
             // lblIlhas
@@ -318,10 +302,9 @@
             this.lblIlhas.BackColor = System.Drawing.Color.Transparent;
             this.lblIlhas.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIlhas.ForeColor = System.Drawing.Color.Black;
-            this.lblIlhas.Location = new System.Drawing.Point(401, 293);
-            this.lblIlhas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIlhas.Location = new System.Drawing.Point(301, 238);
             this.lblIlhas.Name = "lblIlhas";
-            this.lblIlhas.Size = new System.Drawing.Size(161, 55);
+            this.lblIlhas.Size = new System.Drawing.Size(121, 45);
             this.lblIlhas.TabIndex = 21;
             this.lblIlhas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -329,36 +312,35 @@
             // 
             this.flpTable.BackColor = System.Drawing.Color.Transparent;
             this.flpTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpTable.Location = new System.Drawing.Point(109, 80);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flpTable.Location = new System.Drawing.Point(82, 65);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(697, 189);
+            this.flpTable.Size = new System.Drawing.Size(523, 154);
             this.flpTable.TabIndex = 20;
             // 
             // flpHand
             // 
             this.flpHand.BackColor = System.Drawing.Color.Transparent;
-            this.flpHand.Location = new System.Drawing.Point(5, 447);
-            this.flpHand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flpHand.Location = new System.Drawing.Point(4, 363);
+            this.flpHand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpHand.Name = "flpHand";
-            this.flpHand.Size = new System.Drawing.Size(927, 181);
+            this.flpHand.Size = new System.Drawing.Size(695, 147);
             this.flpHand.TabIndex = 19;
             // 
             // tmrTrigger
             // 
-            this.tmrTrigger.Interval = 1500;
+            this.tmrTrigger.Interval = 4000;
             this.tmrTrigger.Tick += new System.EventHandler(this.tmrTrigger_Tick);
             // 
             // Running
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Game.Properties.Resources.liquid_bg;
-            this.ClientSize = new System.Drawing.Size(1416, 825);
+            this.ClientSize = new System.Drawing.Size(1064, 677);
             this.Controls.Add(this.pnlMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(1434, 872);
-            this.MinimumSize = new System.Drawing.Size(1434, 872);
+            this.MaximumSize = new System.Drawing.Size(1080, 716);
+            this.MinimumSize = new System.Drawing.Size(1080, 716);
             this.Name = "Running";
             this.Text = "Running";
             this.Load += new System.EventHandler(this.Running_Load);

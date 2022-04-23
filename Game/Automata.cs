@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Game.Game.Running_Folder;
 using BodeOfWarServer;
 
+#pragma warning disable IDE1006
+
 namespace Game
 {
     public class Automata
@@ -15,7 +17,7 @@ namespace Game
 
         }
 
-        public int ShowIsland(Running match)
+        public int show_Island(Running match)
         {
             string ret = Jogo.VerificarIlha(Global.player.id, Global.player.token);
             if (!ret.StartsWith("ERRO"))
@@ -33,12 +35,13 @@ namespace Game
             return 0;
         }
 
-        public void Play(Running match)
+
+        public void Play(Running form)
         {
-            if (match.RoundStatus.StartsWith("I"))
+            if (Global.match.status == 'I')
             {
                 //Jogar ilha
-                int island = ShowIsland(match);
+                int island = show_Island(form);
                 if(island > 0)
                 {
                     Jogo.DefinirIlha(
@@ -51,31 +54,38 @@ namespace Game
             else 
             {
                 //Jogar Carta
-                Jogo.Jogar(
-                    Global.player.id,
-                    Global.player.token,
-                    Int32.Parse(Global.player.cards.ElementAt(0).id)
-                );
-                match.showHand();
+                Global.match.play_Card(Global.player.cards.ElementAt(0).id);
+                form.update_Hand( false );
             }
         }
 
 
-        public void Check(Running match)
+        /// <summary>
+        /// Checa se é a nossa vez ou não
+        /// </summary>
+        /// <returns> Retorna true para sim false para não</returns>
+        public bool check_Turn(Running form)
         {
-            match.btnCheck_Click(null, null);
-            string ret = match.PlayerTurn;
+            form.btnCheck_Click(null, null);
+            string ret = Global.match.vez;
 
             //Verifica se é nossa vez
-            if (ret.Equals(Global.player.name) && Global.player.cards.Count != 0)
+            if (ret.Equals(Global.player.name))
             {
-                this.Play(match);
+                return true;
             }
+
+            return false;
         }
 
-        public void Loop(Running match)
+
+        public void Loop(Running form)
         {
-            this.Check(match);
+            // nossa vez?
+            if (check_Turn(form))
+            {
+                Play(form);
+            }
         }
     }
 }

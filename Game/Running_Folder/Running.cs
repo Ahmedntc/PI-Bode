@@ -9,46 +9,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BodeOfWarServer;
+
 #pragma warning disable IDE1006 // Estilos de Nomenclatura
+
 namespace Game.Game.Running_Folder
 {
     public partial class Running : Form
     {
-
         /// Variáveis
-        private Client Client;
-        private Automata Bot;
-        public string PlayerTurn;
-        public string RoundStatus;
-
-        public class Enemy
-        {
-            public int id;
-            public string name;
-            public LinkedList<Global.Card> cards = new LinkedList<Global.Card>();
-
-            public Enemy(string id, string name)
-            {
-                this.id = Int32.Parse(id);
-                this.name = name;
-            }
-        } public Enemy[] enemies;
+        private readonly Automata Bot;
 
 
 
-
-
-        
+    
         ///  Funções
 
-        public Running(Client client)
+        public Running()
         {
             InitializeComponent();
             this.Bot = new Automata();
-            this.Client = client;
         }
 
-        private void show_Pannels()
+        private void update_Pannels()
         {
 
             // posicionamos lentamente os paineis da direita e baixo na interface
@@ -80,23 +62,26 @@ namespace Game.Game.Running_Folder
 
         }
 
-        public void showHand()
+        public void update_Hand( bool query)
         {
-            string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
-            Global.player.cards.Clear();
-            if (retorno != "")
+            if (query)
             {
-                retorno = retorno.Replace("\r", "");
-                retorno = retorno.Substring(0, retorno.Length - 1);
-                string[] Jformatted = retorno.Split('\n');
-
-                foreach (Global.Card card in Global.cards)
+                string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
+                Global.player.cards.Clear();
+                if (retorno != "")
                 {
-                    for (int i = 0; i < Jformatted.Length; i++)
+                    retorno = retorno.Replace("\r", "");
+                    retorno = retorno.Substring(0, retorno.Length - 1);
+                    string[] Jformatted = retorno.Split('\n');
+
+                    foreach (Global.Card card in Global.cards)
                     {
-                        if (card.id == Jformatted[i])
+                        for (int i = 0; i < Jformatted.Length; i++)
                         {
-                            Global.player.cards.AddLast(card);
+                            if (card.id == Jformatted[i])
+                            {
+                                Global.player.cards.AddLast(card);
+                            }
                         }
                     }
                 }
@@ -117,20 +102,6 @@ namespace Game.Game.Running_Folder
                 cmbCards.Items.Add(card.id);
             }
         }
-
-        public char showStatus()
-        {
-            Client.btnSearch_Click(null, null);
-            foreach (Client.Match match in Client.Matches)
-            {
-                if(Global.Match.id == match.id)
-                {
-                    return match.status;
-                }
-            }
-            return 'W';
-        }
-
 
 
 
@@ -162,7 +133,7 @@ namespace Game.Game.Running_Folder
         public void btnStart_Click(object sender, EventArgs e)
         {
             // partida iniciada
-            //MessageBox.Show(Global.Match.player.id.ToString());
+            //MessageBox.Show(Global.match.player.id.ToString());
 
             btnStart.Hide();
             this.btnQuit.Location = new System.Drawing.Point(5, 5);
@@ -170,7 +141,7 @@ namespace Game.Game.Running_Folder
             //Liga o automata
             tmrTrigger.Enabled = true;
 
-            show_Pannels();
+            update_Pannels();
 
             //inserimos as nossas credenciais
             string ret = Jogo.IniciarPartida(Global.player.id, Global.player.token);
@@ -203,7 +174,7 @@ namespace Game.Game.Running_Folder
 
                 // listamos os jogadores da partida no início:
                 
-                string jogadores = Jogo.ListarJogadores(Global.Match.id);
+                string jogadores = Jogo.ListarJogadores(Global.match.id);
                 lstPlayers.Items.Clear();
                 if (jogadores != "")
                 {
@@ -212,7 +183,7 @@ namespace Game.Game.Running_Folder
                     string[] Jformatted = jogadores.Split('\n');
 
                     // alocamos a memória
-                    enemies = new Enemy[Jformatted.Length - 1];
+                    Global.enemies = new Global.Enemy[Jformatted.Length - 1];
 
                     // instanciamos os jogadores
                     for (int i = 0, j = 0; i < Jformatted.Length; i++)
@@ -227,7 +198,7 @@ namespace Game.Game.Running_Folder
 
                         if(Global.player.id != Int32.Parse(id))
                         {
-                            enemies[j] = new Enemy(id, name);
+                            Global.enemies[j] = new Global.Enemy(id, name);
                             j++;
                         }
                     }
@@ -238,42 +209,36 @@ namespace Game.Game.Running_Folder
                     new ListViewItem(row);
                     lstPlayers.Items.Add(new ListViewItem(row));
                 }
-                showHand();
+                update_Hand( true );
             }/**/
         }
 
 
         public void btnCheck_Click(object sender, EventArgs e)
         {
-            string retChecker = Jogo.VerificarVez(Global.Match.id);
-            string[] formattedCheck = retChecker.Split(',');
-            RoundStatus = formattedCheck[formattedCheck.Length - 1];
-            if (retChecker.StartsWith("ERRO"))
+            string vez;
+            vez = Global.match.check_Turn();
+
+            // retornou uma vez
+            if (vez != null)
             {
-                lblTurn.Text = retChecker;
+                lblTurn.Text = vez;
+                Global.match.vez = vez;
             }
+
+            // deu erro, para o timer para lidar
             else
             {
-                if(Global.player.id == Int32.Parse(formattedCheck[1]))
-                {
-                    lblTurn.Text = Global.player.name;
-                    PlayerTurn = Global.player.name;
-                }
-                foreach (Enemy aux in enemies)
-                {
-                    if (aux.id == Int32.Parse(formattedCheck[1]))
-                    {
-                        lblTurn.Text = aux.name;
-                        PlayerTurn = aux.name;
-                    }
-                }
+                lblTurn.Text = "";
+                Global.match.vez = "";
+                tmrTrigger.Enabled = false;
             }
         }
 
 
         public void btnNarration_Click(object sender, EventArgs e)
         {
-            txtNarration.Text = (Jogo.ExibirNarracao(Global.Match.id).Replace("\n", "\n\n"));
+            txtNarration.Text = (Jogo.ExibirNarracao(Global.match.id).Replace("\n", "\n\n"));
         }
 
 
@@ -288,34 +253,24 @@ namespace Game.Game.Running_Folder
         {
             if (cmbCards.SelectedItem != null)
             {
-                string ret = Jogo.Jogar(
-                    Global.player.id,
-                    Global.player.token,
-                    Int32.Parse(cmbCards.SelectedItem.ToString())
-                    );
-
-                if (!ret.StartsWith("ERRO"))
-                    showHand();
-
-                else MessageBox.Show(ret);
+                Global.match.play_Card(cmbCards.SelectedItem.ToString());
+                this.update_Hand(false);
             }
         }
 
 
         public void btnShowIslands_Click(object sender, EventArgs e)
         {
-            string ret = Jogo.VerificarIlha(Global.player.id, Global.player.token);
-            if (!ret.StartsWith("ERRO"))
+            
+            int[] isles = Global.match.check_Isle();
+            cmbIslands.Items.Clear();
+            if (isles != null)
             {
-                ret = ret.Trim();
-                string[] retformatted = ret.Split(',');
-                foreach (string str in retformatted)
+                foreach (int i in isles)
                 {
-                    cmbIslands.Items.Add(str);
+                    cmbIslands.Items.Add(i.ToString());
                 }
             }
-
-            else MessageBox.Show(ret);
         }
 
 
@@ -323,13 +278,9 @@ namespace Game.Game.Running_Folder
         {
             if (cmbIslands.SelectedItem != null)
             {
-                string ret = Jogo.DefinirIlha(
-                    Global.player.id,
-                    Global.player.token,
-                    Int32.Parse(cmbIslands.SelectedItem.ToString())
+                Global.match.play_Isle(
+                    int.Parse(cmbIslands.SelectedItem.ToString())
                     );
-
-                //MessageBox.Show(ret);
                 cmbIslands.Items.Clear();
             }
         }
@@ -345,7 +296,7 @@ namespace Game.Game.Running_Folder
         {
             //Formato: Separar por \r\n e depois dar split na virgula
 
-            string ret = Jogo.VerificarMesa(Global.Match.id);
+            string ret = Jogo.VerificarMesa(Global.match.id);
             MessageBox.Show(ret);
             ret = ret.Replace("\n", "");
             ret = ret.Substring(0, ret.Length - 1);
@@ -356,7 +307,7 @@ namespace Game.Game.Running_Folder
             {
                 ilha = ilha.Substring(1, ilha.Length - 1);
                 lblIlhas.Text = ilha;
-                Global.Match.ilha = Int32.Parse(ilha);
+                Global.match.ilha = Int32.Parse(ilha);
             }
             
             flpTable.Controls.Clear();
@@ -369,7 +320,7 @@ namespace Game.Game.Running_Folder
                 // exibe graficamente
                 var temp = Global.cards[idCard - 1].get_Panel(100, 150);
                 flpTable.Controls.Add(temp.panel);
-                foreach (Enemy enemy in enemies)
+                foreach (Global.Enemy enemy in Global.enemies)
                 {
                     if (idPlayer == enemy.id)
                     {
@@ -392,12 +343,7 @@ namespace Game.Game.Running_Folder
 
         public void tmrTrigger_Tick(object sender, EventArgs e)
         {
-            if (showStatus() == 'E')
-            {
-                tmrTrigger.Enabled = false;
-                MessageBox.Show("Acabou");
-                this.Close();
-            }
+            // bot checa se a partida acabou através do checar a vez.
             this.Bot.Loop(this);
         }
     }

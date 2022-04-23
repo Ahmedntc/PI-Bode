@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BodeOfWarServer;
+
 #pragma warning disable IDE1006 // Estilos de Nomenclatura
 
 namespace Game
@@ -14,7 +16,6 @@ namespace Game
     /// </summary>
     public class Global
     {
-
 
         /// <summary>
         /// Todas as cartas do jogo
@@ -170,6 +171,24 @@ namespace Game
 
 
         /// <summary>
+        /// Classe dos inimigos na partida
+        /// </summary>
+        public class Enemy
+        {
+            public int id;
+            public string name;
+            public LinkedList<Global.Card> cards = new LinkedList<Global.Card>();
+
+            public Enemy(string id, string name)
+            {
+                this.id = Int32.Parse(id);
+                this.name = name;
+            }
+        }
+        public static Enemy[] enemies;
+
+
+        /// <summary>
         /// Partida selecionada principal
         /// </summary>
         public class Selected_Match
@@ -177,11 +196,13 @@ namespace Game
             public int id;
             public int ilha;
             public int rodada;
-            public string name;
-            public string date;
             public char status;
-            public string senha; // senha da partida.           
+            public string name;
+            public string date; 
+            public string vez;  
+            public string senha;           
             
+
             /// <summary>
             /// Prepara o objeto Match
             /// </summary>
@@ -191,28 +212,154 @@ namespace Game
                 this.id = target.id;
                 this.name = target.name;
                 this.date = target.date;
-                this.status = target.status;
                 this.senha = senha;
+                this.status = '0';
                 this.ilha = 0;
                 this.rodada = 0;
             }
 
 
             /// <summary>
+            /// Joga uma carta na partida atual
+            /// </summary>
+            /// <returns>Retorna true se foi um sucesso, false se falhou</returns>
+            public bool play_Card(string id)
+            {
+                string ret = Jogo.Jogar(
+                   Global.player.id
+                   , Global.player.token
+                   , Int32.Parse(id)
+                   );
+
+                if (!ret.StartsWith("ERRO"))
+                {
+                    foreach (Global.Card card in Global.player.cards)
+                    {
+                        if (card.id == id)
+                        {
+                            Global.player.cards.Remove(card);
+                            break;
+                        }
+                    }
+
+                    return true;
+                }
+
+                else MessageBox.Show(ret);
+                return false;
+            }
+            
+            
+            /// <summary>
+            /// Joga uma ilha na partida atual
+            /// </summary>
+            /// <returns> retorna true se foi um sucesso, ou false com erro</returns>
+            public bool play_Isle(int value)
+            {
+                string ret = Jogo.DefinirIlha(
+                    player.id,
+                    player.token,
+                    value
+                );
+
+                if (!ret.StartsWith("ERRO"))
+                {
+                    return true;
+                }
+
+                MessageBox.Show(ret);
+                return false;
+            }
+
+
+            /// <summary>
+            /// Checa de quem é a vez na rodada, alterando o campo name
+            /// </summary>
+            /// <returns> Retorna o nome de quem é a vez, ou null se a partida não estiver rodando </returns>
+            public string check_Turn()
+            {
+                string retChecker = Jogo.VerificarVez(Global.match.id);
+                string[] formattedCheck = retChecker.Split(',');
+                this.status = formattedCheck[formattedCheck.Length - 1][0];
+
+                if (retChecker.StartsWith("ERRO"))
+                {
+                    this.vez = "";
+                    if (retChecker == "ERRO:Partida não está em jogo\r\n")
+                    {
+                        return null;
+                    }
+                    
+                    //avisa o erro
+                    MessageBox.Show(retChecker);
+                    return null;
+                }
+
+                else
+                {
+                    if (Global.player.id == Int32.Parse(formattedCheck[1]))
+                    {
+                        this.vez = player.name;
+                        return player.name;
+                    }
+                    foreach (Enemy aux in enemies)
+                    {
+                        if (aux.id == Int32.Parse(formattedCheck[1]))
+                        {
+                            this.vez = aux.name;
+                            return aux.name;
+                        }
+                    }
+
+                    // se não estiver na estrutura
+                    MessageBox.Show(retChecker);
+                    return null;
+                }
+            }
+
+
+            /// <summary>
+            /// Checa a as ilhas para escolhe disponíveis
+            /// </summary>
+            /// <returns>Retorna um vetor de 2 valores se foi um sucesso, ou null em erro</returns>
+            public int[]  check_Isle()
+            {
+                string ret = Jogo.VerificarIlha(Global.player.id, Global.player.token);
+                if (!ret.StartsWith("ERRO"))
+                {
+                    ret = ret.Trim();
+                    string[] retformatted = ret.Split(',');
+                    int[] iret = new int[retformatted.Length];
+
+                    for (int i = 0; i < retformatted.Length; i++)
+                    {
+                        iret[i] = int.Parse(retformatted[i]);
+                    }
+
+                    return iret;
+                }
+
+                else MessageBox.Show(ret);
+                return null;
+            }
+
+
+            /// <summary>
             /// Joga a partida
             /// </summary>
-            public bool Play(Client client)
+            public bool Play()
             {
                 if (this == null)
                     return false;
 
-                Game.Running_Folder.Running Running = new Game.Running_Folder.Running(client);
+                Game.Running_Folder.Running Running = new Game.Running_Folder.Running();
 
                 Running.ShowDialog();
 
                 return true;
             }
-        } static public Selected_Match Match;
+        
+        } static public Selected_Match match;
     }
 
     /// <summary>
