@@ -51,8 +51,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblIlhas = new System.Windows.Forms.Label();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpHand = new System.Windows.Forms.FlowLayoutPanel();
             this.tmrTrigger = new System.Windows.Forms.Timer(this.components);
+            this.pnlCards = new System.Windows.Forms.Panel();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -200,7 +200,7 @@
             this.cmbIslands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIslands.FormattingEnabled = true;
             this.cmbIslands.Location = new System.Drawing.Point(558, 87);
-            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2);
             this.cmbIslands.Name = "cmbIslands";
             this.cmbIslands.Size = new System.Drawing.Size(143, 21);
             this.cmbIslands.TabIndex = 19;
@@ -234,7 +234,7 @@
             this.cmbCards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCards.FormattingEnabled = true;
             this.cmbCards.Location = new System.Drawing.Point(385, 87);
-            this.cmbCards.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCards.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCards.Name = "cmbCards";
             this.cmbCards.Size = new System.Drawing.Size(143, 21);
             this.cmbCards.TabIndex = 16;
@@ -289,9 +289,9 @@
             // 
             this.panel1.BackgroundImage = global::Game.Properties.Resources.mesa_skol;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pnlCards);
             this.panel1.Controls.Add(this.lblIlhas);
             this.panel1.Controls.Add(this.flpTable);
-            this.panel1.Controls.Add(this.flpHand);
             this.panel1.Location = new System.Drawing.Point(9, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(707, 512);
@@ -313,24 +313,24 @@
             this.flpTable.BackColor = System.Drawing.Color.Transparent;
             this.flpTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpTable.Location = new System.Drawing.Point(82, 65);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(2);
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(523, 154);
             this.flpTable.TabIndex = 20;
-            // 
-            // flpHand
-            // 
-            this.flpHand.BackColor = System.Drawing.Color.Transparent;
-            this.flpHand.Location = new System.Drawing.Point(4, 363);
-            this.flpHand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.flpHand.Name = "flpHand";
-            this.flpHand.Size = new System.Drawing.Size(695, 147);
-            this.flpHand.TabIndex = 19;
             // 
             // tmrTrigger
             // 
             this.tmrTrigger.Interval = 4000;
             this.tmrTrigger.Tick += new System.EventHandler(this.tmrTrigger_Tick);
+            // 
+            // pnlCards
+            // 
+            this.pnlCards.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCards.ForeColor = System.Drawing.Color.Transparent;
+            this.pnlCards.Location = new System.Drawing.Point(74, 281);
+            this.pnlCards.Name = "pnlCards";
+            this.pnlCards.Size = new System.Drawing.Size(539, 228);
+            this.pnlCards.TabIndex = 22;
             // 
             // Running
             // 
@@ -368,7 +368,6 @@
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Panel pnlBottom;
         private System.Windows.Forms.Button btnAllCards;
-        private System.Windows.Forms.FlowLayoutPanel flpHand;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.ComboBox cmbCards;
         private System.Windows.Forms.Button btnShowIslands;
@@ -379,5 +378,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpTable;
         private System.Windows.Forms.Timer tmrTrigger;
         private System.Windows.Forms.Label lblIlhas;
+        private System.Windows.Forms.Panel pnlCards;
     }
 }

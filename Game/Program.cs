@@ -140,7 +140,8 @@ namespace Game
                 return frame;
             }
 
-        } public static Card[] cards;
+        } 
+        public static Card[] cards;
 
 
         /// <summary>
@@ -167,7 +168,8 @@ namespace Game
                 this.id = id;
             }
 
-        } static public Player player;
+        } 
+        static public Player player;
 
 
         /// <summary>
@@ -343,6 +345,32 @@ namespace Game
                 return null;
             }
 
+
+            /// <summary>
+            /// Realiza uma requisição para atualizar a mão do jogador
+            /// </summary>
+            public void get_Hand()
+            {
+                string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
+                Global.player.cards.Clear();
+                if (retorno != "")
+                {
+                    retorno = retorno.Replace("\r", "");
+                    retorno = retorno.Substring(0, retorno.Length - 1);
+                    string[] Jformatted = retorno.Split('\n');
+
+                    foreach (Global.Card card in Global.cards)
+                    {
+                        for (int i = 0; i < Jformatted.Length; i++)
+                        {
+                            if (card.id == Jformatted[i])
+                            {
+                                Global.player.cards.AddLast(card);
+                            }
+                        }
+                    }
+                }
+            }
 
             /// <summary>
             /// Joga a partida
