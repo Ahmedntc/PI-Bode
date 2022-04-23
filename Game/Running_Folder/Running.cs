@@ -294,50 +294,18 @@ namespace Game.Game.Running_Folder
 
         public void btnTable_Click(object sender, EventArgs e)
         {
-            //Formato: Separar por \r\n e depois dar split na virgula
-
-            string ret = Jogo.VerificarMesa(Global.match.id);
-            MessageBox.Show(ret);
-            ret = ret.Replace("\n", "");
-            ret = ret.Substring(0, ret.Length - 1);
-            string[] formattedRet = ret.Split('\r');
-            
-            string ilha = formattedRet[0];
-            if(!formattedRet[0].Equals(""))
-            {
-                ilha = ilha.Substring(1, ilha.Length - 1);
-                lblIlhas.Text = ilha;
-                Global.match.ilha = Int32.Parse(ilha);
-            }
-            
             flpTable.Controls.Clear();
-            for (int i = 1; i < formattedRet.Length; i++)
+            Global.match.check_Curr_Table();
+            lblIlhas.Text = Global.match.ilha.ToString();
+
+            if(Global.match.idCardJogada != 0)
             {
-                string[] aux = formattedRet[i].Split(',');
-                int idPlayer = Int32.Parse(aux[0]);
-                int idCard = Int32.Parse(aux[1]);
-
                 // exibe graficamente
-                var temp = Global.cards[idCard - 1].get_Panel(100, 150);
+                var temp = Global.cards[Global.match.idCardJogada - 1].get_Panel(100, 150);
                 flpTable.Controls.Add(temp.panel);
-                foreach (Global.Enemy enemy in Global.enemies)
-                {
-                    if (idPlayer == enemy.id)
-                    {
-                        if (!enemy.cards.Contains(Global.cards[idCard - 1]))
-                        {
-                            enemy.cards.AddLast(Global.cards[idCard - 1]);
-                        }
-                    }
-                }
             }
+            
         }
-
-
-
-
-
-
 
         /// Bot
 
