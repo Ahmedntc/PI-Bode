@@ -72,6 +72,7 @@ namespace Game
             //Verifica se é nossa vez
             if (ret.Equals(Global.player.name))
             {
+                Global.match.update_Match();
                 return true;
             }
 

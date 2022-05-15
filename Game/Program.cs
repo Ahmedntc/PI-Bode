@@ -149,6 +149,7 @@ namespace Game
         public class Player
         {
             public int id;
+            public int bodes;
             public string name;
             public string token;
             public LinkedList<Card> cards;
@@ -165,6 +166,7 @@ namespace Game
                 this.name = name;
                 this.token = token; // Senha unica gerada pelo banco
                 this.id = id;
+                this.bodes = 0;
             }
 
         } static public Player player;
@@ -279,23 +281,15 @@ namespace Game
             public string check_Turn()
             {
                 string retChecker = Jogo.VerificarVez(Global.match.id);
+                // exemplo de retorno
+                // "J,44,1,B\r\n"
+                // "E,44,8,E\r\n"
+
                 string[] formattedCheck = retChecker.Split(',');
+
                 this.status = formattedCheck[formattedCheck.Length - 1][0];
-
-                if (retChecker.StartsWith("ERRO"))
-                {
-                    this.vez = "";
-                    if (retChecker == "ERRO:Partida não está em jogo\r\n")
-                    {
-                        return null;
-                    }
-                    
-                    //avisa o erro
-                    MessageBox.Show(retChecker);
-                    return null;
-                }
-
-                else
+                this.rodada = Int32.Parse(formattedCheck[2]);
+                if (retChecker[0] == 'J')
                 {
                     if (Global.player.id == Int32.Parse(formattedCheck[1]))
                     {
@@ -315,6 +309,20 @@ namespace Game
                     MessageBox.Show(retChecker);
                     return null;
                 }
+                else if (retChecker.StartsWith("ERRO"))
+                {
+                    this.vez = "";
+                    MessageBox.Show(retChecker);
+                    return null;
+                }
+                else if (retChecker[0] == 'E')
+                {
+                    this.vez = "";
+                    return null;
+                }
+
+                MessageBox.Show(retChecker);
+                return null;
             }
 
 
@@ -341,6 +349,15 @@ namespace Game
 
                 else MessageBox.Show(ret);
                 return null;
+            }
+
+
+            /// <summary>
+            /// Atualiza os valores da partida, como a quantidade de bodes da partida
+            /// </summary>
+            public void update_Match()
+            {
+                //verifica mesa da partida passada
             }
 
 
