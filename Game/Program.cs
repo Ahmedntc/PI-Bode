@@ -202,8 +202,10 @@ namespace Game
             public string name;
             public string date; 
             public string vez;  
-            public string senha;           
+            public string senha;
             
+            public int idCardJogada;
+
 
             /// <summary>
             /// Prepara o objeto Match
@@ -375,7 +377,48 @@ namespace Game
 
                 return true;
             }
-        
+
+            /// <summary>
+            /// checa a situaçao da mesa na rodada atual 
+            /// </summary>
+            public void check_Table()
+            {
+                //Formato: Separar por \r\n e depois dar split na virgula
+
+                string ret = Jogo.VerificarMesa(Global.match.id);
+                MessageBox.Show(ret);
+                ret = ret.Replace("\n", "");
+                ret = ret.Substring(0, ret.Length - 1);
+                string[] formattedRet = ret.Split('\r');
+                
+                string ilhaAtual = formattedRet[0];
+                if (!formattedRet[0].Equals(""))
+                {
+                    ilhaAtual = ilhaAtual.Substring(1, ilhaAtual.Length - 1);
+                    Global.match.ilha = Int32.Parse(ilhaAtual);
+                   
+                }
+
+                for (int i = 1; i < formattedRet.Length; i++)
+                {
+                    string[] aux = formattedRet[i].Split(',');
+                    int idPlayer = Int32.Parse(aux[0]);
+                    int idCard = Int32.Parse(aux[1]);
+                    Global.match.idCardJogada = idCard;
+                    
+                    foreach (Global.Enemy enemy in Global.enemies)
+                    {
+                        if (idPlayer == enemy.id && !enemy.cards.Contains(Global.cards[idCard - 1]))
+                        {
+                            enemy.cards.AddLast(Global.cards[idCard - 1]);   
+                        }
+                    }
+                    
+                }
+               
+            }
+
+
         } static public Selected_Match match;
     }
 

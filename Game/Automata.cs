@@ -79,14 +79,21 @@ namespace Game
             return false;
         }
 
+        //verificaçao de mesa automatica
+        public void check_Table(Running form)
+        {
+            form.update_Table();
+        }
+
 
         public void Loop(Running form)
         {
             // nossa vez?
-            if (check_Turn(form))
+            if (this.check_Turn(form))
             {
-                Play(form);
+                this.Play(form);
             }
+            this.check_Table(form);
         }
     }
 }
