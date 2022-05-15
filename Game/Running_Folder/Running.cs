@@ -62,7 +62,7 @@ namespace Game.Game.Running_Folder
 
         }
 
-        public void update_Hand( bool query)
+        public void update_Hand(bool query)
         {
             if (query)
             {
@@ -105,7 +105,13 @@ namespace Game.Game.Running_Folder
 
         public void update_Table()
         {
-            flpTable.Controls.Clear();
+            if (Global.match.clear)
+            {
+                flpTable.Controls.Clear();
+                Global.match.clear = false;
+                return;
+            }
+
             Global.match.check_Table();
             lblIlhas.Text = Global.match.ilha.ToString();
 
@@ -115,6 +121,12 @@ namespace Game.Game.Running_Folder
                 var temp = Global.cards[Global.match.idCardJogada - 1].get_Panel(100, 150);
                 flpTable.Controls.Add(temp.panel);
             }
+        }
+
+        public void clear_Table()
+        {
+            flpTable.Controls.Clear();
+            return;
         }
 
 
@@ -309,7 +321,7 @@ namespace Game.Game.Running_Folder
         public void btnTable_Click(object sender, EventArgs e)
         {
             flpTable.Controls.Clear();
-            Global.match.check_Table();
+            Global.match. check_Table();
             lblIlhas.Text = Global.match.ilha.ToString();
 
             if(Global.match.idCardJogada != 0)
@@ -326,7 +338,9 @@ namespace Game.Game.Running_Folder
         public void tmrTrigger_Tick(object sender, EventArgs e)
         {
             // bot checa se a partida acabou através do checar a vez.
+            tmrTrigger.Enabled = false;
             this.Bot.Loop(this);
+            tmrTrigger.Enabled = true;
         }
     }
 }

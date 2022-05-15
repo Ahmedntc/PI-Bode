@@ -377,7 +377,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnTable;
         private System.Windows.Forms.FlowLayoutPanel flpTable;
-        private System.Windows.Forms.Timer tmrTrigger;
+        public System.Windows.Forms.Timer tmrTrigger;
         private System.Windows.Forms.Label lblIlhas;
     }
 }

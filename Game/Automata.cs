@@ -72,14 +72,20 @@ namespace Game
             //Verifica se é nossa vez
             if (ret.Equals(Global.player.name))
             {
-                Global.match.update_Match();
                 return true;
             }
-
+            else if (ret == "")
+            {
+                form.tmrTrigger.Enabled = false;
+                System.Windows.Forms.MessageBox.Show("Acabou!");
+            }
             return false;
         }
 
-        //verificaçao de mesa automatica
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void check_Table(Running form)
         {
             form.update_Table();

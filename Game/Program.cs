@@ -10,7 +10,6 @@ using BodeOfWarServer;
 namespace Game
 {
 
-
     /// <summary>
     /// Objetos ou estruturas de dados globais existentes no jogo
     /// </summary>
@@ -203,7 +202,7 @@ namespace Game
             public string date; 
             public string vez;  
             public string senha;
-            
+            public bool clear;
             public int idCardJogada;
 
 
@@ -220,6 +219,7 @@ namespace Game
                 this.status = '0';
                 this.ilha = 0;
                 this.rodada = 0;
+                this.clear = false;
             }
 
 
@@ -290,7 +290,14 @@ namespace Game
                 string[] formattedCheck = retChecker.Split(',');
 
                 this.status = formattedCheck[formattedCheck.Length - 1][0];
-                this.rodada = Int32.Parse(formattedCheck[2]);
+
+                if (Int32.Parse(formattedCheck[2]) != this.rodada)
+                {
+                    this.rodada = Int32.Parse(formattedCheck[2]);
+                    this.clear = true;
+                    this.check_Match();
+                }
+
                 if (retChecker[0] == 'J')
                 {
                     if (Global.player.id == Int32.Parse(formattedCheck[1]))
@@ -355,11 +362,104 @@ namespace Game
 
 
             /// <summary>
-            /// Atualiza os valores da partida, como a quantidade de bodes da partida
+            /// Checa a situaçao da mesa na rodada atual 
             /// </summary>
-            public void update_Match()
+            public void check_Table()
             {
-                //verifica mesa da partida passada
+                //Formato: Separar por \r\n e depois dar split na virgula
+
+                string ret = Jogo.VerificarMesa(Global.match.id);
+                ret = ret.Replace("\n", "");
+                ret = ret.Substring(0, ret.Length - 1);
+                string[] formattedRet = ret.Split('\r');
+                
+
+                string ilhaAtual = formattedRet[0];
+                if (!formattedRet[0].Equals(""))
+                {
+                    ilhaAtual = ilhaAtual.Substring(1, ilhaAtual.Length - 1);
+                    Global.match.ilha = Int32.Parse(ilhaAtual);
+
+                }
+
+                for (int i = 1; i < formattedRet.Length; i++)
+                {
+                    string[] aux = formattedRet[i].Split(',');
+                    int idPlayer = Int32.Parse(aux[0]);
+                    int idCard = Int32.Parse(aux[1]);
+                    Global.match.idCardJogada = idCard;
+
+                    foreach (Global.Enemy enemy in Global.enemies)
+                    {
+                        if (idPlayer == enemy.id && !enemy.cards.Contains(Global.cards[idCard - 1]))
+                        {
+                            enemy.cards.AddLast(Global.cards[idCard - 1]);
+                        }
+                    }
+
+                }
+
+            }
+
+
+            /// <summary>
+            /// Checa a situaçao da rodada passada e atualiza as 
+            /// </summary>
+            public void check_Match()
+            {
+                //Formato: Separar por \r\n e depois dar split na virgula
+                if (Global.match.rodada <= 1)
+                    return;
+
+                string ret = Jogo.VerificarMesa(Global.match.id, Global.match.rodada-1);
+                ret = ret.Replace("\n", ""); 
+                ret = ret.Substring(0, ret.Length - 1);
+                string[] formattedRet = ret.Split('\r');
+
+                // exemplo de retorno
+                // "I20\r\n48,9\r\n"
+                // "I8\r\n58,2\r\n57,4\r\n"
+
+                // "ilha \ idPlayer idCard \ idPlayer2 idCard2 \ etc"
+
+                string ilhaAtual = formattedRet[0];
+                if (!formattedRet[0].Equals(""))
+                {
+                    ilhaAtual = ilhaAtual.Substring(1, ilhaAtual.Length - 1);
+                    Global.match.ilha = Int32.Parse(ilhaAtual);
+
+                }
+                int idMaior = 0;
+                int idVencedor = 0;
+                int bodesSoma = 0;
+                for (int i = 1; i < formattedRet.Length; i++)
+                {
+                    string[] aux = formattedRet[i].Split(',');
+                    int idPlayer = Int32.Parse(aux[0]);
+                    int idCard = Int32.Parse(aux[1]);
+
+                    if (idCard > idMaior)
+                    {
+                        idMaior = idCard;
+                        idVencedor = idPlayer;
+                    }
+                    
+                    Global.match.idCardJogada = idCard;
+                    Global.Card carta = Global.cards[idCard -1];
+                    bodesSoma += Int32.Parse(carta.bodes);
+
+                    foreach (Global.Enemy enemy in Global.enemies)
+                    {
+                        if (idPlayer == enemy.id && !enemy.cards.Contains(Global.cards[idCard - 1]))
+                        {
+                            enemy.cards.AddLast(Global.cards[idCard - 1]);
+                        }
+                    }
+                }
+
+                if ( idVencedor ==  Global.player.id)
+                    Global.player.bodes += bodesSoma;
+
             }
 
 
@@ -378,45 +478,7 @@ namespace Game
                 return true;
             }
 
-            /// <summary>
-            /// checa a situaçao da mesa na rodada atual 
-            /// </summary>
-            public void check_Table()
-            {
-                //Formato: Separar por \r\n e depois dar split na virgula
 
-                string ret = Jogo.VerificarMesa(Global.match.id);
-                MessageBox.Show(ret);
-                ret = ret.Replace("\n", "");
-                ret = ret.Substring(0, ret.Length - 1);
-                string[] formattedRet = ret.Split('\r');
-                
-                string ilhaAtual = formattedRet[0];
-                if (!formattedRet[0].Equals(""))
-                {
-                    ilhaAtual = ilhaAtual.Substring(1, ilhaAtual.Length - 1);
-                    Global.match.ilha = Int32.Parse(ilhaAtual);
-                   
-                }
-
-                for (int i = 1; i < formattedRet.Length; i++)
-                {
-                    string[] aux = formattedRet[i].Split(',');
-                    int idPlayer = Int32.Parse(aux[0]);
-                    int idCard = Int32.Parse(aux[1]);
-                    Global.match.idCardJogada = idCard;
-                    
-                    foreach (Global.Enemy enemy in Global.enemies)
-                    {
-                        if (idPlayer == enemy.id && !enemy.cards.Contains(Global.cards[idCard - 1]))
-                        {
-                            enemy.cards.AddLast(Global.cards[idCard - 1]);   
-                        }
-                    }
-                    
-                }
-               
-            }
 
 
         } static public Selected_Match match;
