@@ -158,24 +158,26 @@ namespace Game.Game.Running_Folder
                 // centralizamos as cartas
                 double betweenWidth = dispWidth / (count + 1);
 
-                // para apertar as cartas
-                double auxWidth = count <= 1 ? 0 : (400 / count);
+                // aperta as cartas
+                double auxCoef = (count > 1) ? (100 + 180/count) : 0;
+                double auxWidth = (auxCoef*2)/(count+1);
 
+                // para apertar as cartas
                 // preparamos as variáveis da fórmula da posição
                 // y = sin( pi * (x/w)) * (h / c) + h;
                 double w1 = pWidth + 20;
-                double c1 = 1.5;
+                double c1 = 2;
                 double h = pHeight - height - 20;
 
-                double x = auxWidth / 2;
+                double x = 0;
                 double y;
 
 
                 // preparamos as variáveis da fórmula do ângulo
                 // a = - (x / w) * v + c;
                 double w2 = pWidth;
-                double c2 = -30;
-                double v = 60;
+                double c2 = -25;
+                double v = 50;
 
                 // extraimos os bitmaps a serem usados
                 Bitmap[] cards = new Bitmap[count];
@@ -195,11 +197,11 @@ namespace Game.Game.Running_Folder
 
                 Graphics phandle = pnlCards.CreateGraphics();
                 phandle.Clear(Color.White);
-                this.pnlCards.BackColor = System.Drawing.Color.Transparent;
-                this.pnlCards.ForeColor = System.Drawing.Color.Transparent;
+                
                 
                 for (int i = 0; i < count; i++)
                 {
+                    auxCoef -= auxWidth;
                     x += betweenWidth;
 
                     // extraimos o ângulo
@@ -208,13 +210,12 @@ namespace Game.Game.Running_Folder
                     // desenhamos o cartão
                     Image rotated = rotate_Image(cards[i] , a);
 
-                    // extraimos o Y
-                    y = Math.Sin(-Math.PI * ((x + (rotated.Width / 2)) / w1)) * (h / c1) + h;
 
-                    phandle.DrawImage(rotated, (int)x, (int)y);
-
+                    y = Math.Sin(-Math.PI * ((x + (width / 2)) / w1)) * (h / c1) + h;
+                    int diffx = (int)(rotated.Width - width);
+                    phandle.DrawImage(rotated, (int)x - diffx/2 + (int)auxCoef, (int)y);
                     // movimentamos o X
-                    x += width - (auxWidth * 2 / count);
+                    x += width ;
                 }
                 phandle.Dispose();
             }

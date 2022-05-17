@@ -51,7 +51,7 @@ namespace Game
                     );
                 }
             }
-            else 
+            else if (Global.match.status == 'B')
             {
                 //Jogar Carta
                 Global.match.play_Card(Global.player.cards.ElementAt(0).id);
