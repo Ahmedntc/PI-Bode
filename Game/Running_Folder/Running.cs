@@ -30,6 +30,9 @@ namespace Game.Game.Running_Folder
             this.Bot = new Automata();
         }
 
+        /// <summary>
+        /// Anima os paineis
+        /// </summary>
         private void update_Pannels()
         {
 
@@ -62,6 +65,11 @@ namespace Game.Game.Running_Folder
 
         }
 
+
+        /// <summary>
+        /// Atualiza graficamente a mão do jogador
+        /// </summary>
+        /// <param name="query">Flag para realizar uma requisição ou não</param>
         public void update_Hand(bool query)
         {
             if (query)
@@ -103,26 +111,29 @@ namespace Game.Game.Running_Folder
             }
         }
 
+
+        /// <summary>
+        /// Atualiza graficamente a mesa da partida, inserindo cartas e o tamanho da ilha
+        /// </summary>
         public void update_Table()
         {
-            if (Global.match.clear)
-            {
-                flpTable.Controls.Clear();
-                Global.match.clear = false;
-                return;
-            }
 
+            flpTable.Controls.Clear();
             Global.match.check_Table();
             lblIlhas.Text = Global.match.ilha.ToString();
 
-            if (Global.match.idCardJogada != 0)
+            foreach (Global.Card card in Global.match.table_Cards)
             {
-                // exibe graficamente
-                var temp = Global.cards[Global.match.idCardJogada - 1].get_Panel(100, 150);
-                flpTable.Controls.Add(temp.panel);
+                flpTable.Controls.Add(
+                        card.get_Panel(100, 150).panel
+                );
             }
         }
 
+
+        /// <summary>
+        /// Limpa a mesa da partida
+        /// </summary>
         public void clear_Table()
         {
             flpTable.Controls.Clear();
@@ -252,12 +263,14 @@ namespace Game.Game.Running_Folder
                 Global.match.vez = vez;
             }
 
-            // deu erro, para o timer para lidar
+            // deu erro, para o timer para lidar e acion
             else
             {
                 lblTurn.Text = "";
                 Global.match.vez = "";
                 tmrTrigger.Enabled = false;
+                MessageBox.Show("A partida acabou!");
+                this.btnNarration_Click(sender, e);
             }
         }
 
@@ -315,22 +328,13 @@ namespace Game.Game.Running_Folder
         public void btnQuit_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.tmrTrigger.Enabled = false;
         }
 
 
         public void btnTable_Click(object sender, EventArgs e)
         {
-            flpTable.Controls.Clear();
-            Global.match. check_Table();
-            lblIlhas.Text = Global.match.ilha.ToString();
-
-            if(Global.match.idCardJogada != 0)
-            {
-                // exibe graficamente
-                var temp = Global.cards[Global.match.idCardJogada - 1].get_Panel(100, 150);
-                flpTable.Controls.Add(temp.panel);
-            }
-            
+            this.update_Table();
         }
 
         /// Bot
@@ -340,7 +344,10 @@ namespace Game.Game.Running_Folder
             // bot checa se a partida acabou através do checar a vez.
             tmrTrigger.Enabled = false;
             this.Bot.Loop(this);
-            tmrTrigger.Enabled = true;
+            if (Global.match.status != 'E')
+            {
+                tmrTrigger.Enabled = true;
+            }
         }
     }
 }

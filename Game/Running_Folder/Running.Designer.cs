@@ -200,7 +200,7 @@
             this.cmbIslands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIslands.FormattingEnabled = true;
             this.cmbIslands.Location = new System.Drawing.Point(558, 87);
-            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2);
             this.cmbIslands.Name = "cmbIslands";
             this.cmbIslands.Size = new System.Drawing.Size(143, 21);
             this.cmbIslands.TabIndex = 19;
@@ -234,7 +234,7 @@
             this.cmbCards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCards.FormattingEnabled = true;
             this.cmbCards.Location = new System.Drawing.Point(385, 87);
-            this.cmbCards.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCards.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCards.Name = "cmbCards";
             this.cmbCards.Size = new System.Drawing.Size(143, 21);
             this.cmbCards.TabIndex = 16;
@@ -313,7 +313,7 @@
             this.flpTable.BackColor = System.Drawing.Color.Transparent;
             this.flpTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpTable.Location = new System.Drawing.Point(82, 65);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(2);
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(523, 154);
             this.flpTable.TabIndex = 20;
@@ -322,14 +322,14 @@
             // 
             this.flpHand.BackColor = System.Drawing.Color.Transparent;
             this.flpHand.Location = new System.Drawing.Point(4, 363);
-            this.flpHand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpHand.Margin = new System.Windows.Forms.Padding(2);
             this.flpHand.Name = "flpHand";
             this.flpHand.Size = new System.Drawing.Size(695, 147);
             this.flpHand.TabIndex = 19;
             // 
             // tmrTrigger
             // 
-            this.tmrTrigger.Interval = 4000;
+            this.tmrTrigger.Interval = 2000;
             this.tmrTrigger.Tick += new System.EventHandler(this.tmrTrigger_Tick);
             // 
             // Running

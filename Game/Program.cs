@@ -104,8 +104,8 @@ namespace Game
                         break;
                 }
             }
-
             
+
             /// <summary>
             /// Retorna um painel desta carta
             /// </summary>
@@ -168,6 +168,37 @@ namespace Game
                 this.bodes = 0;
             }
 
+
+            /// <summary>
+            /// Extrai o ID da carta do deck no meio
+            /// </summary>
+            /// <returns>Retorna o ID da carta na posição central</returns>
+            public string get_cardMID()
+            {
+                int index = this.cards.Count / 2;
+                return this.cards.ElementAt(index).id;
+            }
+
+
+            /// <summary>
+            /// Recebe um index, positivo ou negativo, e retorna o ID da carta naquela posição
+            /// </summary>
+            /// <param name="index"> Se positivo procura a partir da posição 0, se negativo procura a partir do final em forma reversa</param>
+            /// <returns>Retorna o ID da carta na posição</returns>
+            public string get_cardID(int index)
+            {
+                if (index < 0)
+                {
+                    int real_index = this.cards.Count + index;
+                    return this.cards.ElementAt(real_index).id;
+                }
+
+                else
+                {
+                    return this.cards.ElementAt(index).id;
+                }
+            }
+
         } static public Player player;
 
 
@@ -202,8 +233,7 @@ namespace Game
             public string date; 
             public string vez;  
             public string senha;
-            public bool clear;
-            public int idCardJogada;
+            public LinkedList<Global.Card> table_Cards;
 
 
             /// <summary>
@@ -219,7 +249,7 @@ namespace Game
                 this.status = '0';
                 this.ilha = 0;
                 this.rodada = 0;
-                this.clear = false;
+                this.table_Cards = new LinkedList<Card>();
             }
 
 
@@ -229,7 +259,7 @@ namespace Game
             /// <returns>Retorna true se foi um sucesso, false se falhou</returns>
             public bool play_Card(string id)
             {
-                string ret = Jogo.Jogar(
+                    string ret = Jogo.Jogar(
                    Global.player.id
                    , Global.player.token
                    , Int32.Parse(id)
@@ -249,7 +279,7 @@ namespace Game
                     return true;
                 }
 
-                else MessageBox.Show(ret);
+                else MessageBox.Show("ERRO PLAY_CARD : " + ret);
                 return false;
             }
             
@@ -271,7 +301,7 @@ namespace Game
                     return true;
                 }
 
-                MessageBox.Show(ret);
+                MessageBox.Show("ERRO PLAY_ISLE : " +ret);
                 return false;
             }
 
@@ -286,7 +316,14 @@ namespace Game
                 // exemplo de retorno
                 // "J,44,1,B\r\n"
                 // "E,44,8,E\r\n"
-
+                if(retChecker.StartsWith("ERRO"))
+                {
+                    this.vez = "";
+                    MessageBox.Show("ERRO CHECK_TURN : " + retChecker);
+                    return null;
+                }
+                
+                
                 string[] formattedCheck = retChecker.Split(',');
 
                 this.status = formattedCheck[formattedCheck.Length - 1][0];
@@ -294,8 +331,7 @@ namespace Game
                 if (Int32.Parse(formattedCheck[2]) != this.rodada)
                 {
                     this.rodada = Int32.Parse(formattedCheck[2]);
-                    this.clear = true;
-                    this.check_Match();
+                    this.check_pastTable();
                 }
 
                 if (retChecker[0] == 'J')
@@ -318,12 +354,7 @@ namespace Game
                     MessageBox.Show(retChecker);
                     return null;
                 }
-                else if (retChecker.StartsWith("ERRO"))
-                {
-                    this.vez = "";
-                    MessageBox.Show(retChecker);
-                    return null;
-                }
+
                 else if (retChecker[0] == 'E')
                 {
                     this.vez = "";
@@ -356,13 +387,13 @@ namespace Game
                     return iret;
                 }
 
-                else MessageBox.Show(ret);
+                else MessageBox.Show("ERRO CHECK_ISLE : " + ret);
                 return null;
             }
 
 
             /// <summary>
-            /// Checa a situaçao da mesa na rodada atual 
+            /// Checa a situaçao da mesa na rodada atual e atualiza informações sobre ilha e cartas jogadas
             /// </summary>
             public void check_Table()
             {
@@ -382,12 +413,16 @@ namespace Game
 
                 }
 
+                this.table_Cards.Clear();
+
                 for (int i = 1; i < formattedRet.Length; i++)
                 {
+
                     string[] aux = formattedRet[i].Split(',');
                     int idPlayer = Int32.Parse(aux[0]);
                     int idCard = Int32.Parse(aux[1]);
-                    Global.match.idCardJogada = idCard;
+
+                    this.table_Cards.AddFirst(Global.cards[idCard - 1]);
 
                     foreach (Global.Enemy enemy in Global.enemies)
                     {
@@ -405,7 +440,7 @@ namespace Game
             /// <summary>
             /// Checa a situaçao da rodada passada e atualiza as 
             /// </summary>
-            public void check_Match()
+            public void check_pastTable()
             {
                 //Formato: Separar por \r\n e depois dar split na virgula
                 if (Global.match.rodada <= 1)
@@ -420,7 +455,6 @@ namespace Game
                 // "I20\r\n48,9\r\n"
                 // "I8\r\n58,2\r\n57,4\r\n"
 
-                // "ilha \ idPlayer idCard \ idPlayer2 idCard2 \ etc"
 
                 string ilhaAtual = formattedRet[0];
                 if (!formattedRet[0].Equals(""))
@@ -444,7 +478,6 @@ namespace Game
                         idVencedor = idPlayer;
                     }
                     
-                    Global.match.idCardJogada = idCard;
                     Global.Card carta = Global.cards[idCard -1];
                     bodesSoma += Int32.Parse(carta.bodes);
 
