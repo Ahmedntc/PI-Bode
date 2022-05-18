@@ -162,7 +162,7 @@ namespace Game
                 int island = choose_Isle();
                 Global.match.play_Isle(island);
             }
-            else if (Global.match.status == 'B')
+            else
             {
                 //Jogar Carta
                 
