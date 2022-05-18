@@ -49,18 +49,18 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.btnAllCards = new System.Windows.Forms.Button();
             this.pnlMesa = new System.Windows.Forms.Panel();
-            this.pnlCards = new System.Windows.Forms.Panel();
             this.pnlBode = new System.Windows.Forms.Panel();
-            this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlIlhas = new System.Windows.Forms.Panel();
             this.lblIlhas = new System.Windows.Forms.Label();
+            this.pnlCards = new System.Windows.Forms.Panel();
+            this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.tmrTrigger = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlMesa.SuspendLayout();
             this.pnlBode.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlIlhas.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstPlayers
@@ -300,35 +300,27 @@
             this.pnlMesa.TabIndex = 5;
             this.pnlMesa.Visible = false;
             // 
-            // pnlCards
-            // 
-            this.pnlCards.BackColor = System.Drawing.Color.Transparent;
-            this.pnlCards.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pnlCards.ForeColor = System.Drawing.Color.Transparent;
-            this.pnlCards.Location = new System.Drawing.Point(74, 284);
-            this.pnlCards.Name = "pnlCards";
-            this.pnlCards.Size = new System.Drawing.Size(523, 233);
-            this.pnlCards.TabIndex = 22;
-            // 
             // pnlBode
             // 
             this.pnlBode.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBode.BackgroundImage = global::Game.Properties.Resources.bode1;
-            this.pnlBode.Controls.Add(this.panel1);
+            this.pnlBode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlBode.Controls.Add(this.pnlIlhas);
             this.pnlBode.Location = new System.Drawing.Point(0, 0);
             this.pnlBode.Name = "pnlBode";
             this.pnlBode.Size = new System.Drawing.Size(705, 512);
             this.pnlBode.TabIndex = 0;
             // 
-            // flpTable
+            // pnlIlhas
             // 
-            this.flpTable.BackColor = System.Drawing.Color.Transparent;
-            this.flpTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpTable.Location = new System.Drawing.Point(74, 67);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(2);
-            this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(523, 154);
-            this.flpTable.TabIndex = 20;
+            this.pnlIlhas.BackColor = System.Drawing.Color.Transparent;
+            this.pnlIlhas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlIlhas.Controls.Add(this.lblIlhas);
+            this.pnlIlhas.Controls.Add(this.pnlCards);
+            this.pnlIlhas.Controls.Add(this.flpTable);
+            this.pnlIlhas.Location = new System.Drawing.Point(0, 0);
+            this.pnlIlhas.Name = "pnlIlhas";
+            this.pnlIlhas.Size = new System.Drawing.Size(705, 512);
+            this.pnlIlhas.TabIndex = 1;
             // 
             // lblIlhas
             // 
@@ -341,22 +333,30 @@
             this.lblIlhas.TabIndex = 21;
             this.lblIlhas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pnlCards
+            // 
+            this.pnlCards.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCards.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnlCards.ForeColor = System.Drawing.Color.Transparent;
+            this.pnlCards.Location = new System.Drawing.Point(74, 284);
+            this.pnlCards.Name = "pnlCards";
+            this.pnlCards.Size = new System.Drawing.Size(523, 233);
+            this.pnlCards.TabIndex = 22;
+            // 
+            // flpTable
+            // 
+            this.flpTable.BackColor = System.Drawing.Color.Transparent;
+            this.flpTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpTable.Location = new System.Drawing.Point(74, 67);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(2);
+            this.flpTable.Name = "flpTable";
+            this.flpTable.Size = new System.Drawing.Size(523, 154);
+            this.flpTable.TabIndex = 20;
+            // 
             // tmrTrigger
             // 
             this.tmrTrigger.Interval = 2000;
             this.tmrTrigger.Tick += new System.EventHandler(this.tmrTrigger_Tick);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::Game.Properties.Resources.mesa_ilha1;
-            this.panel1.Controls.Add(this.lblIlhas);
-            this.panel1.Controls.Add(this.pnlCards);
-            this.panel1.Controls.Add(this.flpTable);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(705, 512);
-            this.panel1.TabIndex = 1;
             // 
             // Running
             // 
@@ -376,7 +376,7 @@
             this.pnlRight.PerformLayout();
             this.pnlMesa.ResumeLayout(false);
             this.pnlBode.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pnlIlhas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -408,6 +408,6 @@
         private System.Windows.Forms.Label lblIlhas;
         private System.Windows.Forms.Panel pnlCards;
         private System.Windows.Forms.Panel pnlBode;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlIlhas;
     }
 }

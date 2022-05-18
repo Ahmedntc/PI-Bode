@@ -271,8 +271,6 @@ namespace Game.Game.Running_Folder
             // btn Quit 
             // posição original: 448; 307
             // posição pós-start: 5; 5
-
-            // Aplica uma sombra ao ambiente
         }
         
 
@@ -349,6 +347,26 @@ namespace Game.Game.Running_Folder
                             j++;
                         }
                     }
+
+                    // seta a imagem de fundo correta
+                    switch (Global.enemies.Length)
+                    {
+                        case 0:
+                            pnlBode.BackgroundImage = null;
+                            break;
+
+                        case 1:
+                            pnlBode.BackgroundImage = Properties.Resources.bode1;
+                            break;
+
+                        case 2:
+                            pnlBode.BackgroundImage = Properties.Resources.bode2;
+                            break;
+
+                        case 3:
+                            pnlBode.BackgroundImage = Properties.Resources.bode3;
+                            break;
+                    }
                 }
                 else
                 {
@@ -369,6 +387,29 @@ namespace Game.Game.Running_Folder
             // retornou uma vez
             if (vez != null)
             {
+                
+                switch (Global.match.rodada)
+                {
+                    case 2:
+                        pnlIlhas.BackgroundImage = Properties.Resources.mesa_ilha1;
+                        break;
+
+                    case 3:
+                        pnlIlhas.BackgroundImage = Properties.Resources.mesa_ilha2;
+                        break;
+
+                    case 4:
+                        pnlIlhas.BackgroundImage = Properties.Resources.mesa_ilha3;
+                        break;
+
+                    case 5:
+                        pnlIlhas.BackgroundImage = Properties.Resources.mesa_ilha4;
+                        break;
+
+                    default:           
+                        break;
+                }
+
                 lblTurn.Text = vez;
                 Global.match.vez = vez;
             }
@@ -459,5 +500,6 @@ namespace Game.Game.Running_Folder
                 tmrTrigger.Enabled = true;
             }
         }
+
     }
 }
