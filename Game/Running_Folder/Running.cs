@@ -28,7 +28,72 @@ namespace Game.Game.Running_Folder
         {
             InitializeComponent();
             this.Bot = new Automata();
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint |
+              ControlStyles.UserPaint |
+              ControlStyles.Opaque, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
+            this.DoubleBuffered = false;
+            this.UpdateStyles();
         }
+
+
+        /// <summary>
+        /// Extrai os radianos de um ângulo
+        /// </summary>
+        /// <returns>retorna os radianos correspondentes</returns>
+        public double to_Radian(float angle)
+        {
+            return (Math.PI / 180) * angle;
+        }
+
+
+        /// <summary>
+        /// Rotaciona uma imagem
+        /// </summary>
+        /// <returns>Retorna a imagem sobre o ângulo</returns>
+        public Image rotate_Image(Bitmap target, float angle)
+        {
+
+            if (target == null)
+                return null;
+
+            // descobre as dimensões
+            int width;
+            int height;
+
+            double radian = to_Radian(angle <= 0.0 ? -angle : angle);
+
+            double sin = Math.Sin(radian);
+            double cos = Math.Cos(radian);
+
+            // calculamos a largura nova
+            int minus = target.Width - (int)(cos * target.Width);
+            int bonus = (int)(sin * target.Height);
+            int diffw = bonus - minus;
+
+            // calculamos a altura nova
+            minus = target.Height - (int)(cos * target.Height);
+            bonus = (int)(sin * target.Width);
+            int diffh = bonus - minus;
+
+            width = target.Width + diffw;
+            height = target.Height + diffh;
+
+            Image result = new Bitmap(width, height);
+
+            using (Graphics gfx = Graphics.FromImage(result))
+            {
+                PointF point = new PointF(width / 2, height / 2);
+                gfx.TranslateTransform(point.X, point.Y, System.Drawing.Drawing2D.MatrixOrder.Prepend);
+                gfx.RotateTransform(angle);
+                gfx.TranslateTransform(-target.Width / 2, -target.Height / 2, System.Drawing.Drawing2D.MatrixOrder.Prepend);
+                gfx.DrawImage(target, new PointF());
+                gfx.Dispose();
+            }
+
+            return result;
+        }
+        
 
         /// <summary>
         /// Anima os paineis
@@ -67,47 +132,92 @@ namespace Game.Game.Running_Folder
 
 
         /// <summary>
-        /// Atualiza graficamente a mão do jogador
+        /// Atualiza a mão do jogador
         /// </summary>
-        /// <param name="query">Flag para realizar uma requisição ou não</param>
-        public void update_Hand(bool query)
+        /// <param name="query"> Verifica se deve realizar uma requisição ou não </param>
+        public void update_Hand( bool query)
         {
             if (query)
             {
-                string retorno = Jogo.VerificarMao(Global.player.id, Global.player.token);
-                Global.player.cards.Clear();
-                if (retorno != "")
+                Global.match.get_Hand();
+            }
+
+            // sen ( pi * (x / w)) * (h / c) + h
+
+            // variáveis
+            { 
+                int width = 100;
+                int height = 150;
+                int pWidth = this.pnlCards.Width;
+                int pHeight = this.pnlCards.Height;
+                int count = Global.player.cards.Count;
+
+                // espaço de sobra
+                double dispWidth = pWidth - width * count;
+
+                // centralizamos as cartas
+                double betweenWidth = dispWidth / (count + 1);
+
+                // aperta as cartas
+                double auxCoef = (count > 1) ? (100 + 180/count) : 0;
+                double auxWidth = (auxCoef*2)/(count+1);
+
+                // para apertar as cartas
+                // preparamos as variáveis da fórmula da posição
+                // y = sin( pi * (x/w)) * (h / c) + h;
+                double w1 = pWidth + 20;
+                double c1 = 2;
+                double h = pHeight - height - 20;
+
+                double x = 0;
+                double y;
+
+
+                // preparamos as variáveis da fórmula do ângulo
+                // a = - (x / w) * v + c;
+                double w2 = pWidth;
+                double c2 = -25;
+                double v = 50;
+
+                // extraimos os bitmaps a serem usados
+                Bitmap[] cards = new Bitmap[count];
+                for(int i = 0; i < count; i++)
                 {
-                    retorno = retorno.Replace("\r", "");
-                    retorno = retorno.Substring(0, retorno.Length - 1);
-                    string[] Jformatted = retorno.Split('\n');
+                    cards[i] = new Bitmap(width, height);
+                    cards[i].MakeTransparent();
 
-                    foreach (Global.Card card in Global.cards)
-                    {
-                        for (int i = 0; i < Jformatted.Length; i++)
-                        {
-                            if (card.id == Jformatted[i])
-                            {
-                                Global.player.cards.AddLast(card);
-                            }
-                        }
-                    }
+                    Global
+                    .player
+                    .cards
+                    .ElementAt(i)
+                    .get_Panel(width, height)
+                    .panel
+                    .DrawToBitmap(cards[i], new Rectangle(0, 0, width, height));
                 }
-            }
 
-            flpHand.Controls.Clear();
+                Graphics phandle = pnlCards.CreateGraphics();
+                phandle.Clear(Color.White);
+                
+                
+                for (int i = 0; i < count; i++)
+                {
+                    auxCoef -= auxWidth;
+                    x += betweenWidth;
 
-            foreach (Global.Card card in Global.player.cards)
-            {
-                Global.Card.Graphical card_image = card.get_Panel(80, 135);
-                flpHand.Controls.Add(card_image.panel);
-            }
+                    // extraimos o ângulo
+                    float a = (float)(((x + width / 2) / w2) * v + c2);
 
-            cmbCards.Items.Clear();
+                    // desenhamos o cartão
+                    Image rotated = rotate_Image(cards[i] , a);
 
-            foreach (Global.Card card in Global.player.cards)
-            {
-                cmbCards.Items.Add(card.id);
+
+                    y = Math.Sin(-Math.PI * ((x + (width / 2)) / w1)) * (h / c1) + h;
+                    int diffx = (int)(rotated.Width - width);
+                    phandle.DrawImage(rotated, (int)x - diffx/2 + (int)auxCoef, (int)y);
+                    // movimentamos o X
+                    x += width ;
+                }
+                phandle.Dispose();
             }
         }
 
