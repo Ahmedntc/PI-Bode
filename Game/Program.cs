@@ -10,7 +10,6 @@ using BodeOfWarServer;
 namespace Game
 {
 
-
     /// <summary>
     /// Objetos ou estruturas de dados globais existentes no jogo
     /// </summary>
@@ -105,8 +104,8 @@ namespace Game
                         break;
                 }
             }
-
             
+
             /// <summary>
             /// Retorna um painel desta carta
             /// </summary>
@@ -150,6 +149,7 @@ namespace Game
         public class Player
         {
             public int id;
+            public int bodes;
             public string name;
             public string token;
             public LinkedList<Card> cards;
@@ -166,10 +166,41 @@ namespace Game
                 this.name = name;
                 this.token = token; // Senha unica gerada pelo banco
                 this.id = id;
+                this.bodes = 0;
             }
 
-        } 
-        static public Player player;
+
+            /// <summary>
+            /// Extrai o ID da carta do deck no meio
+            /// </summary>
+            /// <returns>Retorna o ID da carta na posição central</returns>
+            public string get_cardMID()
+            {
+                int index = this.cards.Count / 2;
+                return this.cards.ElementAt(index).id;
+            }
+
+
+            /// <summary>
+            /// Recebe um index, positivo ou negativo, e retorna o ID da carta naquela posição
+            /// </summary>
+            /// <param name="index"> Se positivo procura a partir da posição 0, se negativo procura a partir do final em forma reversa</param>
+            /// <returns>Retorna o ID da carta na posição</returns>
+            public string get_cardID(int index)
+            {
+                if (index < 0)
+                {
+                    int real_index = this.cards.Count + index;
+                    return this.cards.ElementAt(real_index).id;
+                }
+
+                else
+                {
+                    return this.cards.ElementAt(index).id;
+                }
+            }
+
+        } static public Player player;
 
 
         /// <summary>
@@ -202,8 +233,9 @@ namespace Game
             public string name;
             public string date; 
             public string vez;  
-            public string senha;           
-            
+            public string senha;
+            public LinkedList<Global.Card> table_Cards;
+
 
             /// <summary>
             /// Prepara o objeto Match
@@ -218,6 +250,7 @@ namespace Game
                 this.status = '0';
                 this.ilha = 0;
                 this.rodada = 0;
+                this.table_Cards = new LinkedList<Card>();
             }
 
 
@@ -227,7 +260,7 @@ namespace Game
             /// <returns>Retorna true se foi um sucesso, false se falhou</returns>
             public bool play_Card(string id)
             {
-                string ret = Jogo.Jogar(
+                    string ret = Jogo.Jogar(
                    Global.player.id
                    , Global.player.token
                    , Int32.Parse(id)
@@ -247,7 +280,7 @@ namespace Game
                     return true;
                 }
 
-                else MessageBox.Show(ret);
+                else MessageBox.Show("ERRO PLAY_CARD : " + ret);
                 return false;
             }
             
@@ -269,7 +302,7 @@ namespace Game
                     return true;
                 }
 
-                MessageBox.Show(ret);
+                MessageBox.Show("ERRO PLAY_ISLE : " +ret);
                 return false;
             }
 
@@ -281,23 +314,28 @@ namespace Game
             public string check_Turn()
             {
                 string retChecker = Jogo.VerificarVez(Global.match.id);
-                string[] formattedCheck = retChecker.Split(',');
-                this.status = formattedCheck[formattedCheck.Length - 1][0];
-
-                if (retChecker.StartsWith("ERRO"))
+                // exemplo de retorno
+                // "J,44,1,B\r\n"
+                // "E,44,8,E\r\n"
+                if(retChecker.StartsWith("ERRO"))
                 {
                     this.vez = "";
-                    if (retChecker == "ERRO:Partida não está em jogo\r\n")
-                    {
-                        return null;
-                    }
-                    
-                    //avisa o erro
-                    MessageBox.Show(retChecker);
+                    MessageBox.Show("ERRO CHECK_TURN : " + retChecker);
                     return null;
                 }
+                
+                
+                string[] formattedCheck = retChecker.Split(',');
 
-                else
+                this.status = formattedCheck[formattedCheck.Length - 1][0];
+
+                if (Int32.Parse(formattedCheck[2]) != this.rodada)
+                {
+                    this.rodada = Int32.Parse(formattedCheck[2]);
+                    this.check_pastTable();
+                }
+
+                if (retChecker[0] == 'J')
                 {
                     if (Global.player.id == Int32.Parse(formattedCheck[1]))
                     {
@@ -317,6 +355,15 @@ namespace Game
                     MessageBox.Show(retChecker);
                     return null;
                 }
+
+                else if (retChecker[0] == 'E')
+                {
+                    this.vez = "";
+                    return null;
+                }
+
+                MessageBox.Show(retChecker);
+                return null;
             }
 
 
@@ -341,7 +388,7 @@ namespace Game
                     return iret;
                 }
 
-                else MessageBox.Show(ret);
+                else MessageBox.Show("ERRO CHECK_ISLE : " + ret);
                 return null;
             }
 
@@ -373,6 +420,110 @@ namespace Game
             }
 
             /// <summary>
+            /// Checa a situaçao da mesa na rodada atual e atualiza informações sobre ilha e cartas jogadas
+            /// </summary>
+            public void check_Table()
+            {
+                //Formato: Separar por \r\n e depois dar split na virgula
+
+                string ret = Jogo.VerificarMesa(Global.match.id);
+                ret = ret.Replace("\n", "");
+                ret = ret.Substring(0, ret.Length - 1);
+                string[] formattedRet = ret.Split('\r');
+                
+
+                string ilhaAtual = formattedRet[0];
+                if (!formattedRet[0].Equals(""))
+                {
+                    ilhaAtual = ilhaAtual.Substring(1, ilhaAtual.Length - 1);
+                    Global.match.ilha = Int32.Parse(ilhaAtual);
+
+                }
+
+                this.table_Cards.Clear();
+
+                for (int i = 1; i < formattedRet.Length; i++)
+                {
+
+                    string[] aux = formattedRet[i].Split(',');
+                    int idPlayer = Int32.Parse(aux[0]);
+                    int idCard = Int32.Parse(aux[1]);
+
+                    this.table_Cards.AddFirst(Global.cards[idCard - 1]);
+
+                    foreach (Global.Enemy enemy in Global.enemies)
+                    {
+                        if (idPlayer == enemy.id && !enemy.cards.Contains(Global.cards[idCard - 1]))
+                        {
+                            enemy.cards.AddLast(Global.cards[idCard - 1]);
+                        }
+                    }
+
+                }
+
+            }
+
+
+            /// <summary>
+            /// Checa a situaçao da rodada passada e atualiza as 
+            /// </summary>
+            public void check_pastTable()
+            {
+                //Formato: Separar por \r\n e depois dar split na virgula
+                if (Global.match.rodada <= 1)
+                    return;
+
+                string ret = Jogo.VerificarMesa(Global.match.id, Global.match.rodada-1);
+                ret = ret.Replace("\n", ""); 
+                ret = ret.Substring(0, ret.Length - 1);
+                string[] formattedRet = ret.Split('\r');
+
+                // exemplo de retorno
+                // "I20\r\n48,9\r\n"
+                // "I8\r\n58,2\r\n57,4\r\n"
+
+
+                string ilhaAtual = formattedRet[0];
+                if (!formattedRet[0].Equals(""))
+                {
+                    ilhaAtual = ilhaAtual.Substring(1, ilhaAtual.Length - 1);
+                    Global.match.ilha = Int32.Parse(ilhaAtual);
+
+                }
+                int idMaior = 0;
+                int idVencedor = 0;
+                int bodesSoma = 0;
+                for (int i = 1; i < formattedRet.Length; i++)
+                {
+                    string[] aux = formattedRet[i].Split(',');
+                    int idPlayer = Int32.Parse(aux[0]);
+                    int idCard = Int32.Parse(aux[1]);
+
+                    if (idCard > idMaior)
+                    {
+                        idMaior = idCard;
+                        idVencedor = idPlayer;
+                    }
+                    
+                    Global.Card carta = Global.cards[idCard -1];
+                    bodesSoma += Int32.Parse(carta.bodes);
+
+                    foreach (Global.Enemy enemy in Global.enemies)
+                    {
+                        if (idPlayer == enemy.id && !enemy.cards.Contains(Global.cards[idCard - 1]))
+                        {
+                            enemy.cards.AddLast(Global.cards[idCard - 1]);
+                        }
+                    }
+                }
+
+                if ( idVencedor ==  Global.player.id)
+                    Global.player.bodes += bodesSoma;
+
+            }
+
+
+            /// <summary>
             /// Joga a partida
             /// </summary>
             public bool Play()
@@ -386,7 +537,10 @@ namespace Game
 
                 return true;
             }
-        
+
+
+
+
         } static public Selected_Match match;
     }
 

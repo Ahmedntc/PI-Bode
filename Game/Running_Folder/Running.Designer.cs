@@ -343,7 +343,7 @@
             // 
             // tmrTrigger
             // 
-            this.tmrTrigger.Interval = 4000;
+            this.tmrTrigger.Interval = 2000;
             this.tmrTrigger.Tick += new System.EventHandler(this.tmrTrigger_Tick);
             // 
             // panel1
@@ -404,7 +404,7 @@
         private System.Windows.Forms.Panel pnlMesa;
         private System.Windows.Forms.Button btnTable;
         private System.Windows.Forms.FlowLayoutPanel flpTable;
-        private System.Windows.Forms.Timer tmrTrigger;
+        public System.Windows.Forms.Timer tmrTrigger;
         private System.Windows.Forms.Label lblIlhas;
         private System.Windows.Forms.Panel pnlCards;
         private System.Windows.Forms.Panel pnlBode;
