@@ -115,10 +115,10 @@ namespace Game
             /*
              * Insere as estruturas no array de partidas "Match",
              */
-            for(int i = 0; i < formatted.Length; i++) {
+            for( int i = formatted.Length - 1, j = 0;  i >= 0;  i--, j++) {
                 string[] values = formatted[i].Split(',');
                 
-                Matches[i] = new Match(
+                Matches[j] = new Match(
                     values[0],
                     values[1],
                     values[2],

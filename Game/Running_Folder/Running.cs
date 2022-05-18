@@ -28,10 +28,8 @@ namespace Game.Game.Running_Folder
         {
             InitializeComponent();
             this.Bot = new Automata();
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint |
-              ControlStyles.UserPaint |
-              ControlStyles.Opaque, true);
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
+            this.TransparencyKey = System.Drawing.Color.Green;
+            this.AllowTransparency = true;
             this.DoubleBuffered = false;
             this.UpdateStyles();
         }
@@ -166,7 +164,7 @@ namespace Game.Game.Running_Folder
                 // preparamos as variáveis da fórmula da posição
                 // y = sin( pi * (x/w)) * (h / c) + h;
                 double w1 = pWidth + 20;
-                double c1 = 2;
+                double c1 = 3.5;
                 double h = pHeight - height - 20;
 
                 double x = 0;
@@ -176,8 +174,8 @@ namespace Game.Game.Running_Folder
                 // preparamos as variáveis da fórmula do ângulo
                 // a = - (x / w) * v + c;
                 double w2 = pWidth;
-                double c2 = -25;
-                double v = 50;
+                double c2 = -20;
+                double v = 40;
 
                 // extraimos os bitmaps a serem usados
                 Bitmap[] cards = new Bitmap[count];
@@ -195,10 +193,9 @@ namespace Game.Game.Running_Folder
                     .DrawToBitmap(cards[i], new Rectangle(0, 0, width, height));
                 }
 
-                Graphics phandle = pnlCards.CreateGraphics();
-                phandle.Clear(Color.White);
-                
-                
+                Image aux = new Bitmap(pWidth, pHeight);
+                Graphics phandle = Graphics.FromImage(aux);
+                phandle.Clear(Color.Transparent);
                 for (int i = 0; i < count; i++)
                 {
                     auxCoef -= auxWidth;
@@ -211,12 +208,14 @@ namespace Game.Game.Running_Folder
                     Image rotated = rotate_Image(cards[i] , a);
 
 
-                    y = Math.Sin(-Math.PI * ((x + (width / 2)) / w1)) * (h / c1) + h;
+                    y = Math.Sin(-Math.PI * ((x + width / 2) / w1)) * (h / c1) + h;
                     int diffx = (int)(rotated.Width - width);
                     phandle.DrawImage(rotated, (int)x - diffx/2 + (int)auxCoef, (int)y);
                     // movimentamos o X
                     x += width ;
                 }
+
+                pnlCards.BackgroundImage = aux;
                 phandle.Dispose();
             }
         }
@@ -260,6 +259,7 @@ namespace Game.Game.Running_Folder
             tmrTrigger.Enabled = true;
 
             update_Pannels();
+            pnlMesa.Visible = true;
 
             //inserimos as nossas credenciais
             string ret = Jogo.IniciarPartida(Global.player.id, Global.player.token);

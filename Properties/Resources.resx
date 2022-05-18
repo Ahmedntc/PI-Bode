@@ -121,40 +121,67 @@
   <data name="b2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImagensCartas\b2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImagensCartas\b1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="b10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImagensCartas\b10.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="b3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImagensCartas\b3.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="liquid-bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\liquid-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImagensCartas\b8.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImagensCartas\b7.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImagensCartas\b9.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ImagensCartas\b4.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImagensCartas\b1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Shadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Shadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="b7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImagensCartas\b7.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="liquid-bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\liquid-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="b6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImagensCartas\b6.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImagensCartas\b4.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImagensCartas\b8.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ImagensCartas\b9.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="b5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ImagensCartas\b5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mesa_skol" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mesa_skol.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bode1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bode1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bode2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bode2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bode3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bode3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bode4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bode4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mesa_base" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mesa_base.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mesa_ilha1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mesa_ilha1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mesa_ilha2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mesa_ilha2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mesa_ilha3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mesa_ilha3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mesa_ilha4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mesa_ilha4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
