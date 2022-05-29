@@ -101,7 +101,6 @@ namespace Game
 
                 int TIlha = Global.match.ilha; // Tamanho atual da ilha
                 int QBodes = Global.player.bodes; // Quantidade de bodes
-                int Rodada = Global.match.rodada; // Rodada atual
 
 
                 if (TIlha > QBodes)
@@ -119,31 +118,6 @@ namespace Game
                 {
                     return IlhaMaior;
                 }
-
-            }
-            return 0;
-        }
-
-
-        /// <summary>
-        /// Mostra as ilhas disponíveis 
-        /// </summary>
-        /// <returns>Retorna um vetor de 2 posições com os valores da ilha</returns>
-        public int show_Island(Running match)
-        {
-            string ret = Jogo.VerificarIlha(Global.player.id, Global.player.token);
-            if (!ret.StartsWith("ERRO"))
-            {
-                string[] formattedRet = ret.Split(',');
-                if (Int32.Parse(formattedRet[0]) > Int32.Parse(formattedRet[1]))
-                {
-                    return Int32.Parse(formattedRet[0]);
-                }
-                else
-                {
-                    return Int32.Parse(formattedRet[1]);
-                }
-
 
             }
             return 0;
@@ -180,6 +154,7 @@ namespace Game
         public bool check_Turn(Running form)
         {
             form.btnCheck_Click(null, null);
+           
             string ret = Global.match.vez;
 
             //Verifica se é nossa vez

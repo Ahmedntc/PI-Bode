@@ -117,11 +117,11 @@ namespace Game.Game.Running_Folder
                     //right
                     double x = Math.Pow(i, 2) / 45;
 
-                    double c1 = 1018 - 50 * Math.Sqrt(i) + x;
+                    double c1 = 1104 - 50 * Math.Sqrt(i) + x;
                     pnlRight.Location = new System.Drawing.Point((int)c1, 3);
 
                     //bottom
-                    c1 = 686 - 31 * Math.Sqrt(i) + x;
+                    c1 = 692 - 31 * Math.Sqrt(i) + x;
                     pnlBottom.Location = new System.Drawing.Point(9, (int)c1);
                 }
             }
@@ -144,8 +144,8 @@ namespace Game.Game.Running_Folder
 
             // variáveis
             { 
-                int width = 100;
-                int height = 150;
+                int width = 80;
+                int height = 120;
                 int pWidth = this.pnlCards.Width;
                 int pHeight = this.pnlCards.Height;
                 int count = Global.player.cards.Count;
@@ -234,7 +234,7 @@ namespace Game.Game.Running_Folder
             foreach (Global.Card card in Global.match.table_Cards)
             {
                 flpTable.Controls.Add(
-                        card.get_Panel(100, 150).panel
+                        card.get_Panel(60, 90).panel
                 );
             }
         }
@@ -261,12 +261,12 @@ namespace Game.Game.Running_Folder
             // pnl Right
             // posição original:  720; 3
             // posição escondida: 1020; 3
-            this.pnlRight.Location = new System.Drawing.Point(1020, 3);
+            this.pnlRight.Location = new System.Drawing.Point(1160, 3);
 
             // pnl Bottom
             // posição original:  4; 487
             // posição escondida: 4; 650
-            this.pnlBottom.Location = new System.Drawing.Point(4, 650);
+            this.pnlBottom.Location = new System.Drawing.Point(4, 780);
 
             // btn Quit 
             // posição original: 448; 307
@@ -315,10 +315,10 @@ namespace Game.Game.Running_Folder
 
                 //MessageBox.Show("Partida iniciada!");
                 btnStart.Hide();
-                this.btnQuit.Location = new System.Drawing.Point(5, 5);
-
+                this.btnQuit.Location = new System.Drawing.Point(156, 636);
+                pnlRight.Controls.Add(btnQuit);
                 // listamos os jogadores da partida no início:
-                
+
                 string jogadores = Jogo.ListarJogadores(Global.match.id);
                 lstPlayers.Items.Clear();
                 if (jogadores != "")
@@ -383,7 +383,7 @@ namespace Game.Game.Running_Folder
         {
             string vez;
             vez = Global.match.check_Turn();
-
+            lblPlayerBodes.Text = Global.player.bodes.ToString();
             // retornou uma vez
             if (vez != null)
             {
@@ -500,6 +500,6 @@ namespace Game.Game.Running_Folder
                 tmrTrigger.Enabled = true;
             }
         }
-
+       
     }
 }
