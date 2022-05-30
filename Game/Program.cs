@@ -180,6 +180,20 @@ namespace Game
                 return this.cards.ElementAt(index).id;
             }
 
+            /// <summary>
+            /// Soma os IDs das cartas na mão e retorna uma media.
+            /// </summary>
+            /// <returns></returns>
+            public int get_AvgCardsIDS()
+            {
+                int idSum = 0;
+                foreach(Card card in this.cards)
+                {
+                    idSum += Int32.Parse(card.id);
+                }
+                return idSum/(this.cards.Count);
+            }
+
 
             /// <summary>
             /// Recebe um index, positivo ou negativo, e retorna o ID da carta naquela posição

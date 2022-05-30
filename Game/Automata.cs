@@ -19,6 +19,8 @@ namespace Game
         }
 
 
+
+
         /// <summary>
         /// Escolhe uma carta para jogar
         /// </summary>
@@ -30,8 +32,117 @@ namespace Game
             int Rodada = Global.match.rodada; // Rodada atual
             string id; // Id da carta que será jogada
 
+            if (Global.player.get_AvgCardsIDS() > 20)
+            {
+                if (Rodada <= 3)
+                {
+                    id = Global.player.get_cardID(0);
+                }
+                else if (Rodada == 4)
+                {
+                    if (TIlha > 3 * QBodes)
+                    {
+                        id = Global.player.get_cardID(-1);
+                    }
+                    else if (TIlha > QBodes)
+                    {
+                        id = Global.player.get_cardMID();
+                    }
+                    else
+                    {
+                        id = Global.player.get_cardID(0);
+                    }
+                }
+                else if (Rodada == 5)
+                {
+                    if (TIlha > 2.5 * QBodes)
+                    {
+                        id = Global.player.get_cardID(-1);
+                    }
+                    else if (TIlha > QBodes)
+                    {
+                        id = Global.player.get_cardMID();
+                    }
+                    else
+                    {
+                        id = Global.player.get_cardID(0);
+                    }
+                }
+                else if (Rodada >= 6)
+                {
+                    if (TIlha > QBodes)
+                    {
+                        id = Global.player.get_cardMID();
+                    }
+                    else
+                    {
+                        id = Global.player.get_cardID(0);
+                    }
+                }
+                else
+                {
+                    id = Global.player.get_cardID(0);
+                }
+            } 
+            
+            
+            else
+            {
+                if (Rodada <=2)
+                {
+                    id = Global.player.get_cardID(0);
+                }
+                else if (Rodada == 3)
+                {
+                    if(TIlha > 2*QBodes)
+                    {
+                        id = Global.player.get_cardMID();
+                    } else if (TIlha > QBodes)
+                    {
+                        id = Global.player.get_cardMID();
+                    } else
+                    {
+                        id = Global.player.get_cardID(0);
+                    }
+                }
+                else if (Rodada == 4)
+                {
+                    if (TIlha > 2 * QBodes)
+                    {
+                        id = Global.player.get_cardID(-1);
+                    }
+                    else if (TIlha > QBodes)
+                    {
+                        id = Global.player.get_cardMID();
+                    }
+                    else
+                    {
+                        id = Global.player.get_cardID(0);
+                    }
+                }
+                else if (Rodada >= 5)
+                {
+                    if (TIlha > 1.5*QBodes)
+                    {
+                        id = Global.player.get_cardID(-1);
+                    }
+                    else if (TIlha < QBodes)
+                    {
+                        id = Global.player.get_cardID(0);
+                    }
+                    else 
+                    {
+                        id = Global.player.get_cardID(0);
+                    }
+                }
+                else
+                {
+                    id = Global.player.get_cardID(0);
+                }
+            }
 
-            if (TIlha > QBodes)
+
+            /*if (TIlha > QBodes)
             {
                 
                 if (TIlha > (QBodes * 2) && Rodada <= 4)
@@ -68,7 +179,7 @@ namespace Game
             {
                 //id = Int32.Parse(Global.player.cards.ElementAt(0).id);
                 id = Global.player.get_cardID(0);
-            }
+            }*/
 
             return id;
         }
@@ -102,8 +213,12 @@ namespace Game
                 int TIlha = Global.match.ilha; // Tamanho atual da ilha
                 int QBodes = Global.player.bodes; // Quantidade de bodes
 
+                if (Global.player.get_AvgCardsIDS() > 20)
+                {
+                    return IlhaMaior;
+                }
 
-                if (TIlha > QBodes)
+                else if (TIlha > 2*QBodes)
                 {
                     return IlhaMenor;
 
