@@ -280,6 +280,7 @@ namespace Game.Game.Running_Folder
             //MessageBox.Show(Global.match.player.id.ToString());
 
             btnStart.Hide();
+            pnlMain.BackgroundImage = null;
             this.btnQuit.Location = new System.Drawing.Point(5, 5);
 
             //Liga o automata
@@ -522,6 +523,5 @@ namespace Game.Game.Running_Folder
                 tmrTrigger.Enabled = true;
             }
         }
-       
     }
 }

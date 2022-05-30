@@ -124,6 +124,10 @@
     <Content Include="Properties\mesa_ilha3.png" />
     <Content Include="Properties\mesa_ilha4.png" />
     <Content Include="Properties\mesa_skol.jfif" />
+    <Content Include="Resources\kenny.ico" />
+    <Content Include="Resources\spBackground1.jpg" />
+    <Content Include="Resources\spIcon.ico" />
+    <Content Include="Resources\spPlaca.png" />
     <None Include="Resources\mesa_ilha4.png" />
     <None Include="Resources\mesa_ilha3.png" />
     <None Include="Resources\mesa_ilha2.png" />
