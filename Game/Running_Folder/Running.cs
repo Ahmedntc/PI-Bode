@@ -348,6 +348,22 @@ namespace Game.Game.Running_Folder
                         }
                     }
 
+                    
+                    Label[] nomes = new Label[Global.enemies.Length];
+                    
+
+                    for (int i = 0; i < Global.enemies.Length; i++)
+                    {
+                        nomes[0] = lblB_Nome1;
+
+                        if (i == 1) nomes[1] = lblB_Nome2;
+
+                        if (i == 2) nomes[2] = lblB_Nome3;
+
+                        nomes[i].Visible = true;
+                        nomes[i].Text = Global.enemies[i].name;
+                    }
+
                     // seta a imagem de fundo correta
                     switch (Global.enemies.Length)
                     {
@@ -356,14 +372,20 @@ namespace Game.Game.Running_Folder
                             break;
 
                         case 1:
+                            lblB_Nome1.Visible = true;
+                            lblB_Nome1.Text = Global.enemies[0].name;
                             pnlBode.BackgroundImage = Properties.Resources.bode1;
                             break;
 
                         case 2:
+                            lblB_Nome2.Visible = true;
+                            lblB_Nome2.Text = Global.enemies[1].name;
                             pnlBode.BackgroundImage = Properties.Resources.bode2;
                             break;
 
                         case 3:
+                            lblB_Nome3.Visible = true;
+                            lblB_Nome3.Text = Global.enemies[2].name;
                             pnlBode.BackgroundImage = Properties.Resources.bode3;
                             break;
                     }

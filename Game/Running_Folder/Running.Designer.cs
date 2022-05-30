@@ -57,6 +57,9 @@
             this.lblIlhas = new System.Windows.Forms.Label();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.tmrTrigger = new System.Windows.Forms.Timer(this.components);
+            this.lblB_Nome3 = new System.Windows.Forms.Label();
+            this.lblB_Nome2 = new System.Windows.Forms.Label();
+            this.lblB_Nome1 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -338,6 +341,7 @@
             // pnlBode
             // 
             this.pnlBode.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBode.BackgroundImage = global::Game.Properties.Resources.bode3;
             this.pnlBode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlBode.Controls.Add(this.pnlIlhas);
             this.pnlBode.Location = new System.Drawing.Point(0, 0);
@@ -349,6 +353,9 @@
             // 
             this.pnlIlhas.BackColor = System.Drawing.Color.Transparent;
             this.pnlIlhas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlIlhas.Controls.Add(this.lblB_Nome1);
+            this.pnlIlhas.Controls.Add(this.lblB_Nome2);
+            this.pnlIlhas.Controls.Add(this.lblB_Nome3);
             this.pnlIlhas.Controls.Add(this.lblIlhas);
             this.pnlIlhas.Controls.Add(this.flpTable);
             this.pnlIlhas.Controls.Add(this.btnQuit);
@@ -381,6 +388,48 @@
             // 
             this.tmrTrigger.Interval = 2000;
             this.tmrTrigger.Tick += new System.EventHandler(this.tmrTrigger_Tick);
+            // 
+            // lblB_Nome3
+            // 
+            this.lblB_Nome3.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblB_Nome3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblB_Nome3.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB_Nome3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblB_Nome3.Location = new System.Drawing.Point(439, 42);
+            this.lblB_Nome3.Name = "lblB_Nome3";
+            this.lblB_Nome3.Size = new System.Drawing.Size(100, 38);
+            this.lblB_Nome3.TabIndex = 22;
+            this.lblB_Nome3.Text = "label1";
+            this.lblB_Nome3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblB_Nome3.Visible = false;
+            // 
+            // lblB_Nome2
+            // 
+            this.lblB_Nome2.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblB_Nome2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblB_Nome2.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB_Nome2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblB_Nome2.Location = new System.Drawing.Point(244, 56);
+            this.lblB_Nome2.Name = "lblB_Nome2";
+            this.lblB_Nome2.Size = new System.Drawing.Size(100, 38);
+            this.lblB_Nome2.TabIndex = 23;
+            this.lblB_Nome2.Text = "label1";
+            this.lblB_Nome2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblB_Nome2.Visible = false;
+            // 
+            // lblB_Nome1
+            // 
+            this.lblB_Nome1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblB_Nome1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblB_Nome1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB_Nome1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblB_Nome1.Location = new System.Drawing.Point(83, 105);
+            this.lblB_Nome1.Name = "lblB_Nome1";
+            this.lblB_Nome1.Size = new System.Drawing.Size(100, 38);
+            this.lblB_Nome1.TabIndex = 24;
+            this.lblB_Nome1.Text = "label2";
+            this.lblB_Nome1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblB_Nome1.Visible = false;
             // 
             // Running
             // 
@@ -436,5 +485,8 @@
         private System.Windows.Forms.Panel pnlIlhas;
         private System.Windows.Forms.Label lblProp1;
         private System.Windows.Forms.Label lblPlayerBodes;
+        private System.Windows.Forms.Label lblB_Nome1;
+        private System.Windows.Forms.Label lblB_Nome2;
+        private System.Windows.Forms.Label lblB_Nome3;
     }
 }
