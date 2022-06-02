@@ -250,6 +250,7 @@ namespace Game
                 
                 int island = choose_Isle();
                 Global.match.play_Isle(island);
+                form.update_Narration();
             }
             else
             {
@@ -258,6 +259,7 @@ namespace Game
                 string id = choose_Card();
                 Global.match.play_Card(id);
                 form.update_Hand( false );
+                form.update_Narration();
             }
         }
 

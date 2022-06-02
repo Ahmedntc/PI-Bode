@@ -249,6 +249,12 @@ namespace Game.Game.Running_Folder
             return;
         }
 
+        public void update_Narration()
+        {
+            txtNarration.Text = (Jogo.ExibirNarracao(Global.match.id).Replace("\n", "\n\n"));
+            return;
+        }
+
 
 
 
@@ -451,7 +457,7 @@ namespace Game.Game.Running_Folder
 
         public void btnNarration_Click(object sender, EventArgs e)
         {
-            txtNarration.Text = (Jogo.ExibirNarracao(Global.match.id).Replace("\n", "\n\n"));
+            this.update_Narration();
         }
 
 
@@ -521,6 +527,20 @@ namespace Game.Game.Running_Folder
             if (Global.match.status != 'E')
             {
                 tmrTrigger.Enabled = true;
+            }
+        }
+
+        private void btnOffbot_Click(object sender, EventArgs e)
+        {
+            if(tmrTrigger.Enabled == false)
+            {
+                tmrTrigger.Enabled = true;
+                lblStatusbot.Text = "Status: On";
+            }
+            else
+            {
+                tmrTrigger.Enabled = false;
+                lblStatusbot.Text = "Status: Off";
             }
         }
     }

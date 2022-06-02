@@ -34,35 +34,37 @@
             this.pnlMesa = new System.Windows.Forms.Panel();
             this.pnlBode = new System.Windows.Forms.Panel();
             this.pnlIlhas = new System.Windows.Forms.Panel();
-            this.btnQuit = new System.Windows.Forms.Button();
-            this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblIlhas = new System.Windows.Forms.Label();
-            this.lblB_Nome3 = new System.Windows.Forms.Label();
-            this.lblB_Nome2 = new System.Windows.Forms.Label();
             this.lblB_Nome1 = new System.Windows.Forms.Label();
+            this.lblB_Nome2 = new System.Windows.Forms.Label();
+            this.lblB_Nome3 = new System.Windows.Forms.Label();
+            this.lblIlhas = new System.Windows.Forms.Label();
+            this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.pnlRight = new System.Windows.Forms.Panel();
-            this.cmbCards = new System.Windows.Forms.ComboBox();
-            this.btnPlay = new System.Windows.Forms.Button();
-            this.btnShowIslands = new System.Windows.Forms.Button();
-            this.txtNarration = new System.Windows.Forms.TextBox();
-            this.btnChooseIsland = new System.Windows.Forms.Button();
-            this.btnNarration = new System.Windows.Forms.Button();
-            this.cmbIslands = new System.Windows.Forms.ComboBox();
-            this.btnCheck = new System.Windows.Forms.Button();
-            this.lblTurn = new System.Windows.Forms.Label();
-            this.btnAllCards = new System.Windows.Forms.Button();
             this.btnTable = new System.Windows.Forms.Button();
+            this.btnAllCards = new System.Windows.Forms.Button();
+            this.lblTurn = new System.Windows.Forms.Label();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.cmbIslands = new System.Windows.Forms.ComboBox();
+            this.btnNarration = new System.Windows.Forms.Button();
+            this.btnChooseIsland = new System.Windows.Forms.Button();
+            this.txtNarration = new System.Windows.Forms.TextBox();
+            this.btnShowIslands = new System.Windows.Forms.Button();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.cmbCards = new System.Windows.Forms.ComboBox();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblProp1 = new System.Windows.Forms.Label();
+            this.lblPlayerBodes = new System.Windows.Forms.Label();
+            this.pnlCards = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lstPlayers = new System.Windows.Forms.ListView();
             this.idUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pnlCards = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblPlayerBodes = new System.Windows.Forms.Label();
-            this.lblProp1 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnOffbot = new System.Windows.Forms.Button();
+            this.lblStatusbot = new System.Windows.Forms.Label();
             this.pnlMesa.SuspendLayout();
             this.pnlBode.SuspendLayout();
             this.pnlIlhas.SuspendLayout();
@@ -114,51 +116,19 @@
             this.pnlIlhas.Size = new System.Drawing.Size(791, 522);
             this.pnlIlhas.TabIndex = 1;
             // 
-            // btnQuit
+            // lblB_Nome1
             // 
-            this.btnQuit.BackColor = System.Drawing.Color.White;
-            this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuit.Location = new System.Drawing.Point(459, 284);
-            this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(110, 40);
-            this.btnQuit.TabIndex = 10;
-            this.btnQuit.Text = "Sair";
-            this.btnQuit.UseVisualStyleBackColor = false;
-            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
-            // 
-            // flpTable
-            // 
-            this.flpTable.BackColor = System.Drawing.Color.Transparent;
-            this.flpTable.Location = new System.Drawing.Point(268, 417);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(2);
-            this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(262, 101);
-            this.flpTable.TabIndex = 20;
-            // 
-            // lblIlhas
-            // 
-            this.lblIlhas.BackColor = System.Drawing.Color.Transparent;
-            this.lblIlhas.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIlhas.ForeColor = System.Drawing.Color.Yellow;
-            this.lblIlhas.Location = new System.Drawing.Point(332, 306);
-            this.lblIlhas.Name = "lblIlhas";
-            this.lblIlhas.Size = new System.Drawing.Size(121, 45);
-            this.lblIlhas.TabIndex = 21;
-            this.lblIlhas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblB_Nome3
-            // 
-            this.lblB_Nome3.BackColor = System.Drawing.Color.Gainsboro;
-            this.lblB_Nome3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblB_Nome3.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblB_Nome3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblB_Nome3.Location = new System.Drawing.Point(439, 42);
-            this.lblB_Nome3.Name = "lblB_Nome3";
-            this.lblB_Nome3.Size = new System.Drawing.Size(100, 38);
-            this.lblB_Nome3.TabIndex = 22;
-            this.lblB_Nome3.Text = "label1";
-            this.lblB_Nome3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblB_Nome3.Visible = false;
+            this.lblB_Nome1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblB_Nome1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblB_Nome1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB_Nome1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblB_Nome1.Location = new System.Drawing.Point(83, 105);
+            this.lblB_Nome1.Name = "lblB_Nome1";
+            this.lblB_Nome1.Size = new System.Drawing.Size(100, 38);
+            this.lblB_Nome1.TabIndex = 24;
+            this.lblB_Nome1.Text = "label2";
+            this.lblB_Nome1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblB_Nome1.Visible = false;
             // 
             // lblB_Nome2
             // 
@@ -174,19 +144,51 @@
             this.lblB_Nome2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblB_Nome2.Visible = false;
             // 
-            // lblB_Nome1
+            // lblB_Nome3
             // 
-            this.lblB_Nome1.BackColor = System.Drawing.Color.Gainsboro;
-            this.lblB_Nome1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblB_Nome1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblB_Nome1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblB_Nome1.Location = new System.Drawing.Point(83, 105);
-            this.lblB_Nome1.Name = "lblB_Nome1";
-            this.lblB_Nome1.Size = new System.Drawing.Size(100, 38);
-            this.lblB_Nome1.TabIndex = 24;
-            this.lblB_Nome1.Text = "label2";
-            this.lblB_Nome1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblB_Nome1.Visible = false;
+            this.lblB_Nome3.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblB_Nome3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblB_Nome3.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB_Nome3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblB_Nome3.Location = new System.Drawing.Point(439, 42);
+            this.lblB_Nome3.Name = "lblB_Nome3";
+            this.lblB_Nome3.Size = new System.Drawing.Size(100, 38);
+            this.lblB_Nome3.TabIndex = 22;
+            this.lblB_Nome3.Text = "label1";
+            this.lblB_Nome3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblB_Nome3.Visible = false;
+            // 
+            // lblIlhas
+            // 
+            this.lblIlhas.BackColor = System.Drawing.Color.Transparent;
+            this.lblIlhas.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIlhas.ForeColor = System.Drawing.Color.Yellow;
+            this.lblIlhas.Location = new System.Drawing.Point(332, 306);
+            this.lblIlhas.Name = "lblIlhas";
+            this.lblIlhas.Size = new System.Drawing.Size(121, 45);
+            this.lblIlhas.TabIndex = 21;
+            this.lblIlhas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flpTable
+            // 
+            this.flpTable.BackColor = System.Drawing.Color.Transparent;
+            this.flpTable.Location = new System.Drawing.Point(268, 417);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(2);
+            this.flpTable.Name = "flpTable";
+            this.flpTable.Size = new System.Drawing.Size(262, 101);
+            this.flpTable.TabIndex = 20;
+            // 
+            // btnQuit
+            // 
+            this.btnQuit.BackColor = System.Drawing.Color.White;
+            this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.Location = new System.Drawing.Point(459, 284);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(110, 40);
+            this.btnQuit.TabIndex = 10;
+            this.btnQuit.Text = "Sair";
+            this.btnQuit.UseVisualStyleBackColor = false;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // btnStart
             // 
@@ -204,6 +206,8 @@
             // 
             this.pnlRight.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlRight.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlRight.Controls.Add(this.lblStatusbot);
+            this.pnlRight.Controls.Add(this.btnOffbot);
             this.pnlRight.Controls.Add(this.btnTable);
             this.pnlRight.Controls.Add(this.btnAllCards);
             this.pnlRight.Controls.Add(this.lblTurn);
@@ -220,39 +224,82 @@
             this.pnlRight.Size = new System.Drawing.Size(273, 691);
             this.pnlRight.TabIndex = 17;
             // 
-            // cmbCards
+            // btnTable
             // 
-            this.cmbCards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCards.FormattingEnabled = true;
-            this.cmbCards.Location = new System.Drawing.Point(67, 650);
-            this.cmbCards.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbCards.Name = "cmbCards";
-            this.cmbCards.Size = new System.Drawing.Size(60, 21);
-            this.cmbCards.TabIndex = 16;
+            this.btnTable.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTable.Location = new System.Drawing.Point(3, 608);
+            this.btnTable.Name = "btnTable";
+            this.btnTable.Size = new System.Drawing.Size(127, 31);
+            this.btnTable.TabIndex = 20;
+            this.btnTable.Text = "Verificar Mesa";
+            this.btnTable.UseVisualStyleBackColor = false;
+            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
-            // btnPlay
+            // btnAllCards
             // 
-            this.btnPlay.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(3, 645);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(60, 31);
-            this.btnPlay.TabIndex = 15;
-            this.btnPlay.Text = "Jogar";
-            this.btnPlay.UseVisualStyleBackColor = false;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            this.btnAllCards.Location = new System.Drawing.Point(46, 434);
+            this.btnAllCards.Name = "btnAllCards";
+            this.btnAllCards.Size = new System.Drawing.Size(191, 37);
+            this.btnAllCards.TabIndex = 16;
+            this.btnAllCards.Text = "Visualizar todas as cartas";
+            this.btnAllCards.UseVisualStyleBackColor = true;
+            this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
             // 
-            // btnShowIslands
+            // lblTurn
             // 
-            this.btnShowIslands.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShowIslands.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowIslands.Location = new System.Drawing.Point(6, 523);
-            this.btnShowIslands.Name = "btnShowIslands";
-            this.btnShowIslands.Size = new System.Drawing.Size(124, 31);
-            this.btnShowIslands.TabIndex = 17;
-            this.btnShowIslands.Text = "Mostrar Ilhas";
-            this.btnShowIslands.UseVisualStyleBackColor = false;
-            this.btnShowIslands.Click += new System.EventHandler(this.btnShowIslands_Click);
+            this.lblTurn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTurn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTurn.Location = new System.Drawing.Point(153, 523);
+            this.lblTurn.Name = "lblTurn";
+            this.lblTurn.Size = new System.Drawing.Size(113, 31);
+            this.lblTurn.TabIndex = 12;
+            this.lblTurn.Text = "Vez";
+            this.lblTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheck.Location = new System.Drawing.Point(156, 555);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(110, 32);
+            this.btnCheck.TabIndex = 13;
+            this.btnCheck.Text = "Checa Vez";
+            this.btnCheck.UseVisualStyleBackColor = false;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
+            // cmbIslands
+            // 
+            this.cmbIslands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIslands.FormattingEnabled = true;
+            this.cmbIslands.Location = new System.Drawing.Point(92, 566);
+            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbIslands.Name = "cmbIslands";
+            this.cmbIslands.Size = new System.Drawing.Size(38, 21);
+            this.cmbIslands.TabIndex = 19;
+            // 
+            // btnNarration
+            // 
+            this.btnNarration.Location = new System.Drawing.Point(46, 390);
+            this.btnNarration.Name = "btnNarration";
+            this.btnNarration.Size = new System.Drawing.Size(191, 37);
+            this.btnNarration.TabIndex = 14;
+            this.btnNarration.Text = "Atualizar a narração";
+            this.btnNarration.UseVisualStyleBackColor = true;
+            this.btnNarration.Click += new System.EventHandler(this.btnNarration_Click);
+            // 
+            // btnChooseIsland
+            // 
+            this.btnChooseIsland.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChooseIsland.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseIsland.Location = new System.Drawing.Point(6, 559);
+            this.btnChooseIsland.Name = "btnChooseIsland";
+            this.btnChooseIsland.Size = new System.Drawing.Size(81, 31);
+            this.btnChooseIsland.TabIndex = 18;
+            this.btnChooseIsland.Text = "Escolher Ilha";
+            this.btnChooseIsland.UseVisualStyleBackColor = false;
+            this.btnChooseIsland.Click += new System.EventHandler(this.btnChooseIsland_Click);
             // 
             // txtNarration
             // 
@@ -269,82 +316,39 @@
             this.txtNarration.Size = new System.Drawing.Size(269, 384);
             this.txtNarration.TabIndex = 15;
             // 
-            // btnChooseIsland
+            // btnShowIslands
             // 
-            this.btnChooseIsland.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnChooseIsland.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChooseIsland.Location = new System.Drawing.Point(6, 559);
-            this.btnChooseIsland.Name = "btnChooseIsland";
-            this.btnChooseIsland.Size = new System.Drawing.Size(81, 31);
-            this.btnChooseIsland.TabIndex = 18;
-            this.btnChooseIsland.Text = "Escolher Ilha";
-            this.btnChooseIsland.UseVisualStyleBackColor = false;
-            this.btnChooseIsland.Click += new System.EventHandler(this.btnChooseIsland_Click);
+            this.btnShowIslands.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnShowIslands.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowIslands.Location = new System.Drawing.Point(3, 523);
+            this.btnShowIslands.Name = "btnShowIslands";
+            this.btnShowIslands.Size = new System.Drawing.Size(124, 31);
+            this.btnShowIslands.TabIndex = 17;
+            this.btnShowIslands.Text = "Mostrar Ilhas";
+            this.btnShowIslands.UseVisualStyleBackColor = false;
+            this.btnShowIslands.Click += new System.EventHandler(this.btnShowIslands_Click);
             // 
-            // btnNarration
+            // btnPlay
             // 
-            this.btnNarration.Location = new System.Drawing.Point(46, 390);
-            this.btnNarration.Name = "btnNarration";
-            this.btnNarration.Size = new System.Drawing.Size(191, 37);
-            this.btnNarration.TabIndex = 14;
-            this.btnNarration.Text = "Atualizar a narração";
-            this.btnNarration.UseVisualStyleBackColor = true;
-            this.btnNarration.Click += new System.EventHandler(this.btnNarration_Click);
+            this.btnPlay.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlay.Location = new System.Drawing.Point(3, 645);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(60, 31);
+            this.btnPlay.TabIndex = 15;
+            this.btnPlay.Text = "Jogar";
+            this.btnPlay.UseVisualStyleBackColor = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
-            // cmbIslands
+            // cmbCards
             // 
-            this.cmbIslands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbIslands.FormattingEnabled = true;
-            this.cmbIslands.Location = new System.Drawing.Point(92, 566);
-            this.cmbIslands.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbIslands.Name = "cmbIslands";
-            this.cmbIslands.Size = new System.Drawing.Size(38, 21);
-            this.cmbIslands.TabIndex = 19;
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(153, 555);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(113, 32);
-            this.btnCheck.TabIndex = 13;
-            this.btnCheck.Text = "Checa Vez";
-            this.btnCheck.UseVisualStyleBackColor = false;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
-            // 
-            // lblTurn
-            // 
-            this.lblTurn.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTurn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTurn.Location = new System.Drawing.Point(153, 523);
-            this.lblTurn.Name = "lblTurn";
-            this.lblTurn.Size = new System.Drawing.Size(113, 31);
-            this.lblTurn.TabIndex = 12;
-            this.lblTurn.Text = "Vez";
-            this.lblTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnAllCards
-            // 
-            this.btnAllCards.Location = new System.Drawing.Point(46, 434);
-            this.btnAllCards.Name = "btnAllCards";
-            this.btnAllCards.Size = new System.Drawing.Size(191, 37);
-            this.btnAllCards.TabIndex = 16;
-            this.btnAllCards.Text = "Visualizar todas as cartas";
-            this.btnAllCards.UseVisualStyleBackColor = true;
-            this.btnAllCards.Click += new System.EventHandler(this.btnAllCards_Click);
-            // 
-            // btnTable
-            // 
-            this.btnTable.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTable.Location = new System.Drawing.Point(3, 608);
-            this.btnTable.Name = "btnTable";
-            this.btnTable.Size = new System.Drawing.Size(127, 31);
-            this.btnTable.TabIndex = 20;
-            this.btnTable.Text = "Verificar Mesa";
-            this.btnTable.UseVisualStyleBackColor = false;
-            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
+            this.cmbCards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCards.FormattingEnabled = true;
+            this.cmbCards.Location = new System.Drawing.Point(67, 650);
+            this.cmbCards.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbCards.Name = "cmbCards";
+            this.cmbCards.Size = new System.Drawing.Size(60, 21);
+            this.cmbCards.TabIndex = 16;
             // 
             // pnlBottom
             // 
@@ -359,6 +363,53 @@
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(791, 166);
             this.pnlBottom.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(631, 64);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(150, 89);
+            this.panel2.TabIndex = 26;
+            // 
+            // lblProp1
+            // 
+            this.lblProp1.AutoSize = true;
+            this.lblProp1.Location = new System.Drawing.Point(652, 40);
+            this.lblProp1.Name = "lblProp1";
+            this.lblProp1.Size = new System.Drawing.Size(109, 13);
+            this.lblProp1.TabIndex = 25;
+            this.lblProp1.Text = "Quantidade de bodes";
+            // 
+            // lblPlayerBodes
+            // 
+            this.lblPlayerBodes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblPlayerBodes.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerBodes.Location = new System.Drawing.Point(648, 9);
+            this.lblPlayerBodes.Name = "lblPlayerBodes";
+            this.lblPlayerBodes.Size = new System.Drawing.Size(113, 31);
+            this.lblPlayerBodes.TabIndex = 24;
+            this.lblPlayerBodes.Text = "0";
+            this.lblPlayerBodes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlCards
+            // 
+            this.pnlCards.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCards.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnlCards.Controls.Add(this.panel1);
+            this.pnlCards.ForeColor = System.Drawing.Color.Transparent;
+            this.pnlCards.Location = new System.Drawing.Point(187, 2);
+            this.pnlCards.Name = "pnlCards";
+            this.pnlCards.Size = new System.Drawing.Size(418, 156);
+            this.pnlCards.TabIndex = 22;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(424, 54);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(173, 100);
+            this.panel1.TabIndex = 26;
             // 
             // lstPlayers
             // 
@@ -394,44 +445,6 @@
             this.NomeUsuario.Text = " Jogadores";
             this.NomeUsuario.Width = 215;
             // 
-            // pnlCards
-            // 
-            this.pnlCards.BackColor = System.Drawing.Color.Transparent;
-            this.pnlCards.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pnlCards.Controls.Add(this.panel1);
-            this.pnlCards.ForeColor = System.Drawing.Color.Transparent;
-            this.pnlCards.Location = new System.Drawing.Point(187, 2);
-            this.pnlCards.Name = "pnlCards";
-            this.pnlCards.Size = new System.Drawing.Size(418, 156);
-            this.pnlCards.TabIndex = 22;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(424, 54);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(173, 100);
-            this.panel1.TabIndex = 26;
-            // 
-            // lblPlayerBodes
-            // 
-            this.lblPlayerBodes.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPlayerBodes.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerBodes.Location = new System.Drawing.Point(648, 9);
-            this.lblPlayerBodes.Name = "lblPlayerBodes";
-            this.lblPlayerBodes.Size = new System.Drawing.Size(113, 31);
-            this.lblPlayerBodes.TabIndex = 24;
-            this.lblPlayerBodes.Text = "0";
-            this.lblPlayerBodes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblProp1
-            // 
-            this.lblProp1.AutoSize = true;
-            this.lblProp1.Location = new System.Drawing.Point(652, 40);
-            this.lblProp1.Name = "lblProp1";
-            this.lblProp1.Size = new System.Drawing.Size(109, 13);
-            this.lblProp1.TabIndex = 25;
-            this.lblProp1.Text = "Quantidade de bodes";
-            // 
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.DimGray;
@@ -446,14 +459,27 @@
             this.pnlMain.Size = new System.Drawing.Size(1080, 697);
             this.pnlMain.TabIndex = 16;
             // 
-            // panel2
+            // btnOffbot
             // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(631, 64);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(150, 89);
-            this.panel2.TabIndex = 26;
+            this.btnOffbot.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnOffbot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOffbot.Location = new System.Drawing.Point(149, 490);
+            this.btnOffbot.Name = "btnOffbot";
+            this.btnOffbot.Size = new System.Drawing.Size(117, 30);
+            this.btnOffbot.TabIndex = 22;
+            this.btnOffbot.Text = "Off/On Bot";
+            this.btnOffbot.UseVisualStyleBackColor = false;
+            this.btnOffbot.Click += new System.EventHandler(this.btnOffbot_Click);
+            // 
+            // lblStatusbot
+            // 
+            this.lblStatusbot.AutoSize = true;
+            this.lblStatusbot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusbot.Location = new System.Drawing.Point(3, 493);
+            this.lblStatusbot.Name = "lblStatusbot";
+            this.lblStatusbot.Size = new System.Drawing.Size(96, 24);
+            this.lblStatusbot.TabIndex = 23;
+            this.lblStatusbot.Text = "Status: On";
             // 
             // Running
             // 
@@ -515,5 +541,7 @@
         private System.Windows.Forms.ColumnHeader NomeUsuario;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnOffbot;
+        private System.Windows.Forms.Label lblStatusbot;
     }
 }
