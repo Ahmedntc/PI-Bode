@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F61A2B2C-BA09-4B06-AA98-0FF971170243}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Game</RootNamespace>
+    <AssemblyName>Game</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BodeOfWarServer">
+      <HintPath>.\BodeOfWarServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\Automata.cs" />
+    <Compile Include="Game\Debug_Folder\DebugConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game\Debug_Folder\DebugConsole.Designer.cs">
+      <DependentUpon>DebugConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game\Client_Folder\Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game\Client_Folder\Client.Designer.cs">
+      <DependentUpon>Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game\Program.cs" />
+    <Compile Include="Game\Running_Folder\Running.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game\Running_Folder\Running.Designer.cs">
+      <DependentUpon>Running.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Game\Debug_Folder\DebugConsole.resx">
+      <DependentUpon>DebugConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game\Client_Folder\Client.resx">
+      <DependentUpon>Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game\Running_Folder\Running.resx">
+      <DependentUpon>Running.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Game\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\b1.PNG" />
+    <Content Include="Properties\b10.PNG" />
+    <Content Include="Properties\b2.PNG" />
+    <Content Include="Properties\b3.PNG" />
+    <Content Include="Properties\b4.PNG" />
+    <Content Include="Properties\b5.png" />
+    <Content Include="Properties\b6.PNG" />
+    <Content Include="Properties\b7.PNG" />
+    <Content Include="Properties\b8.PNG" />
+    <Content Include="Properties\b9.PNG" />
+    <Content Include="Properties\bode1.png" />
+    <Content Include="Properties\bode2.png" />
+    <Content Include="Properties\bode3.png" />
+    <Content Include="Properties\bode4.png" />
+    <Content Include="Properties\liquid-bg.jpg" />
+    <Content Include="Properties\mesa_base.png" />
+    <Content Include="Properties\mesa_ilha1.png" />
+    <Content Include="Properties\mesa_ilha2.png" />
+    <Content Include="Properties\mesa_ilha3.png" />
+    <Content Include="Properties\mesa_ilha4.png" />
+    <Content Include="Properties\mesa_skol.jfif" />
+    <Content Include="Resources\kenny.ico" />
+    <Content Include="Resources\spBackground1.jpg" />
+    <Content Include="Resources\spIcon.ico" />
+    <Content Include="Resources\spPlaca.png" />
+    <None Include="Resources\mesa_ilha4.png" />
+    <None Include="Resources\mesa_ilha3.png" />
+    <None Include="Resources\mesa_ilha2.png" />
+    <None Include="Resources\mesa_ilha1.png" />
+    <None Include="Resources\mesa_base.png" />
+    <None Include="Resources\bode4.png" />
+    <None Include="Resources\bode3.png" />
+    <None Include="Resources\bode2.png" />
+    <None Include="Resources\bode1.png" />
+    <None Include="Resources\mesa_skol.jfif" />
+    <None Include="Resources\Shadow.png" />
+    <None Include="Resources\liquid-bg.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
